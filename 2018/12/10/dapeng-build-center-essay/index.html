@@ -6,28 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="baidu-site-verification" content="AT9tqAlfWq">
-  <link rel="dns-prefetch" href="http://git66.com">
+  <link rel="dns-prefetch" href="http://struy.cn">
   <title>dapeng构建中心随记 | struy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="回顾原有的几个概念：服务：微服务架构，每个项目代码库，都最终打包为一个docker镜像，而这里的服务就是描述这个镜像最基本的配置，描述一个应用最初，最抽象的状态环境集：一个环境集合，例如测试环境中的某个sandbox环境，生产的统一集群环境。">
 <meta name="keywords" content="dapeng,随记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dapeng构建中心随记">
-<meta property="og:url" content="http://git66.com/2018/12/10/dapeng-build-center-essay/index.html">
+<meta property="og:url" content="http://struy.cn/2018/12/10/dapeng-build-center-essay/index.html">
 <meta property="og:site_name" content="struy">
 <meta property="og:description" content="回顾原有的几个概念：服务：微服务架构，每个项目代码库，都最终打包为一个docker镜像，而这里的服务就是描述这个镜像最基本的配置，描述一个应用最初，最抽象的状态环境集：一个环境集合，例如测试环境中的某个sandbox环境，生产的统一集群环境。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://img.git66.com/18-12-10/936788.jpg">
-<meta property="og:updated_time" content="2021-09-06T02:29:28.334Z">
+<meta property="og:image" content="http://img.struy.cn/18-12-10/936788.jpg">
+<meta property="og:updated_time" content="2021-12-16T07:42:15.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dapeng构建中心随记">
 <meta name="twitter:description" content="回顾原有的几个概念：服务：微服务架构，每个项目代码库，都最终打包为一个docker镜像，而这里的服务就是描述这个镜像最基本的配置，描述一个应用最初，最抽象的状态环境集：一个环境集合，例如测试环境中的某个sandbox环境，生产的统一集群环境。">
-<meta name="twitter:image" content="http://img.git66.com/18-12-10/936788.jpg">
+<meta name="twitter:image" content="http://img.struy.cn/18-12-10/936788.jpg">
   
     <link rel="alternative" href="/atom.xml" title="struy" type="application/atom+xml">
   
   
-    <link rel="icon" href="http://img.git66.com/17-9-1/60003969.jpg">
+    <link rel="icon" href="http://img.struy.cn/17-9-1/60003969.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.266c1c.css">
   <style type="text/css">
@@ -45,13 +45,13 @@
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" style="background-image: url(http://img.git66.com/17-12-3/89023396.jpg); background-size: cover;" q-class="show:isShow">
+    <div class="left-col" style="background-image: url(http://img.struy.cn/17-12-3/89023396.jpg); background-size: cover;" q-class="show:isShow">
       
 <!-- <div class="overlay" style="background: #4d4d4d"></div> -->
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://img.git66.com/17-9-1/60003969.jpg" class="js-avatar">
+			<img src="http://img.struy.cn/17-9-1/60003969.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">struy</a></h1>
@@ -117,7 +117,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://img.git66.com/17-9-1/60003969.jpg" class="js-avatar">
+				<img src="http://img.struy.cn/17-9-1/60003969.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">struy</h1>
@@ -197,7 +197,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>回顾原有的几个概念：<br>服务：微服务架构，每个项目代码库，都最终打包为一个docker镜像，而这里的服务就是描述这个镜像最基本的配置，描述一个应用最初，最抽象的状态<br>环境集：一个环境集合，例如测试环境中的某个sandbox环境，生产的统一集群环境。<br><a id="more"></a><br>节点：节点从属于环境，一个环境集下可存在多个节点。如生产环境的多个节点app1，app2<br>部署单元：部署单元由环境集，节点，服务，三部分组合而成的服务容器(通俗的描述：就是在某个环境集的某台节点部署某个服务，在docker服务下表现为服务容器，运行状态下可使用docker ps查询)</p>
-<p><img src="http://img.git66.com/18-12-10/936788.jpg" alt></p>
+<p><img src="http://img.struy.cn/18-12-10/936788.jpg" alt></p>
 <h2 id="原有的构建步骤："><a href="#原有的构建步骤：" class="headerlink" title="原有的构建步骤："></a>原有的构建步骤：</h2><p>生产–在没有构建中心之前，服务都是在其他环境通过脚本或者jenkins构建成为镜像，再行手动填写更新服务。<br>测试–通过tscompose构建并启动服务容器，在对应的测试主机上进行反复操作。</p>
 <h2 id="构建中心在在这中间扮演的角色："><a href="#构建中心在在这中间扮演的角色：" class="headerlink" title="构建中心在在这中间扮演的角色："></a>构建中心在在这中间扮演的角色：</h2><p>构建中心应当是完全替代jenkins进行持续集成的功能模块，在开发此模块的过程中，走了很多弯路。甚至走偏的中心思想。脱离了最初的对于环境集，部署单元的理解。</p>
 <p>现在部署中心将与构建环境融为一体，<code>构建从部署配置中来，部署从构建结果中去</code>。而这也是在初期开发构建中心时最为为头痛的问题，如何将构建个发布结合到一起。(历史原因是部署中心走在前，对于构建的问题没有加强考虑，过于片面的理解所谓的构建)</p>
@@ -224,13 +224,13 @@
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://img.git66.com/17-9-2/26803775.jpg">
+                      <img class="reward-img" src="http://img.struy.cn/17-9-2/26803775.jpg">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://img.git66.com/17-9-2/14774360.jpg">
+                      <img class="reward-img" src="http://img.struy.cn/17-9-2/14774360.jpg">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -243,7 +243,7 @@
         </div>
         <div class="signature" style="padding: 15px 20px;margin-top: 10px;border-left: 5px solid #657b83;background: #f6f6f6;">
         本文作者：struy</br>
-        原文链接：http://git66.com/2018/12/10/dapeng-build-center-essay/</br>
+        原文链接：http://struy.cn/2018/12/10/dapeng-build-center-essay/</br>
         版权归作者所有，转载请注明出处
         </div>
       
@@ -316,7 +316,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://git66.com/2018/12/10/dapeng-build-center-essay/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://struy.cn/2018/12/10/dapeng-build-center-essay/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -529,15 +529,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github-pages</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,19 +597,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
             
             <div class="clearfix"></div>

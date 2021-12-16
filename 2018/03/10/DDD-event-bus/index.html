@@ -6,31 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="baidu-site-verification" content="AT9tqAlfWq">
-  <link rel="dns-prefetch" href="http://git66.com">
+  <link rel="dns-prefetch" href="http://struy.cn">
   <title>领域事件及事件总线EventBus使用实践 | struy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在过去的 30 多年，就已经有领域建模和设计的思潮；Eric Evans 将其定义为领域驱动设计（Domain-Driven Design，简称DDD）。领域模型是领域驱动的核心，而领域事件又作为领域模型中的重要模块，解决了开发者日常开发中的很多痛点，比如，代码耦合降低，拓展性增强。">
 <meta name="keywords" content="dapeng,DDD,领域驱动设计,领域事件,eventbus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="领域事件及事件总线EventBus使用实践">
-<meta property="og:url" content="http://git66.com/2018/03/10/DDD-event-bus/index.html">
+<meta property="og:url" content="http://struy.cn/2018/03/10/DDD-event-bus/index.html">
 <meta property="og:site_name" content="struy">
 <meta property="og:description" content="在过去的 30 多年，就已经有领域建模和设计的思潮；Eric Evans 将其定义为领域驱动设计（Domain-Driven Design，简称DDD）。领域模型是领域驱动的核心，而领域事件又作为领域模型中的重要模块，解决了开发者日常开发中的很多痛点，比如，代码耦合降低，拓展性增强。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://img.git66.com/18-3-10/59987509.jpg">
-<meta property="og:image" content="http://img.git66.com/18-3-12/24835978.jpg">
-<meta property="og:image" content="http://img.git66.com/18-3-11/65554100.jpg">
-<meta property="og:image" content="http://img.git66.com/18-3-11/90371526.jpg">
-<meta property="og:updated_time" content="2021-09-06T02:29:28.237Z">
+<meta property="og:image" content="http://img.struy.cn/18-3-10/59987509.jpg">
+<meta property="og:image" content="http://img.struy.cn/18-3-12/24835978.jpg">
+<meta property="og:image" content="http://img.struy.cn/18-3-11/65554100.jpg">
+<meta property="og:image" content="http://img.struy.cn/18-3-11/90371526.jpg">
+<meta property="og:updated_time" content="2021-12-16T07:42:15.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="领域事件及事件总线EventBus使用实践">
 <meta name="twitter:description" content="在过去的 30 多年，就已经有领域建模和设计的思潮；Eric Evans 将其定义为领域驱动设计（Domain-Driven Design，简称DDD）。领域模型是领域驱动的核心，而领域事件又作为领域模型中的重要模块，解决了开发者日常开发中的很多痛点，比如，代码耦合降低，拓展性增强。">
-<meta name="twitter:image" content="http://img.git66.com/18-3-10/59987509.jpg">
+<meta name="twitter:image" content="http://img.struy.cn/18-3-10/59987509.jpg">
   
     <link rel="alternative" href="/atom.xml" title="struy" type="application/atom+xml">
   
   
-    <link rel="icon" href="http://img.git66.com/17-9-1/60003969.jpg">
+    <link rel="icon" href="http://img.struy.cn/17-9-1/60003969.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.266c1c.css">
   <style type="text/css">
@@ -48,13 +48,13 @@
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" style="background-image: url(http://img.git66.com/17-12-3/89023396.jpg); background-size: cover;" q-class="show:isShow">
+    <div class="left-col" style="background-image: url(http://img.struy.cn/17-12-3/89023396.jpg); background-size: cover;" q-class="show:isShow">
       
 <!-- <div class="overlay" style="background: #4d4d4d"></div> -->
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://img.git66.com/17-9-1/60003969.jpg" class="js-avatar">
+			<img src="http://img.struy.cn/17-9-1/60003969.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">struy</a></h1>
@@ -120,7 +120,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://img.git66.com/17-9-1/60003969.jpg" class="js-avatar">
+				<img src="http://img.struy.cn/17-9-1/60003969.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">struy</h1>
@@ -206,7 +206,7 @@
 <blockquote>
 <p><a href="https://github.com/dapeng-soa" target="_blank" rel="noopener">@大鹏开源</a>:别看我有点萌，我可以秒变大鹏😄</p>
 </blockquote>
-<p><img src="http://img.git66.com/18-3-10/59987509.jpg" alt></p>
+<p><img src="http://img.struy.cn/18-3-10/59987509.jpg" alt></p>
 <h1 id="了解-DDD-与领域事件"><a href="#了解-DDD-与领域事件" class="headerlink" title="了解 DDD 与领域事件"></a>了解 DDD 与领域事件</h1><p>领域模型不是高大上的东西，所有的领域模型抽象都来自于具体的业务及业务的需求,而脱离业务需求的应用设计是没有任何价值的！</p>
 <p>比如在Today的新零售电商架构中:门店、采购、订单、供应商、物流、商品、台账等等都是应用设计中的不同领域模型，必然还存在或多或少的子域模型。而对于技术人员来说，这些抽象出来的领域，就代表应用架构存在若干子系统。</p>
 <p>系统与系统间，势必会存在某些关联。比如说A领域“发生某件事情”、“当什么产生变化的时候”、“如果什么状态变更”…，都将可能成为B领域所要关心的事件。</p>
@@ -216,7 +216,7 @@
 <li><p>关心一件事，便会收集这件事情相关的信息。而这些都将会转换为消息流，在订阅这件事情的领域间传播，一旦命中所要关心的事情，就由订阅者自行去处理接下来的事情。</p>
 </li>
 </ul>
-<p><img src="http://img.git66.com/18-3-12/24835978.jpg" alt><br>以上eventbus示意图大致流程是这样的：</p>
+<p><img src="http://img.struy.cn/18-3-12/24835978.jpg" alt><br>以上eventbus示意图大致流程是这样的：</p>
 <ul>
 <li>服务接口触发事件</li>
 <li>eventbus 分发事件，如果存在领域内订阅者，直接分发到指定订阅者，再将事件消息存库定时发送至 kafka</li>
@@ -268,8 +268,8 @@
 <p><code>== &gt;goods_service.thrift</code></p>
 <figure class="highlight thrift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> java com.today.api.goods<span class="class">.<span class="keyword">service</span></span></span><br><span class="line"><span class="class">/**</span></span><br><span class="line"><span class="class">* 用户服务</span></span><br><span class="line"><span class="class">**/</span></span><br><span class="line"><span class="class"><span class="title">service</span> GoodsAdminService</span>&#123;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"># 商品审核</span></span><br><span class="line"><span class="comment">## 事件</span></span><br><span class="line"><span class="comment">    1.SkuPriceUpdateApprovedEvent  商品变价审核通过事件</span></span><br><span class="line"><span class="comment">    2.SkuAttributeUpdateApprovedEvent  商品属性审核通过事件</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line">    <span class="built_in">i64</span> approveSku(<span class="comment">/** 审核请求实体**/</span><span class="number">1</span>:goods_request.ApproveSkuRequest request)</span><br><span class="line">    (events=<span class="string">"com.today.api.goods.events.SkuPriceUpdateApprovedEvent,com.today.api.goods.events.SkuAttributeUpdateApprovedEvent"</span>)</span><br><span class="line">    ...more</span><br><span class="line">&#125;(group=<span class="string">"goods"</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在文档站点方法上效果如下：<br><img src="http://img.git66.com/18-3-11/65554100.jpg" alt></li>
-<li>显示独立的事件清单<br><img src="http://img.git66.com/18-3-11/90371526.jpg" alt></li>
+<li>在文档站点方法上效果如下：<br><img src="http://img.struy.cn/18-3-11/65554100.jpg" alt></li>
+<li>显示独立的事件清单<br><img src="http://img.struy.cn/18-3-11/90371526.jpg" alt></li>
 </ul>
 <blockquote>
 <p>注：如果想要了解更多有关文档站点的内容，请留意后期的 dapeng 文档站点专题</p>
@@ -382,7 +382,7 @@
 </code></pre>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总体来说，EventBus 的引入对于开发者而言，不论是事件的发送还是订阅，都是易用的，没有多余的配置。对于第三方系统的支持也做的非常优秀，希望在日常开发中能够更加灵活的运用。尽量减少不必要的耦合！并能经受实践考验！</p>
 <ul>
-<li>原文地址: <a href="http://git66.com/2018/03/10/DDD-event-bus/">http://git66.com/2018/03/10/DDD-event-bus/</a></li>
+<li>原文地址: <a href="http://struy.cn/2018/03/10/DDD-event-bus/">http://struy.cn/2018/03/10/DDD-event-bus/</a></li>
 <li>同步简书地址: <a href="https://www.jianshu.com/p/88abce9326aa" target="_blank" rel="noopener">https://www.jianshu.com/p/88abce9326aa</a></li>
 </ul>
 <blockquote>
@@ -408,13 +408,13 @@
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://img.git66.com/17-9-2/26803775.jpg">
+                      <img class="reward-img" src="http://img.struy.cn/17-9-2/26803775.jpg">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://img.git66.com/17-9-2/14774360.jpg">
+                      <img class="reward-img" src="http://img.struy.cn/17-9-2/14774360.jpg">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -427,7 +427,7 @@
         </div>
         <div class="signature" style="padding: 15px 20px;margin-top: 10px;border-left: 5px solid #657b83;background: #f6f6f6;">
         本文作者：struy</br>
-        原文链接：http://git66.com/2018/03/10/DDD-event-bus/</br>
+        原文链接：http://struy.cn/2018/03/10/DDD-event-bus/</br>
         版权归作者所有，转载请注明出处
         </div>
       
@@ -512,7 +512,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://git66.com/2018/03/10/DDD-event-bus/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://struy.cn/2018/03/10/DDD-event-bus/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -725,15 +725,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github-pages</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,19 +793,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
             
             <div class="clearfix"></div>
