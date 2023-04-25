@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="分享编码、架构经验、效率工具、人工智能(AIGC) 以及你感兴趣的知识荒原!"><meta name="keywords" content="AIGC,架构,云原生,效率工具,编程,编程入门,代码,学习,全栈,Spring,Java,Scala,老杨的知识荒原,StruggleYang,struy"><title>本地白嫖AI绘画 ，Stable Diffusion 初探！ | 老杨的知识荒原</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script src="https://www.googletagmanager.com/gtag/js?id=G-7HLMFGQR9B" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7HLMFGQR9B');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + 'd2ed00d27f11374630ac0efc2332b027';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
+
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">本地白嫖AI绘画 ，Stable Diffusion 初探！</h1><a id="logo" href="/.">老杨的知识荒原</a><p class="description">一起进步学习，你看到的世界就是你自己的样子！</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tools/"><i class="fa fa-coffee"> 工具箱</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">本地白嫖AI绘画 ，Stable Diffusion 初探！</h1><div class="post-meta">2023-04-19<span> | </span><span class="category"><a href="/categories/AIGC/">AIGC</a></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9C%8B%E7%9C%8B%E6%95%88%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">看看效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">我的环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stable-Diffusion-Web-UI"><span class="toc-number">3.</span> <span class="toc-text">Stable Diffusion Web UI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">关于模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD"><span class="toc-number">5.</span> <span class="toc-text">模型如何下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%80%8E%E4%B9%88%E5%86%99"><span class="toc-number">6.</span> <span class="toc-text">提示词怎么写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-number">7.</span> <span class="toc-text">常见问题及解决</span></a></li></ol></div></div><div class="post-content"><p>本文介绍我在本地搭建 Stable Diffusion Web UI 的体验过程，予以记录分享。</p>
+<blockquote>
+<p>Stable Diffusion 是 2022 年 8 发布的深度学习文本到图像生成模型。它主要用于根据文本的描述产生详细图像，官方项目其实并不适合新手直接使用，好在有使用 Stable Diffusion 封装的 WebUI 开源项目，可以通过前端页面来使用 Stable Diffusion，大大降低了使用门槛，本文主要是介绍 Github 作者为 AUTOMATIC1111 的 stable-diffusion-webui；易用，插件丰富。</p>
+</blockquote>
+<blockquote>
+<p>下面可能简称 Stable Diffusion 为 SD。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="看看效果"><a href="#看看效果" class="headerlink" title="看看效果"></a>看看效果</h1><p><img src="http://img.struy.cn/img/202304212243150.png"></p>
+<p>▲ 图1-封面，国风模型盲盒</p>
+<table>
+<thead>
+<tr>
+<th>img1</th>
+<th>img2</th>
+<th>img3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://img.struy.cn/img/202304212243799.png"></td>
+<td><img src="http://img.struy.cn/img/202304212244395.png"></td>
+<td><img src="http://img.struy.cn/img/202304212249628.png"></td>
+</tr>
+</tbody></table>
+<p>▲ 组图2，模型 meinamix_meinaV8</p>
+<p><img src="http://img.struy.cn/img/202304212250162.png"></p>
+<p>▲ 图3-生成界面（使用了汉化插件）</p>
+<h1 id="我的环境"><a href="#我的环境" class="headerlink" title="我的环境"></a>我的环境</h1><p>MacBook Pro 14寸</p>
+<p>芯片：Apple M1 Max</p>
+<p>内存：32G</p>
+<p>系统：MacOS 13.3.1</p>
+<p>Python：Python3.8</p>
+<p>出图速度(默认参数下)：快的时候9s，有其他调整的时候稍慢</p>
+<p><img src="http://img.struy.cn/img/202304212251655.png"></p>
+<p>▲ 图4-出图速度</p>
+<h1 id="Stable-Diffusion-Web-UI"><a href="#Stable-Diffusion-Web-UI" class="headerlink" title="Stable Diffusion Web UI"></a>Stable Diffusion Web UI</h1><p><strong>尝试 Docker</strong></p>
+<p>开始准备使用各位大佬推荐的 Docker 搭建，便于一键安装，但是发现无法支持 Mac ，无奈放弃！！！</p>
+<p><img src="http://img.struy.cn/img/202304212252225.png"></p>
+<p>▲ 图5-Docker 安装 FAQ</p>
+<p>如果配置吃得住的 Windows 用户可以试试 Docker 搭建，流程不复杂，直接拉仓库，一键就可以自动安装了，主要使用 docker-compose 进行安装。</p>
+<p>Docker 安装可参考：stable-diffusion-webui-docker [1]</p>
+<p><strong>本地运行 stable-diffusion-webui</strong></p>
+<p>苹果芯片安装文档参考[2]很详细建议看原文档</p>
+<p>这里简单介绍下大致流程：</p>
+<p>1、如果安装了 Homebrew 可以跳过此步，否则需要到 <a target="_blank" rel="noopener" href="https://brew.sh/">https://brew.sh</a> 安装Homebrew 便于安装一些必要软件</p>
+<p>2、通过 Homebrew 安装一些必要的程序(由于我本地有 Python 和 Git，所以我安装时去掉了这两个，Python 版本不知道是否有隐患？)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install cmake protobuf rust python@3.10 git wget</span><br></pre></td></tr></table></figure>
+
+<p>3、将 WebUI 仓库克隆下来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui</span><br></pre></td></tr></table></figure>
+
+<p>4、下载模型，将 SD 的基础模型（也称之为checkpoint）下载下来放到模型目录stable-diffusion-webui&#x2F;models&#x2F;Stable-diffusion，可直接下载 SD 的官方预训练好的模型先试试，也就是文档中下图所指示位置（下个最新的咯），这个官方模型出图效果一般，可以摸清功能后再去试试其他的模型（关于模型相关的介绍下面会提到）<br><img src="http://img.struy.cn/img/202304212255732.png"></p>
+<p>▲ 图6-模型下载</p>
+<p>如果下载好了模型，接下来执行启动 UI 的命令，他会自动设置好环境，下载所需的一切依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd stable-diffusion-webui</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> ./webui.sh</span><br></pre></td></tr></table></figure>
+
+<p>初次运行期间我遇到的问题主要是下载慢（Github），开一下代理，再次执行启动命令就好了。</p>
+<p>如果是 pip 依赖下载慢，可以尝试切换 pip 源为清华源或者阿里等国内源。</p>
+<p>上面步骤如果都完成能成功启动，在左上角模型选择(参照图3-生成界面)就有模型可以选择。这时试试给一些提示生成图片了 ，可以愉快的玩耍了 🎉。</p>
+<p><img src="http://img.struy.cn/img/202304212256025.png"><br>▲ 左上角则是基模选择项，一次只能使用一种基模</p>
+<p><strong>汉化UI界面</strong></p>
+<p>stable-diffusion-webui-chinese[3]</p>
+<p>看不懂英文没关系，直接装插件汉化一下就 OK 咯：<br><img src="http://img.struy.cn/img/202304212257383.png"></p>
+<h1 id="关于模型"><a href="#关于模型" class="headerlink" title="关于模型"></a>关于模型</h1><p> <strong>在 SD 中，基于训练方式的不同，最常用的两类模型：</strong>本人了解有限，不对的地方恳请指正！<strong>checkpoint ？</strong></p>
+<p>checkpoint 是基础模型，也简称基模，比如上面安装 WebUI 过程中可下载的官方模型就是 SD 预先训练好，是完整模型的常见格式，模型体积较大，一般单个模型的大小在2~7G 左右；模型后缀一般为 .ckpt 或者 .safetensors</p>
+<p>如果下载了 checkpoint，放到 models&#x2F;Stable-diffusion 目录即可</p>
+<p>上面的 <strong>SD 1.5 、SD 2.0、SD 2.1</strong>，有人说 1.5 的模型比 2.x 的模型效果要好？</p>
+<p>下面是一些比较火的三方模型，通常是模型作者基于另外的一些基模（可能是 SD 官方的基模或其他开源的基模）加自己的数据训练出来的模型，一般都是特定风格和一些优化；比如脸型，肤色等等（取决于训练者的数据样本😂）</p>
+<p><code>chilloutmix**[4]**、chilloutmix_NiPrunedFp32Fix**[5]**</code>… 生成真人的模型，由于其生成的图片风格很适合亚洲人，所以在国内应该是最火的模型，下面会给下载链接</p>
+<p><strong>meinamix_meinaV8<code>[6]</code></strong> ，动漫混合型模型，生成的图片多是动漫风格，文中组图2就是其生成</p>
+<p>**GuoFeng3<code>[7]</code><strong>、3Guofeng3_v33</strong><code>[7]</code>**，中国风模型，图1封面图由其生成</p>
+<p><strong>LoRA  ？</strong></p>
+<p>LoRA 模型作用主要是微调，可以理解为在基础模型的前提下，做一些风格增强，因为他固定一些参数和权重，比如有些 lora 模型是专注 亚洲脸调整的参数，有的是古风、动漫风等等不同风格。</p>
+<p>它们通常不会超过 1G，必须与 checkpoint 模型一起使用。</p>
+<p>如果下载了 lora，放到 models&#x2F;Lora 目录即可，随后你可以在界面看到它们，写提示词时，点击对应的 Lora 或按照 <a href="lora:lora模型名:1">lora:lora模型名:1</a> 书写即可使用：</p>
+<p><img src="http://img.struy.cn/img/202304212259312.png"><br><img src="http://img.struy.cn/img/202304212259024.png"></p>
+<p>下面是使用 chilloutmix_NiPrunedFp32Fix 基模+几个 LoRA 在相同提示语下生成的效果，为了区别不同模型的差异，可以给模型设置预览图：</p>
+<p><img src="http://img.struy.cn/img/202304212300808.png"></p>
+<p>▲ 不同 LoRA 在相同提示语下的风格差异便于区别</p>
+<p><strong>怎么区别基础模型 checkpoint 和 Lora？</strong></p>
+<p>比较大的一般就是基础模型（GB级别），其他少于 1G 的一般情况下是 Lora ，毕竟训练量不一样 😂</p>
+<p>一些模型下载网站可能会标识其类型。</p>
+<p>至于其他 VAE、Embedding、Hyperentwork 暂时还不了解。</p>
+<h1 id="模型如何下载"><a href="#模型如何下载" class="headerlink" title="模型如何下载"></a>模型如何下载</h1><p>为了让 AI 绘图更加丰富多样，我们可以下载不同模型多多尝试，包括不限于 checkpoint 和 lora，下面是可以下载到 SD 相关模型文件的地方</p>
+<ul>
+<li><p><strong>飞桨<code>[8]</code></strong></p>
+<p>  百度的飞桨，有些网友会把一些模型分享在上面，下载会快一些，但只有少量 SD 模型被网友传了上去。</p>
+</li>
+</ul>
+<p><img src="http://img.struy.cn/img/202304212301848.png"></p>
+<ul>
+<li><p><strong>huggingface<code>[9]</code></strong></p>
+<p>  很大的模型下载网站，里面包含了方方面面的各类模型。一般推荐在这个网站下载，速度时快时慢（可能是我的网络原因）。</p>
+<p>  <img src="http://img.struy.cn/img/202304212301047.png"></p>
+</li>
+<li><p><strong>civitai</strong> (需科学上网)<strong><code>[10]</code></strong></p>
+<p>  网友简称为C站，上面有很多风格的模型下载，对于每个模型都有图片预览，需要魔法</p>
+</li>
+</ul>
+<p><img src="http://img.struy.cn/img/202304212301426.png"></p>
+<h1 id="提示词怎么写"><a href="#提示词怎么写" class="headerlink" title="提示词怎么写"></a>提示词怎么写</h1><p>发现即使是下载了风格很惊艳的模型，依然无法生成牛逼的图片，那可能需要在提示词上下功夫了，为了让 Stable Diffusion 制作各种惊艳的图，可以直接参考别人的提示词🫡</p>
+<p>以下是一些比较厉害的提示词参考网站，找到喜欢的按照其提示词和参数、Lora 生成即可</p>
+<p>**civitai<code>[10]</code>**：</p>
+<p>上面提到的 C 站，每个模型下面都有对应生成的图片分享，可以摘抄下</p>
+<p><img src="http://img.struy.cn/img/202304212302079.png"></p>
+<p><img src="http://img.struy.cn/img/202304212302417.png"><br>川普 6</p>
+<p><strong>lexica<code>[11]</code></strong></p>
+<p>可以搜索 SD 生成的图片，也可以在线生成图片，看到合适的图片直接复制哈😄，会有对应的模型给出，在👆上面的模型下载网站下载即可</p>
+<p><img src="http://img.struy.cn/img/202304212302055.png"></p>
+<p><img src="http://img.struy.cn/img/202304212302191.png"></p>
+<h1 id="常见问题及解决"><a href="#常见问题及解决" class="headerlink" title="常见问题及解决"></a>常见问题及解决</h1><p>在使用 Stable Diffusion 过程中可能会遇到各种常见问题，我们将在这里提供一些常见解决方案。</p>
+<ul>
+<li>1、M1 打开第一次任意模型生成图片，无法生成报错</li>
+</ul>
+<p><img src="http://img.struy.cn/img/202304212303332.png"></p>
+<p>解决方案：按照提示操作即可</p>
+<ul>
+<li>2、无法调整图片高度，默认 512x512，改为 512x1024 报错：</li>
+</ul>
+<p><img src="http://img.struy.cn/img/202304212303145.png"></p>
+<p>临时解决方案：改为 512x1023</p>
+<ul>
+<li>3、一些情况下某些功能需要在线下载插件、模块等，会出现证书错误</li>
+</ul>
+<p><img src="http://img.struy.cn/img/202304212303102.png"></p>
+<p>解决方案：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 换成对应的Python版本</span><br><span class="line">/Applications/Python\ 3.8/Install\ Certificates.command</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4、切换模型报错</li>
+</ul>
+<p><img src="http://img.struy.cn/img/202304212303717.png"></p>
+<p>解决方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动时增加 --no-half 选项即</span></span><br><span class="line">./web-ui.sh --no-half</span><br></pre></td></tr></table></figure>
+
+<p>本文主要记录初步使用 SD 进行文生图的过程，至于图生图，ControlNet 等玩法后续分享</p>
+<p>可以把你遇到的问题在评论区一起讨论</p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAwNzM4NjUzNw==&mid=2452411501&idx=1&sn=b6425f5340f1df1829a316da834f111a&chksm=8ca690abbbd119bdf049d732a5f52cc38884d09f92d1df65f625cc88184dcd3e2586a7d70e77#rd">原文链接</a></p>
+<p>关注一下吧！<br><img src="http://img.struy.cn/img/202304212313285.png"></p>
+<p>参考：</p>
+<p>[1]. <a target="_blank" rel="noopener" href="https://github.com/AbdBarho/stable-diffusion-webui-docker">https://github.com/AbdBarho/stable-diffusion-webui-docker</a></p>
+<p>[2].<a target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon">https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon</a></p>
+<p>[3].<a target="_blank" rel="noopener" href="https://github.com/VinsonLaro/stable-diffusion-webui-chinese">https://github.com/VinsonLaro/stable-diffusion-webui-chinese</a></p>
+<p>[4]. <a target="_blank" rel="noopener" href="https://huggingface.co/AnonPerson/ChilloutMix/tree/main">https://huggingface.co/AnonPerson/ChilloutMix/tree/main</a> （内含一些亚洲 Lora）</p>
+<p>[5]. <a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/datasetdetail/193534/0">https://aistudio.baidu.com/aistudio/datasetdetail/193534/0</a></p>
+<p>[6]. <a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/datasetdetail/202078">https://aistudio.baidu.com/aistudio/datasetdetail/202078</a></p>
+<p>[7]. <a target="_blank" rel="noopener" href="https://huggingface.co/xiaolxl/GuoFeng3/tree/main">https://huggingface.co/xiaolxl/GuoFeng3/tree/main</a> (直接看文档)</p>
+<p>[8]. <a target="_blank" rel="noopener" href="https://aistudio.baidu.com/">https://aistudio.baidu.com/</a></p>
+<p>[9]. <a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co/</a></p>
+<p>[10]. <a target="_blank" rel="noopener" href="https://civitai.com/">https://civitai.com/</a></p>
+<p>[11]. <a target="_blank" rel="noopener" href="https://lexica.art/">https://lexica.art/</a></p>
+<p>文章参考：</p>
+<p>AIGC 绘画理论与保姆级实战：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/617042733">https://zhuanlan.zhihu.com/p/617042733</a></p>
+<p>SD 采样器：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/621083328">https://zhuanlan.zhihu.com/p/621083328</a></p>
+<p>SD 如何安装使用不同模型：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/619553604">https://zhuanlan.zhihu.com/p/619553604</a></p>
+<p>mac本地 SD 环境踩坑：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/608178376">https://zhuanlan.zhihu.com/p/608178376</a></p>
+<p>SD使用入门与提示词技巧：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/577238010">https://zhuanlan.zhihu.com/p/577238010</a></p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css?v=1.0.0"><p><span>本文标题：</span>本地白嫖AI绘画 ，Stable Diffusion 初探！</p><p><span>文章作者：</span>StruggleYang</p><p><span>发布时间：</span>2023-04-19</p><p><span>最后更新：</span>2023-04-25</p><p><span>原始链接：</span><a href="/2023/04/19/ai-sd-web-ui-build/">http://struy.cn/2023/04/19/ai-sd-web-ui-build/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://struy.cn/2023/04/19/ai-sd-web-ui-build/"></i></span></p><p><span>版权声明：</span>未经允许禁止转载，请关注公众号联系作者</p></div><br><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E7%BB%98%E5%9B%BE/" rel="tag">AI绘图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stable-Diffusion/" rel="tag">Stable Diffusion</a></li></ul></div><div class="post-nav"><a class="next" href="/2020/03/26/filebeat-cpu-and-mem-limit/">记Filebeat系统资源使用优化</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: 'f9f8d6e8db578e1d4cec',
+  clientSecret: 'a26c8b120d01d4d92eb4b69f5b4e9683b1ef9c3d',
+  repo: 'struy-cn.github.io',
+  owner: 'struy-cn',
+  admin: ['StruggleYang'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://struy.cn"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="http://img.struy.cn/img/202209061104733.png"/></a><p>花有重开日，人无再少年</p><a class="info-icon" href="https://space.bilibili.com/243215490" title="bilibili" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yq1724555319@gmail.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/StruggleYang" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="/atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AIGC/">AIGC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Angular/" style="font-size: 15px;">Angular</a> <a href="/tags/WebGis/" style="font-size: 15px;">WebGis</a> <a href="/tags/DDD/" style="font-size: 15px;">DDD</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">领域驱动设计</a> <a href="/tags/EventBus/" style="font-size: 15px;">EventBus</a> <a href="/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">Dapeng微服务</a> <a href="/tags/AIGC/" style="font-size: 15px;">AIGC</a> <a href="/tags/Stable-Diffusion/" style="font-size: 15px;">Stable Diffusion</a> <a href="/tags/AI%E7%BB%98%E5%9B%BE/" style="font-size: 15px;">AI绘图</a> <a href="/tags/CICD/" style="font-size: 15px;">CICD</a> <a href="/tags/DevOps/" style="font-size: 15px;">DevOps</a> <a href="/tags/Elasticsearch/" style="font-size: 15px;">Elasticsearch</a> <a href="/tags/Filebeat/" style="font-size: 15px;">Filebeat</a> <a href="/tags/ELK/" style="font-size: 15px;">ELK</a> <a href="/tags/cgroup/" style="font-size: 15px;">cgroup</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" style="font-size: 15px;">可观测性</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/GithubPages/" style="font-size: 15px;">GithubPages</a> <a href="/tags/Influxdb/" style="font-size: 15px;">Influxdb</a> <a href="/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">时序数据库</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">函数式编程</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 15px;">电影</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/04/19/ai-sd-web-ui-build/">本地白嫖AI绘画 ，Stable Diffusion 初探！</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/26/filebeat-cpu-and-mem-limit/">记Filebeat系统资源使用优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/09/es-source-build-config/">elasticsearch 7.2源码编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/03/build-deploy-server-use2/">构建与部署中心使用流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/03/build-deploy-server-1/">构建与部署中心基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/dapeng-build-center-essay/">dapeng构建中心随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/vue-life/">vue实例生命周期</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/maven-plugins-use/">maven常用插件使用范例</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/28/wu-wen-xi-dong/">无问西东</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/28/tscompose-bai-hua/">白话tscompose</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://githubedu.struy.cn/" title="GitHub 学生包认证" target="_blank">GitHub 学生包认证</a><ul></ul><a href="https://md.struy.cn/" title="微信 Markdown 编辑器" target="_blank">微信 Markdown 编辑器</a><ul></ul><a href="http://yue.struy.cn" title="越哥说电影解说合集" target="_blank">越哥说电影解说合集</a><ul></ul><a href="https://hzways.gitee.io/" title="非普通程序员" target="_blank">非普通程序员</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">老杨的知识荒原.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js?v=1.0.0"></script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

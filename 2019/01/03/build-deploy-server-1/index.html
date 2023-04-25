@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="分享编码、架构经验、效率工具、人工智能(AIGC) 以及你感兴趣的知识荒原!"><meta name="keywords" content="AIGC,架构,云原生,效率工具,编程,编程入门,代码,学习,全栈,Spring,Java,Scala,老杨的知识荒原,StruggleYang,struy"><title>构建与部署中心基本概念 | 老杨的知识荒原</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script src="https://www.googletagmanager.com/gtag/js?id=G-7HLMFGQR9B" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7HLMFGQR9B');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + 'd2ed00d27f11374630ac0efc2332b027';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
+
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">构建与部署中心基本概念</h1><a id="logo" href="/.">老杨的知识荒原</a><p class="description">一起进步学习，你看到的世界就是你自己的样子！</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tools/"><i class="fa fa-coffee"> 工具箱</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">构建与部署中心基本概念</h1><div class="post-meta">2019-01-03</div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">平台架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E9%A1%B9"><span class="toc-number">2.</span> <span class="toc-text">主要功能项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E4%B8%BB%E9%80%BB%E8%BE%91"><span class="toc-number">3.</span> <span class="toc-text">功能主逻辑</span></a></li></ol></div></div><div class="post-content"><p>构建与部署，是日常开发过程中很频繁也很关键的步骤，本文将介绍dapeng部署构建中心两大模块的核心概念和操作流程。</p>
+<span id="more"></span>
+
+<h2 id="平台架构"><a href="#平台架构" class="headerlink" title="平台架构"></a>平台架构</h2><p>系统分为两个主要部分:</p>
+<ul>
+<li><p>配置中心<br>配置将服务运行所需要的所有配置项入库, 负责生成运行所需的配置文件(一般为yml), 并指示agent进行系统的发布&#x2F;回滚等.</p>
+</li>
+<li><p>agent-client(以下简称agent).<br>agent部署在服务节点上, 并接收配置中心的指令并根据指令做具体的操作.<br><img src="http://img.struy.cn/19-1-3/61850243.jpg"></p>
+</li>
+<li><p>配置管理员在web配置中心进行增删改操作，更新配置</p>
+</li>
+<li><p>配置管理员确认配置参数无误，进行配置的同步下发(web端表现为升级操作)</p>
+<ul>
+<li>配置中心从数据库获取各项配置返回至配置中心</li>
+<li>配置中心将配置按照优先级进行整理，基于docker-compose文件模型生成最终配置</li>
+<li>在升级前通过指定事件消息将当前已经在运行的配置文件内容返回，与配置中心生成的配置文件进行对比(差异可视)</li>
+<li>当文件最终确定后，通过事件消息将配置发送至agent</li>
+<li>agent接收到事件消息后将文件生成，并执行指定的操作(升级)</li>
+</ul>
+</li>
+<li><p>升级完成</p>
+</li>
+</ul>
+<h2 id="主要功能项"><a href="#主要功能项" class="headerlink" title="主要功能项"></a>主要功能项</h2><ul>
+<li>持续集成<ul>
+<li>构建任务<ul>
+<li>展示构建任务列表</li>
+<li>发送构建操作</li>
+<li>查看构建历史</li>
+<li>删除构建历史</li>
+<li>查看当前构建任务</li>
+<li>点击历史查看构建日志</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>发布部署<ul>
+<li>服务管理<ul>
+<li>展示服务列表</li>
+<li>导入导出服务</li>
+<li>服务信息增删改查</li>
+</ul>
+</li>
+<li>环境管理<ul>
+<li>展示环境集列表 </li>
+<li>环境集信息增删改查</li>
+<li>指定构建主机</li>
+<li>管理SetSubEnv</li>
+</ul>
+</li>
+<li>节点管理<ul>
+<li>展示节点列表</li>
+<li>节点信息增删改查</li>
+</ul>
+</li>
+<li>部署单元管理<ul>
+<li>展示部署单元列表</li>
+<li>部署单元增删改查</li>
+<li>批量修改tag</li>
+<li>批量修改分支</li>
+<li>对比配置</li>
+</ul>
+</li>
+<li>上线部署<ul>
+<li>展示容器信息;容器状态，容器tag</li>
+<li>升级,停止,重启,预览配置,移除容器操作</li>
+<li>查看agent列表</li>
+</ul>
+</li>
+<li>部署记录<ul>
+<li>展示部署的操作记录</li>
+<li>回滚服务配置</li>
+</ul>
+</li>
+<li>文件管理<ul>
+<li>管理容器与宿主机卷挂载的文件，一般是内容有限内容的明文配置文件</li>
+<li>文件增删改查</li>
+<li>关联部署单元，换言之可具体关联某个节点的容器</li>
+</ul>
+</li>
+<li>网络管理<ul>
+<li>预定义和配置容器网络参数</li>
+<li>将配置的网络关联到节点</li>
+<li>下发网络配置，在关联节点创建网络</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="功能主逻辑"><a href="#功能主逻辑" class="headerlink" title="功能主逻辑"></a>功能主逻辑</h2><p><img src="http://img.struy.cn/19-1-3/52076907.jpg"></p>
+<p><strong>服务</strong>：微服务架构，将业务细化，每个模块作为一个服务向外提供服务，往往每个模块具体化为一个代码库，而这里的服务就是描述这个镜像最基本的配置</p>
+<p><strong>环境集</strong>：一个环境集合，例如测试环境中的某个sandbox环境，生产的统一集群环境。环境集中包含一个环境集中服务高度共享的<code>environment</code>信息</p>
+<p><strong>SetSubEnv</strong>：环境集内描述某个服务在某个节点的<code>environment</code>信息</p>
+<p><strong>节点</strong>：节点从属于环境，一个环境集下可存在多个节点。如生产环境的多个节点app1，app2</p>
+<p><strong>部署单元</strong>：部署单元由环境集，节点，服务，三部分组合而成的服务容器(通俗的描述：就是在某个环境集的某台节点部署某个服务，在docker服务下表现为服务容器，运行状态下可使用docker ps查询)</p>
+<p><strong>文件</strong>：文件将会绑定部署单元，而部署单元在升级时会携带绑定的文件和内容<br><strong>网络</strong>：解决特定的网络环境问题，如mtu,容器子网网段</p>
+<p><strong>yaml配置文件</strong>：每一个容器，在docker-compose模型中，都可以以一份yaml文件来描述其运行信息，应用以各项配置的优先级<code>(服务&lt;环境集&lt;SetSubEnv&lt;节点&lt;部署单元)</code>进行整合，最终生成为一份yaml配置文件。</p>
+<p><strong>构建任务</strong>：构建任务描述信心实际上是部署单元的描述信息(在某个环境构建某个服务的某个分支，部署在这个环境的某个节点上)</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css?v=1.0.0"><p><span>本文标题：</span>构建与部署中心基本概念</p><p><span>文章作者：</span>StruggleYang</p><p><span>发布时间：</span>2019-01-03</p><p><span>最后更新：</span>2023-04-25</p><p><span>原始链接：</span><a href="/2019/01/03/build-deploy-server-1/">http://struy.cn/2019/01/03/build-deploy-server-1/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://struy.cn/2019/01/03/build-deploy-server-1/"></i></span></p><p><span>版权声明：</span>未经允许禁止转载，请关注公众号联系作者</p></div><br><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CICD/" rel="tag">CICD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">Dapeng微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/" rel="tag">DevOps</a></li></ul></div><div class="post-nav"><a class="pre" href="/2019/01/03/build-deploy-server-use2/">构建与部署中心使用流程</a><a class="next" href="/2018/12/10/dapeng-build-center-essay/">dapeng构建中心随记</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: 'f9f8d6e8db578e1d4cec',
+  clientSecret: 'a26c8b120d01d4d92eb4b69f5b4e9683b1ef9c3d',
+  repo: 'struy-cn.github.io',
+  owner: 'struy-cn',
+  admin: ['StruggleYang'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://struy.cn"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="http://img.struy.cn/img/202209061104733.png"/></a><p>花有重开日，人无再少年</p><a class="info-icon" href="https://space.bilibili.com/243215490" title="bilibili" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yq1724555319@gmail.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/StruggleYang" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="/atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AIGC/">AIGC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Angular/" style="font-size: 15px;">Angular</a> <a href="/tags/WebGis/" style="font-size: 15px;">WebGis</a> <a href="/tags/DDD/" style="font-size: 15px;">DDD</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">领域驱动设计</a> <a href="/tags/EventBus/" style="font-size: 15px;">EventBus</a> <a href="/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">Dapeng微服务</a> <a href="/tags/AIGC/" style="font-size: 15px;">AIGC</a> <a href="/tags/Stable-Diffusion/" style="font-size: 15px;">Stable Diffusion</a> <a href="/tags/AI%E7%BB%98%E5%9B%BE/" style="font-size: 15px;">AI绘图</a> <a href="/tags/CICD/" style="font-size: 15px;">CICD</a> <a href="/tags/DevOps/" style="font-size: 15px;">DevOps</a> <a href="/tags/Elasticsearch/" style="font-size: 15px;">Elasticsearch</a> <a href="/tags/Filebeat/" style="font-size: 15px;">Filebeat</a> <a href="/tags/ELK/" style="font-size: 15px;">ELK</a> <a href="/tags/cgroup/" style="font-size: 15px;">cgroup</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" style="font-size: 15px;">可观测性</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/GithubPages/" style="font-size: 15px;">GithubPages</a> <a href="/tags/Influxdb/" style="font-size: 15px;">Influxdb</a> <a href="/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">时序数据库</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">函数式编程</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 15px;">电影</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/04/19/ai-sd-web-ui-build/">本地白嫖AI绘画 ，Stable Diffusion 初探！</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/26/filebeat-cpu-and-mem-limit/">记Filebeat系统资源使用优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/09/es-source-build-config/">elasticsearch 7.2源码编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/03/build-deploy-server-use2/">构建与部署中心使用流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/03/build-deploy-server-1/">构建与部署中心基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/dapeng-build-center-essay/">dapeng构建中心随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/vue-life/">vue实例生命周期</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/maven-plugins-use/">maven常用插件使用范例</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/28/wu-wen-xi-dong/">无问西东</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/28/tscompose-bai-hua/">白话tscompose</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://githubedu.struy.cn/" title="GitHub 学生包认证" target="_blank">GitHub 学生包认证</a><ul></ul><a href="https://md.struy.cn/" title="微信 Markdown 编辑器" target="_blank">微信 Markdown 编辑器</a><ul></ul><a href="http://yue.struy.cn" title="越哥说电影解说合集" target="_blank">越哥说电影解说合集</a><ul></ul><a href="https://hzways.gitee.io/" title="非普通程序员" target="_blank">非普通程序员</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">老杨的知识荒原.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js?v=1.0.0"></script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

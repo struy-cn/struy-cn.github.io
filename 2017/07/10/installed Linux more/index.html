@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="分享编码、架构经验、效率工具、人工智能(AIGC) 以及你感兴趣的知识荒原!"><meta name="keywords" content="AIGC,架构,云原生,效率工具,编程,编程入门,代码,学习,全栈,Spring,Java,Scala,老杨的知识荒原,StruggleYang,struy"><title>安装Linux后我都做了哪些事？ | 老杨的知识荒原</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script src="https://www.googletagmanager.com/gtag/js?id=G-7HLMFGQR9B" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7HLMFGQR9B');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + 'd2ed00d27f11374630ac0efc2332b027';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
+
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">安装Linux后我都做了哪些事？</h1><a id="logo" href="/.">老杨的知识荒原</a><p class="description">一起进步学习，你看到的世界就是你自己的样子！</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tools/"><i class="fa fa-coffee"> 工具箱</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">安装Linux后我都做了哪些事？</h1><div class="post-meta">2017-07-10</div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85-Windows-10-elementary-OS-%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">关于安装(Windows 10 + elementary OS)：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0"><span class="toc-number">2.</span> <span class="toc-text">系统更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">一些常见问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85vim"><span class="toc-number">4.</span> <span class="toc-text">安装vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDntfs%E7%A3%81%E7%9B%98"><span class="toc-number">5.</span> <span class="toc-text">开机自动挂载ntfs磁盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Gdebi%E4%BB%A5%E6%96%B9%E4%BE%BF%E5%AE%89%E8%A3%85deb%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">6.</span> <span class="toc-text">安装Gdebi以方便安装deb软件包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">安装搜狗输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8F%A6%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">安装另一些常用软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88Java-JavaWeb-Android%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">开发环境搭建（Java||JavaWeb||Android）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL"><span class="toc-number">10.</span> <span class="toc-text">安装MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85JDK"><span class="toc-number">11.</span> <span class="toc-text">安装JDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Maven"><span class="toc-number">12.</span> <span class="toc-text">安装Maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Tomcat"><span class="toc-number">13.</span> <span class="toc-text">安装Tomcat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85IDEA"><span class="toc-number">14.</span> <span class="toc-text">安装IDEA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="toc-number">15.</span> <span class="toc-text">科学上网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E9%A2%84%E8%A7%88"><span class="toc-number">16.</span> <span class="toc-text">一些预览</span></a></li></ol></div></div><div class="post-content"><blockquote>
+<p>在使用了一段时间的Linux后，前前后后安装也有几十次，也犯过一些致命的错误，为了下次不再到处翻文档，现总结一些安装后必备的东西以及常用软件及操作，以便日后查阅！    </p>
+</blockquote>
+<span id="more"></span>
+
+<p>备注一下：  </p>
+<p><strong>注意:请先阅读一遍全文后再操作，适用发行版为Ubuntu16.04及基于Ubuntu16.04构建的发行版，其他发行版部分相同或类似，不保证所有发行版的适用，其余发行版请自行Google对应教程，望悉知</strong>  </p>
+<p><strong>发行版：elementary OS 0.4.1 Loki（基于 “Ubuntu 16.04.2 LTS” 构建）</strong></p>
+<p><img src="http://img.struy.cn/17-5-30/29786706.jpg"></p>
+<p><strong>警告:慎用rm命令，特别是root下的rm，或者带有-rf指令的rm</strong></p>
+<h2 id="关于安装-Windows-10-elementary-OS-："><a href="#关于安装-Windows-10-elementary-OS-：" class="headerlink" title="关于安装(Windows 10 + elementary OS)："></a>关于安装(Windows 10 + elementary OS)：</h2><ul>
+<li>对于安装而和ubuntu类似，大致有如下几个过程(只有大体过程，具体请自行百度)<ul>
+<li>在win下用磁盘工具压缩出大致最小50G的盘(不格式化)</li>
+<li>刻录发行版镜像到u盘(推荐‘软碟通’)</li>
+<li>修改bios的启动(据电脑不同)</li>
+<li>u盘启动进入安装，按照流程走就是了</li>
+<li>重要的事是对于分区的选项，我大致是<ul>
+<li>&#x2F;boot- -逻辑 –400M</li>
+<li>&#x2F; - -逻辑 –20G(因为&#x2F;usr没有单独挂载，所以稍微大点)</li>
+<li>swap –逻辑 –2G</li>
+<li>&#x2F;home –逻辑 –剩余全部</li>
+</ul>
+</li>
+<li>安装完之后重启，会没有启动选项，进入win用esayBCD进行引导的修复添加</li>
+</ul>
+</li>
+<li>以上事大致过程，并非教程，仅参考</li>
+</ul>
+<h2 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h2><ul>
+<li>进入系统做的第一件事情事联网，此发行版有很多驱动支持，并且基本都是可用的，不管事wifi还是以太，有了网络之后，你能做的事情就多了</li>
+<li>联网后的第一件事情，安装系统更新：（因为考虑到速度尝试在这里找了国内的数据源进行替换，但是来更新数据源后很多东西找不到或者依赖有问题于是换了回来,所以建议使用默认源）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get upgrade</span><br><span class="line"># sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
+<p> 上面的东西执行起来速度可能会很慢，但是这样的过程不会经常出现<br> 在商店对一些软件进行更新，并且安装显卡驱动等等，这些都是可视化的简单操作，这里不再累述</p>
+<h2 id="一些常见问题"><a href="#一些常见问题" class="headerlink" title="一些常见问题"></a>一些常见问题</h2><p> 安装系统更新后你可能想安装一些软件了，但是我觉得你有必要进行如下的一些操作：</p>
+<ul>
+<li>这个是一个很常见的问题，win与linux的时间同步问题，大致就是时间相差7小时，现将这些杂碎的问题解决，再开始构建系统的应用</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># timedatectl set-local-rtc 1 --adjust-system-clock</span><br></pre></td></tr></table></figure>
+
+<p> 有可能在第一次安装后执行此操作无效，你可以多试几次并重启</p>
+<h2 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h2><p>为什么要安装vim，虽然系统已经有vi，但是易用性不是很强，vim是个不错的选择，而且对vi完全兼容，后面的操作里需要有它，所以先将他安装了，方便后面操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get vim</span><br></pre></td></tr></table></figure>
+<p>vim的三种模式：</p>
+<ul>
+<li>一般模式（默认进入就是一般模式,一般模式时文件只读）</li>
+<li>编辑模式（键盘‘i’键可进入，可以编辑文件，还有其他键【o, O, a, A, r, R】，ESC可退出）</li>
+<li>命令模式（【 : &#x2F; ? 】可进入，常见指令有q[退出]q![强制退出]wq[保存并退出]，其他的自行百度或者Google）</li>
+</ul>
+<h2 id="开机自动挂载ntfs磁盘"><a href="#开机自动挂载ntfs磁盘" class="headerlink" title="开机自动挂载ntfs磁盘"></a>开机自动挂载ntfs磁盘</h2><p>为什么要开机挂载磁盘？<br>假设一个场景，在某应用不得不需要引用windows的磁盘文件时，每次都会提示找不到路径，那你不得不在文件管理器中将其挂载。为了一劳永逸，并减少不必要的操作。所以建议此步执行，而这个挂载路径的方法使用于部分发行版但又有所不同，如Centos7系列的挂载可能需要安装NTFS3等等操作，具体内容还请Google。</p>
+<p>挂载磁盘的基本思路事找到win下对应磁盘的设备号,将其<br>查看磁盘号，找到type为ntfs磁盘对应的设备号，再根据设备的具体类型大小和LABEL来找到平常对应的挂载路径，再修改设置使其长期挂载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo fdisk -l</span><br></pre></td></tr></table></figure>
+<p>下面是我的磁盘：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Disk /dev/sda: 465.8 GiB, 500107862016 bytes, 976773168 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 4096 bytes</span><br><span class="line">I/O size (minimum/optimal): 4096 bytes / 4096 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x98eae607</span><br><span class="line">设备       启动     Start    末尾    扇区   Size Id 类型</span><br><span class="line">/dev/sda1  *           63 125837144 125837082    60G  7 HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda2       125837310 976771071 850933762 405.8G  f W95 扩展 (LBA)</span><br><span class="line">/dev/sda5       125837312 335552511 209715200   100G  7 HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda6       335552576 671096768 335544193   160G  7 HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda7       671100928 850939903 179838976  85.8G  7 HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda8       850941952 890939391  39997440  19.1G 83 Linux</span><br><span class="line">/dev/sda9       890941440 891719679    778240   380M 83 Linux</span><br><span class="line">/dev/sda10      891721728 893720575   1998848   976M 82 Linux 交换 / Solaris</span><br><span class="line">/dev/sda11      893722624 976771071  83048448  39.6G 83 Linux</span><br></pre></td></tr></table></figure>
+<p>如现sda1,5,6,7根据大小可以判断其分别对应的win下C,D,E,F盘，并且最后可看出类型事ntfs格式磁盘<br>现查看磁盘的id及挂载名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo blkid</span><br></pre></td></tr></table></figure>
+<p>结果  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/dev/sda1: UUID=&quot;8E5691D85691C17F&quot; TYPE=&quot;ntfs&quot; PARTUUID=&quot;98eae607-01&quot;</span><br><span class="line">/dev/sda5: LABEL=&quot;Apps&quot; UUID=&quot;20869BF2869BC6A6&quot; TYPE=&quot;ntfs&quot; PARTUUID=&quot;98eae607-05&quot;</span><br><span class="line">/dev/sda6: LABEL=&quot;Docs&quot; UUID=&quot;A040A29940A275A6&quot; TYPE=&quot;ntfs&quot; PARTUUID=&quot;98eae607-06&quot;</span><br><span class="line">/dev/sda7: LABEL=&quot;Project&quot; UUID=&quot;0A38BD1838BD042B&quot; TYPE=&quot;ntfs&quot; PARTUUID=&quot;98eae607-07&quot;</span><br><span class="line">/dev/sda8: UUID=&quot;2a816ddd-f925-442c-8b4c-cc7fd76545b9&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;98eae607-08&quot;</span><br><span class="line">/dev/sda9: UUID=&quot;74e2bc02-59fc-4517-ae95-18ec46541d9d&quot; TYPE=&quot;ext4&quot; PTTYPE=&quot;dos&quot; PARTUUID=&quot;98eae607-09&quot;</span><br><span class="line">/dev/sda10: UUID=&quot;eb8aded8-9282-426e-9b86-7333bde0d0fe&quot; TYPE=&quot;swap&quot; PARTUUID=&quot;98eae607-0a&quot;</span><br><span class="line">/dev/sda11: UUID=&quot;421078a4-af25-4fa4-a474-b250e0943c0e&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;98eae607-0b&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>修改配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
+<p>i进入插入模式在后面添加：<br>注：sy是我的用户名，在media文件夹下你也可以看到你对应的文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># disk for Windows10</span><br><span class="line"># c:  for windows10</span><br><span class="line">#/dev/sda1       /media/sy/System                ntfs    defaults        0       0</span><br><span class="line"># D:  for windows10</span><br><span class="line">/dev/sda5       /media/sy/Apps                  ntfs    defaults        0       0</span><br><span class="line"># E:  for windows10</span><br><span class="line">/dev/sda6       /media/sy/Docs                     ntfs    defaults        0       0</span><br><span class="line"># F:  for windows10</span><br><span class="line">/dev/sda7       /media/sy/Project                  ntfs    defaults        0       0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面有三个磁盘挂载，C盘我不希望（怕误删了windows下的重要文件）自动挂载所以给注释了。而每个磁盘对应着六个参数其意思分别是：（从左到右）</p>
+<ul>
+<li><code>&lt;file system&gt;</code> ：分区定位，可以给磁盘号，UUID或LABEL，例如：&#x2F;dev&#x2F;sda2，UUID&#x3D;6E9ADAC29ADA85CD或LABEL&#x3D;Docs</li>
+<li><code>&lt;mount point&gt;</code> : 具体挂载点的位置，例如：&#x2F;media&#x2F;userName&#x2F;C</li>
+<li><code>&lt;type&gt;</code> : 挂载磁盘类型，linux分区一般为ext4，windows分区一般为ntfs</li>
+<li><code>&lt;options&gt; </code>: 挂载参数，一般为defaults</li>
+<li><code>&lt;dump&gt;</code> : 磁盘备份，默认为0，不备份</li>
+<li><code>&lt;pass&gt;</code>: 磁盘检查，默认为0，不检查</li>
+</ul>
+<blockquote>
+<p>在这里我发现一个问题就是，NTFS对应的LABEL在windows下对应磁盘的名称，所以建议在windows下使用英文命名磁盘名称</p>
+</blockquote>
+<p>以上操作完成后保存并退出vim，在终端输入以下检查并挂载新添项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo mount -a</span><br></pre></td></tr></table></figure>
+<p>mount -a会&#x2F;etc&#x2F;fstab中的项全部挂载，如果有错，则会提示错误，然后根据错误找出原因修改。</p>
+<blockquote>
+<p>如果说某个磁盘没有找到，先查看是否在文件管理器已经将其挂载，因为在检查时会因为没有挂载而找不到，将所有磁盘挂载后再次执行即可。</p>
+</blockquote>
+<p><strong>注意：千万不要挂载到当前用户的根目录，因为挂载的分区会覆盖当前分区内容,那有可能将是一个致命的操作</strong></p>
+<h2 id="安装Gdebi以方便安装deb软件包"><a href="#安装Gdebi以方便安装deb软件包" class="headerlink" title="安装Gdebi以方便安装deb软件包"></a>安装Gdebi以方便安装deb软件包</h2><p>两中方式安装：</p>
+<ul>
+<li>在应用商店找到并安装</li>
+<li>通过<code>sudo apt-get install gdebi</code>安装</li>
+</ul>
+<h2 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h2><p>现在的你可能需一个中文输入法对一些问题进行描述和记录，那么它来了<br>安装搜狗输入法是一个简单的过程，但是会需要安装一些依赖步骤如下：</p>
+<ul>
+<li>添加fcitx的键盘输入法系统，因为sogou是基于fcitx的，而系统默认的是iBus；</li>
+<li>安装sogou输入法；</li>
+<li>设置系统参数及一些注意点。</li>
+</ul>
+<p>先添加以下源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo add-apt-repository ppa:fcitx-team/nightly</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果提示源找不到依此执行安装：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get install python-software-properties</span><br><span class="line"># sudo apt-get install software-properties-common</span><br><span class="line"># sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>添加源之后需要更新一下系统</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>开始安装fcitx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get install fcitx</span><br></pre></td></tr></table></figure>
+<p>下载搜狗输入法安装包（官网地址）：</p>
+<p><a target="_blank" rel="noopener" href="http://pinyin.sogou.com/linux/?r=pinyin">http://pinyin.sogou.com/linux/?r=pinyin</a><br>下载完毕在文件管理器中用Gdebi打开并安装。<br>或者在软件包对应的目录（文件名要对应修改）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo gdebi sogoupinyin.deb</span><br></pre></td></tr></table></figure>
+<h2 id="安装另一些常用软件"><a href="#安装另一些常用软件" class="headerlink" title="安装另一些常用软件"></a>安装另一些常用软件</h2><p>在这里这些常用软件都是deb包的，所以安装过程不再累述，安装只需要gdebi打开就行，或者在命令行进行安装</p>
+<blockquote>
+<p>还有一点注意的事，就是deb包用gdebi安装时会自动将其依赖的包下载安装，所以一些软件你不必去担心他的依赖</p>
+</blockquote>
+<p>下面列出常用的一些可以通过deb软件包程序安装的日常软件：</p>
+<ul>
+<li>Google Chrome（我只用这个浏览器）</li>
+<li>wps（国产免费还支持Linux，支持，这样办公所需就有了）</li>
+<li>网易云音乐（抖腿之道，唯有网易）</li>
+<li>Aotm（前端开发很好用，不过我发现写MarkDown也很好用，此篇就是这货写的）<blockquote>
+<p>以上软件deb包都可以在对应的官网进行下载</p>
+</blockquote>
+</li>
+</ul>
+<p>还有一些可以在应用商店下载安装的程序：</p>
+<ul>
+<li>FileZilla（ftp传输真的很方便）</li>
+<li>系统监视器（日常看资源占用）</li>
+<li>还有其他的一些自己去探索吧</li>
+</ul>
+<h2 id="开发环境搭建（Java-JavaWeb-Android）"><a href="#开发环境搭建（Java-JavaWeb-Android）" class="headerlink" title="开发环境搭建（Java||JavaWeb||Android）"></a>开发环境搭建（Java||JavaWeb||Android）</h2><p>上面做的只是对于日常使用而做的一些安装和配置，对于程序员来讲，要发挥桌面版的Linux的最大作用还差这些东西，现简要列出来：</p>
+<ul>
+<li>MySQL</li>
+<li>JDK</li>
+<li>Maven</li>
+<li>Tomcat</li>
+<li>IDEA</li>
+<li>科学上网</li>
+</ul>
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>在ubuntu（elementary OS）下安装MySQL是一件简单的事情，只需要执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<p>安装过程中会让你设定两次mysql的root密码，输完请按tab键到（ok）确定，并继续</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get install mysql-client</span><br><span class="line"></span><br><span class="line"># sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后用以下命令来检验是否安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo netstat -tap|grep mysql</span><br></pre></td></tr></table></figure>
+<p>通过上述命令检查后如果看到mysql的socket处于listen状态则表示安装成功</p>
+<p>登陆mysql检验：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p>键入刚才设置的密码以检验。</p>
+<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>卸载openjdk:  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get purge openjdk*</span><br></pre></td></tr></table></figure>
+<p>官网:<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br>下载官方jdk（如：jdk-8u102-linux-x64.tar.gz）<br>创建JDK存放路径。我的JDK存放在“&#x2F;usr&#x2F;jdk”，所以使用命令  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo mkdir /usr/jdk</span><br></pre></td></tr></table></figure>
+<p>复制jdk-8u102-linux-x64.tar.gz文件到&#x2F;usr&#x2F;jdk，且使用解压缩命令“tar zxvf”解压缩  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/jdk</span><br><span class="line">// 到要存放jdk的目录(假设文件在下载目录)</span><br><span class="line"># sudo mv /home/×××/Downloads/jdk-8u102-linux-x64.tar.gz ./</span><br><span class="line">// 表示将压缩包移动到当前目录下，注意命令的目录</span><br><span class="line"># sudo tar -zxvf jdk-8u102-linux-x64.tar.gz</span><br><span class="line">// 解压到当前目录</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>环境变量配置:  </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>这时会打开文件，在最后添加：(如果安装路径改变请对应修改)  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/jdk/jdk1.8.0_102</span><br><span class="line">export JRE_HOME=/usr/jdk/jdk1.8.0_102/jre</span><br><span class="line">export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
+<p>添加完成保存关闭，回到终端输入：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># source /etc/profile</span><br></pre></td></tr></table></figure>
+<p>输入java或javac检验</p>
+<h2 id="安装Maven"><a href="#安装Maven" class="headerlink" title="安装Maven"></a>安装Maven</h2><p>这个东西直接参考Maven官网就可以操作完成了  </p>
+<p>官网地址：<a target="_blank" rel="noopener" href="http://maven.apache.org/">http://maven.apache.org/</a>  </p>
+<p>一般情况下提供tar.gz包和zip包  </p>
+<p>安装maven的先决条件是JDK哟</p>
+<p>假设下载下来的是tar.gz包:<code>apache-maven-3.5.0-bin.tar.gz</code><br>将其存放到你想安装的目录，在存放目录下执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo tar -zxvf apache-maven-3.5.0-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<p>现假设Maven被安装在&#x2F;usr&#x2F;maven目录下：（此操作将其加入环境变量但只是暂时的）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># export PATH=/usr/maven/apache-maven-3.5.0/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>环境变量永久生效:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>加入以下变量：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#maven</span><br><span class="line">export MAVEN_HOME=/usr/maven/apache-maven-3.5.0</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;MAVEN_HOME&#125;/bin</span><br></pre></td></tr></table></figure>
+<p>wq退出后刷新使环境变量生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># source /etc/profile</span><br></pre></td></tr></table></figure>
+<p>检验安装:  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
+<p>正确输出:(类似就行，不必一样)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-04T03:39:06+08:00)</span><br><span class="line">Maven home: /usr/maven/apache-maven-3.5.0</span><br><span class="line">Java version: 1.8.0_131, vendor: Oracle Corporation</span><br><span class="line">Java home: /usr/jdk8/jdk1.8.0_131/jre</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;linux&quot;, version: &quot;4.4.0-83-generic&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h2><p>Tomcat安装与上面几个安装是类似的：</p>
+<p>官网:<a target="_blank" rel="noopener" href="http://tomcat.apache.org/">http://tomcat.apache.org/</a>  </p>
+<p>下载tar.gz包，不再累述复制和解压过程，请参照以上两个解压过程</p>
+<p>现假设下载tomcat7被解压安装到了<code>/usr/tomcat7/</code>下：</p>
+<p>先将tomcat文件夹及子文件权限改到任意人读写执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo chmod -R a+rwx  /usr/tomcat7/*</span><br></pre></td></tr></table></figure>
+<p>找到bin目录:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/tomcat7/apache-tomcat-7.0.73/bin</span><br></pre></td></tr></table></figure>
+<p>启动:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ./startup.sh</span><br></pre></td></tr></table></figure>
+<p>提示jdk环境问题:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo vim catalina.sh</span><br></pre></td></tr></table></figure>
+<p>加入JDK的环境变量:（请相应改变）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/jdk8/jdk1.8.0_131</span><br><span class="line">export JRE_HOME=/usr/jdk8/jdk1.8.0_131/jre</span><br></pre></td></tr></table></figure>
+<p>正确输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Using CATALINA_BASE:   /usr/tomcat7/apache-tomcat-7.0.79</span><br><span class="line">Using CATALINA_HOME:   /usr/tomcat7/apache-tomcat-7.0.79</span><br><span class="line">Using CATALINA_TMPDIR: /usr/tomcat7/apache-tomcat-7.0.79/temp</span><br><span class="line">Using JRE_HOME:        /usr/jdk8/jdk1.8.0_131/jre</span><br><span class="line">Using CLASSPATH:       /usr/tomcat7/apache-tomcat-7.0.79/bin/bootstrap.jar:/usr/tomcat7/apache-tomcat-7.0.79/bin/tomcat-juli.jar</span><br><span class="line">Tomcat started.</span><br></pre></td></tr></table></figure>
+<p>停止:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./shutdown.sh</span><br></pre></td></tr></table></figure>
+<h2 id="安装IDEA"><a href="#安装IDEA" class="headerlink" title="安装IDEA"></a>安装IDEA</h2><p>IDEA的安装过程没有多大变化，下载解压即可使用。</p>
+<p>官网：<a target="_blank" rel="noopener" href="http://www.jetbrains.com/idea/">http://www.jetbrains.com/idea/</a>  </p>
+<p>除了IDEA很多jetbrains家族的东西都是很好用的，在Linux平台也有很好的更新支持</p>
+<p>如果是Android开发者，android studio也会很容易兼容此系统</p>
+<h2 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h2><p><del>关于科学上网，我是用的奇影shadowsocks。一般我也用的不多，同步Chrome书签和插件时，找找Google时会用用！</del></p>
+<h2 id="一些预览"><a href="#一些预览" class="headerlink" title="一些预览"></a>一些预览</h2><p><img src="http://img.struy.cn/17-5-30/40219153.jpg"></p>
+<p><img src="http://img.struy.cn/17-5-30/94337476.jpg"></p>
+<blockquote>
+<p>还有很多有趣的东西自己去探索吧。此文为迁移博文。之前发表于&#x3D;&gt;<a target="_blank" rel="noopener" href="http://blog.csdn.net/godevelop/article/details/74937795">我的CSDN</a></p>
+</blockquote>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css?v=1.0.0"><p><span>本文标题：</span>安装Linux后我都做了哪些事？</p><p><span>文章作者：</span>StruggleYang</p><p><span>发布时间：</span>2017-07-10</p><p><span>最后更新：</span>2023-04-25</p><p><span>原始链接：</span><a href="/2017/07/10/installed Linux more/">http://struy.cn/2017/07/10/installed%20Linux%20more/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://struy.cn/2017/07/10/installed%20Linux%20more/"></i></span></p><p><span>版权声明：</span>未经允许禁止转载，请关注公众号联系作者</p></div><br><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul></div><div class="post-nav"><a class="pre" href="/2017/09/01/hexo+github%20pages%20blog/">hexo+github pages搭建静态博客</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: 'f9f8d6e8db578e1d4cec',
+  clientSecret: 'a26c8b120d01d4d92eb4b69f5b4e9683b1ef9c3d',
+  repo: 'struy-cn.github.io',
+  owner: 'struy-cn',
+  admin: ['StruggleYang'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://struy.cn"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="http://img.struy.cn/img/202209061104733.png"/></a><p>花有重开日，人无再少年</p><a class="info-icon" href="https://space.bilibili.com/243215490" title="bilibili" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yq1724555319@gmail.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/StruggleYang" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="/atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AIGC/">AIGC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Angular/" style="font-size: 15px;">Angular</a> <a href="/tags/WebGis/" style="font-size: 15px;">WebGis</a> <a href="/tags/DDD/" style="font-size: 15px;">DDD</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">领域驱动设计</a> <a href="/tags/EventBus/" style="font-size: 15px;">EventBus</a> <a href="/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">Dapeng微服务</a> <a href="/tags/AIGC/" style="font-size: 15px;">AIGC</a> <a href="/tags/Stable-Diffusion/" style="font-size: 15px;">Stable Diffusion</a> <a href="/tags/AI%E7%BB%98%E5%9B%BE/" style="font-size: 15px;">AI绘图</a> <a href="/tags/CICD/" style="font-size: 15px;">CICD</a> <a href="/tags/DevOps/" style="font-size: 15px;">DevOps</a> <a href="/tags/Elasticsearch/" style="font-size: 15px;">Elasticsearch</a> <a href="/tags/Filebeat/" style="font-size: 15px;">Filebeat</a> <a href="/tags/ELK/" style="font-size: 15px;">ELK</a> <a href="/tags/cgroup/" style="font-size: 15px;">cgroup</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" style="font-size: 15px;">可观测性</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/GithubPages/" style="font-size: 15px;">GithubPages</a> <a href="/tags/Influxdb/" style="font-size: 15px;">Influxdb</a> <a href="/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">时序数据库</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">函数式编程</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 15px;">电影</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/04/19/ai-sd-web-ui-build/">本地白嫖AI绘画 ，Stable Diffusion 初探！</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/26/filebeat-cpu-and-mem-limit/">记Filebeat系统资源使用优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/09/es-source-build-config/">elasticsearch 7.2源码编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/03/build-deploy-server-use2/">构建与部署中心使用流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/03/build-deploy-server-1/">构建与部署中心基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/dapeng-build-center-essay/">dapeng构建中心随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/vue-life/">vue实例生命周期</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/maven-plugins-use/">maven常用插件使用范例</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/28/wu-wen-xi-dong/">无问西东</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/28/tscompose-bai-hua/">白话tscompose</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://githubedu.struy.cn/" title="GitHub 学生包认证" target="_blank">GitHub 学生包认证</a><ul></ul><a href="https://md.struy.cn/" title="微信 Markdown 编辑器" target="_blank">微信 Markdown 编辑器</a><ul></ul><a href="http://yue.struy.cn" title="越哥说电影解说合集" target="_blank">越哥说电影解说合集</a><ul></ul><a href="https://hzways.gitee.io/" title="非普通程序员" target="_blank">非普通程序员</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">老杨的知识荒原.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js?v=1.0.0"></script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
