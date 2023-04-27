@@ -6,7 +6,7 @@
   <link href="http://struy.cn/atom.xml" rel="self"/>
   
   <link href="http://struy.cn/"/>
-  <updated>2023-04-25T00:32:10.346Z</updated>
+  <updated>2023-04-27T03:33:24.268Z</updated>
   <id>http://struy.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我看看哪个靓仔还没把Github Copilot用起来?</title>
+    <link href="http://struy.cn/2023/04/27/github-copilot-and-labs/"/>
+    <id>http://struy.cn/2023/04/27/github-copilot-and-labs/</id>
+    <published>2023-04-26T23:20:37.000Z</published>
+    <updated>2023-04-27T03:33:24.268Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本人经常分享有价值的生产力工具、技术、好物与书籍，可关注公众号并设为🌟星标，第一时间获得更新</p></blockquote><p><img src="http://img.struy.cn/img/202304212313285.png"></p><p><a href="https://github.com/features/copilot">Github Copilot</a> 是一个AI编程助手，其使用 <a href="https://openai.com/blog/openai-codex/">OpenAI CodeX</a> 在你的编辑器中实时建议代码或给你实现整个功能。</p><p><img src="https://img.struy.cn/img/202304271111266.png" alt="Copilot 官网"></p><span id="more"></span><h2 id="视频版介绍"><a href="#视频版介绍" class="headerlink" title="视频版介绍"></a>视频版介绍</h2><iframe src="//player.bilibili.com/player.html?bvid=BV1em4y1y7cC&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="450" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><p><a href="https://www.bilibili.com/video/BV1em4y1y7cC">B站视频地址</a></p><h2 id="Github-Copilot"><a href="#Github-Copilot" class="headerlink" title="Github Copilot"></a>Github Copilot</h2><p>比如我让他在 Python 中写一个插入排序，当写完注释按下 TAB 键方法就已经快完成了，多次按下 TAB，验证代码都给你写好了；</p><p><img src="https://img.struy.cn/img/202304271106379.png" alt="Copilot 编写Python代码"></p><p>除了在 Jetbrains 全家桶的 IDE 中使用，还支持大佬们最喜欢的 VScode 中使用</p><p>比如让他在JS中编写一段代码获得 Github 的Top100仓库，TAB几下后便完成了我们的方法。</p><p><img src="https://img.struy.cn/img/202304271108836.png" alt="Copilot JS 代码"></p><h2 id="Github-Copilot-Labs"><a href="#Github-Copilot-Labs" class="headerlink" title="Github Copilot Labs"></a>Github Copilot Labs</h2><p>除了这个关键的插件，VScode上还有个叫 <a href="https://githubnext.com/projects/copilot-labs/">Copilot Labs</a> 的附加插件，它能帮助我们解释翻译代码，生成测试代码、修复bug等快捷操作</p><p><img src="https://img.struy.cn/img/202304271109046.png" alt="Github Copilot Labs 功能"></p><h2 id="不用键盘写代码-Github-Copilot-Voice"><a href="#不用键盘写代码-Github-Copilot-Voice" class="headerlink" title="不用键盘写代码 Github Copilot Voice"></a>不用键盘写代码 Github Copilot Voice</h2><p>另外，Github Next 项目还推出了 <a href="https://githubnext.com/projects/copilot-voice/">Copilot Voice</a> 项目，不用键盘就可以写代码了，可以关注一下。（真一句话需求？）</p><p><img src="https://img.struy.cn/img/202304271115273.png" alt="Github Copilot Voice"></p><h2 id="低成本获得-Github-Copilot-使用"><a href="#低成本获得-Github-Copilot-使用" class="headerlink" title="低成本获得 Github Copilot 使用"></a>低成本获得 Github Copilot 使用</h2><blockquote><p>Copilot 的确方便好用能提高效率，但是官网的价格实在太高了，10美刀一个月，有没有办法以更低的成本获得呢？<br>那肯定有啊，现在联系我一顿饭钱解决，需要的开发大佬可以在评论区留言或者私信我，我来帮助你。赶紧使用起来让编码效率提升吧。</p></blockquote><p><img src="https://img.struy.cn/img/202304271055938.png" alt="解锁 Copilot 权益"></p><h4 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h4><p><a href="https://mp.weixin.qq.com/s/PEq_9nKKEPEsXWxlF70bhQ">给有需要的开发大佬|公众号</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本人经常分享有价值的生产力工具、技术、好物与书籍，可关注公众号并设为🌟星标，第一时间获得更新&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.struy.cn/img/202304212313285.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/features/copilot&quot;&gt;Github Copilot&lt;/a&gt; 是一个AI编程助手，其使用 &lt;a href=&quot;https://openai.com/blog/openai-codex/&quot;&gt;OpenAI CodeX&lt;/a&gt; 在你的编辑器中实时建议代码或给你实现整个功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.struy.cn/img/202304271111266.png&quot; alt=&quot;Copilot 官网&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="生产力工具" scheme="http://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="AIGC" scheme="http://struy.cn/tags/AIGC/"/>
+    
+    <category term="Github Copilot" scheme="http://struy.cn/tags/Github-Copilot/"/>
+    
+    <category term="AI编码" scheme="http://struy.cn/tags/AI%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>本地白嫖AI绘画 ，Stable Diffusion 初探！</title>
