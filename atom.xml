@@ -6,7 +6,7 @@
   <link href="http://struy.cn/atom.xml" rel="self"/>
   
   <link href="http://struy.cn/"/>
-  <updated>2023-05-06T05:19:38.631Z</updated>
+  <updated>2023-05-07T15:43:56.329Z</updated>
   <id>http://struy.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Just Focus，拒绝久坐，专注要事</title>
+    <link href="http://struy.cn/2023/05/07/just-focus/"/>
+    <id>http://struy.cn/2023/05/07/just-focus/</id>
+    <published>2023-05-07T15:41:55.000Z</published>
+    <updated>2023-05-07T15:43:56.329Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关于专注这件事"><a href="#关于专注这件事" class="headerlink" title="关于专注这件事"></a>关于专注这件事</h2><p>人的精力的是有限的，我们时常需要面临杂乱的工作。如何保持专注就成了问题。</p><p>但如果过于专注，久坐不起也对身体有害。</p><p>那就需要专注与健康相互结合，番茄工作法是一个不错的选择，专注时认真冲刺工作或者学习，休息的时候就撒开了放松。</p><p>比如工作过程中，定半小时写代码，短休息5分钟后继续。这样的成效不断训练，肯定会培养这过程中的专注力。</p><p>不过建议提前排除一些干扰，比如手机勿扰，否则专注被打断再次专注可能会有点吃力。</p><blockquote><p>我期待下一次的冲刺。</p></blockquote><h2 id="Just-Focus，拒绝久坐，专注要事"><a href="#Just-Focus，拒绝久坐，专注要事" class="headerlink" title="Just Focus，拒绝久坐，专注要事"></a>Just Focus，拒绝久坐，专注要事</h2><p>敬请观看<a href="https://www.bilibili.com/video/BV1no4y1V7az">视频版</a>！</p><iframe src="//player.bilibili.com/player.html?bvid=BV1no4y1V7az&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="400" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><p>Just Focus 是一款免费且 Apple 全平台支持的的番茄钟与休息提醒软件；软件简洁，配置自由度很高，多端同时使用效果更佳；</p><p><img src="https://img.struy.cn/img/202305072331209.png"></p><p><img src="https://img.struy.cn/img/202305072331319.png"></p><p>其将时间切成小段，比如25分钟，在这段时间内专注冲刺工作；冲刺结束进行短暂休息以便恢复精力。  （著名的<a href="https://zhuanlan.zhihu.com/p/98751275">番茄工作法</a>）</p><p><img src="https://img.struy.cn/img/202305072334350.png"></p><p>Mac的配置界面可以设置每个番茄钟的时长与休息时长，休息又分短休息与长休息，如果你怕控制不住自己工作的热情，可以把不允许中断休息打开效果更佳。   </p><p><img src="https://img.struy.cn/img/202305072331849.png"></p><p>你可以给休息界面配置文字，图片；或者使用Unsplash上的高清大图，在线的每日一句等等，当然你也可以自定义文字提醒自己必须要开始休息了  </p><p><img src="https://img.struy.cn/img/202305072331823.png"></p><p>除设置自定义的快捷键，更有方便的是，软件支持Alfred Workflow，点击安装后即可通过 Alfred 快捷开始番茄钟或休息，这对于我来说非常方便。  </p><p><img src="https://img.struy.cn/img/202305072332245.png"></p><p>如果你想强制自己休息，可以把不允许中断休息打开，我很建议你这样做。当然你精力充沛，也可以将其关闭，手动停止时会给你更多的选项。</p><p><img src="https://img.struy.cn/img/202305072332994.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;关于专注这件事&quot;&gt;&lt;a href=&quot;#关于专注这件事&quot; class=&quot;headerlink&quot; title=&quot;关于专注这件事&quot;&gt;&lt;/a&gt;关于专注这件事&lt;/h2&gt;&lt;p&gt;人的精力的是有限的，我们时常需要面临杂乱的工作。如何保持专注就成了问题。&lt;/p&gt;
+&lt;p&gt;但如果过于专</summary>
+      
+    
+    
+    
+    <category term="生产力工具" scheme="http://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="http://struy.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>工具永远只是工具</title>
