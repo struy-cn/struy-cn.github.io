@@ -3,11 +3,11 @@
   <title>老杨的知识荒原</title>
   
   <subtitle>效率工具、编程技术、阅读感悟；你看到的世界就是你自己的样子！</subtitle>
-  <link href="http://struy.cn/atom.xml" rel="self"/>
+  <link href="https://struy.cn/atom.xml" rel="self"/>
   
-  <link href="http://struy.cn/"/>
+  <link href="https://struy.cn/"/>
   <updated>2023-05-15T01:49:56.115Z</updated>
-  <id>http://struy.cn/</id>
+  <id>https://struy.cn/</id>
   
   <author>
     <name>StruggleYang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>阅读｜如何找到自己的长处？</title>
-    <link href="http://struy.cn/2023/05/15/how-find-your-forte/"/>
-    <id>http://struy.cn/2023/05/15/how-find-your-forte/</id>
+    <link href="https://struy.cn/2023/05/15/how-find-your-forte/"/>
+    <id>https://struy.cn/2023/05/15/how-find-your-forte/</id>
     <published>2023-05-15T00:00:00.000Z</published>
     <updated>2023-05-15T01:49:56.115Z</updated>
     
@@ -30,19 +30,19 @@
     
     
     
-    <category term="认知提升" scheme="http://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
+    <category term="认知提升" scheme="https://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
     
     
-    <category term="摘录" scheme="http://struy.cn/tags/%E6%91%98%E5%BD%95/"/>
+    <category term="摘录" scheme="https://struy.cn/tags/%E6%91%98%E5%BD%95/"/>
     
-    <category term="读书" scheme="http://struy.cn/tags/%E8%AF%BB%E4%B9%A6/"/>
+    <category term="读书" scheme="https://struy.cn/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>Just Focus，拒绝久坐，专注要事</title>
-    <link href="http://struy.cn/2023/05/07/just-focus/"/>
-    <id>http://struy.cn/2023/05/07/just-focus/</id>
+    <link href="https://struy.cn/2023/05/07/just-focus/"/>
+    <id>https://struy.cn/2023/05/07/just-focus/</id>
     <published>2023-05-07T15:41:55.000Z</published>
     <updated>2023-05-07T15:43:56.329Z</updated>
     
@@ -57,17 +57,17 @@
     
     
     
-    <category term="生产力工具" scheme="http://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/"/>
+    <category term="生产力工具" scheme="https://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="工具" scheme="http://struy.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://struy.cn/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>工具永远只是工具</title>
-    <link href="http://struy.cn/2023/05/06/tool-only-tool/"/>
-    <id>http://struy.cn/2023/05/06/tool-only-tool/</id>
+    <link href="https://struy.cn/2023/05/06/tool-only-tool/"/>
+    <id>https://struy.cn/2023/05/06/tool-only-tool/</id>
     <published>2023-05-06T05:16:14.000Z</published>
     <updated>2023-05-06T05:19:38.631Z</updated>
     
@@ -82,17 +82,17 @@
     
     
     
-    <category term="认知提升" scheme="http://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
+    <category term="认知提升" scheme="https://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
     
     
-    <category term="观点" scheme="http://struy.cn/tags/%E8%A7%82%E7%82%B9/"/>
+    <category term="观点" scheme="https://struy.cn/tags/%E8%A7%82%E7%82%B9/"/>
     
   </entry>
   
   <entry>
     <title>关于有效学习这件事</title>
-    <link href="http://struy.cn/2023/05/05/about-effective-learning/"/>
-    <id>http://struy.cn/2023/05/05/about-effective-learning/</id>
+    <link href="https://struy.cn/2023/05/05/about-effective-learning/"/>
+    <id>https://struy.cn/2023/05/05/about-effective-learning/</id>
     <published>2023-05-05T15:00:20.000Z</published>
     <updated>2023-05-06T05:14:45.167Z</updated>
     
@@ -110,17 +110,17 @@
     
     
     
-    <category term="认知提升" scheme="http://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
+    <category term="认知提升" scheme="https://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
     
     
-    <category term="摘录" scheme="http://struy.cn/tags/%E6%91%98%E5%BD%95/"/>
+    <category term="摘录" scheme="https://struy.cn/tags/%E6%91%98%E5%BD%95/"/>
     
   </entry>
   
   <entry>
     <title>我看看哪个靓仔还没把Github Copilot用起来?</title>
-    <link href="http://struy.cn/2023/04/27/github-copilot-and-labs/"/>
-    <id>http://struy.cn/2023/04/27/github-copilot-and-labs/</id>
+    <link href="https://struy.cn/2023/04/27/github-copilot-and-labs/"/>
+    <id>https://struy.cn/2023/04/27/github-copilot-and-labs/</id>
     <published>2023-04-26T23:20:37.000Z</published>
     <updated>2023-04-27T10:14:00.962Z</updated>
     
@@ -131,21 +131,21 @@
     
     
     
-    <category term="生产力工具" scheme="http://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/"/>
+    <category term="生产力工具" scheme="https://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="AIGC" scheme="http://struy.cn/tags/AIGC/"/>
+    <category term="AIGC" scheme="https://struy.cn/tags/AIGC/"/>
     
-    <category term="Github Copilot" scheme="http://struy.cn/tags/Github-Copilot/"/>
+    <category term="Github Copilot" scheme="https://struy.cn/tags/Github-Copilot/"/>
     
-    <category term="AI编码" scheme="http://struy.cn/tags/AI%E7%BC%96%E7%A0%81/"/>
+    <category term="AI编码" scheme="https://struy.cn/tags/AI%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>本地白嫖AI绘画 ，Stable Diffusion 初探！</title>
-    <link href="http://struy.cn/2023/04/19/ai-sd-web-ui-build/"/>
-    <id>http://struy.cn/2023/04/19/ai-sd-web-ui-build/</id>
+    <link href="https://struy.cn/2023/04/19/ai-sd-web-ui-build/"/>
+    <id>https://struy.cn/2023/04/19/ai-sd-web-ui-build/</id>
     <published>2023-04-19T06:40:36.000Z</published>
     <updated>2023-04-27T10:16:28.161Z</updated>
     
@@ -156,21 +156,21 @@
     
     
     
-    <category term="AIGC" scheme="http://struy.cn/categories/AIGC/"/>
+    <category term="AIGC" scheme="https://struy.cn/categories/AIGC/"/>
     
     
-    <category term="AIGC" scheme="http://struy.cn/tags/AIGC/"/>
+    <category term="AIGC" scheme="https://struy.cn/tags/AIGC/"/>
     
-    <category term="Stable Diffusion" scheme="http://struy.cn/tags/Stable-Diffusion/"/>
+    <category term="Stable Diffusion" scheme="https://struy.cn/tags/Stable-Diffusion/"/>
     
-    <category term="AI绘图" scheme="http://struy.cn/tags/AI%E7%BB%98%E5%9B%BE/"/>
+    <category term="AI绘图" scheme="https://struy.cn/tags/AI%E7%BB%98%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>记Filebeat系统资源使用优化</title>
-    <link href="http://struy.cn/2020/03/26/filebeat-cpu-and-mem-limit/"/>
-    <id>http://struy.cn/2020/03/26/filebeat-cpu-and-mem-limit/</id>
+    <link href="https://struy.cn/2020/03/26/filebeat-cpu-and-mem-limit/"/>
+    <id>https://struy.cn/2020/03/26/filebeat-cpu-and-mem-limit/</id>
     <published>2020-03-26T07:13:17.000Z</published>
     <updated>2023-04-25T00:32:10.346Z</updated>
     
@@ -181,48 +181,25 @@
     
     
     
-    <category term="性能优化" scheme="http://struy.cn/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <category term="性能优化" scheme="https://struy.cn/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
     
-    <category term="Filebeat" scheme="http://struy.cn/tags/Filebeat/"/>
+    <category term="Filebeat" scheme="https://struy.cn/tags/Filebeat/"/>
     
-    <category term="ELK" scheme="http://struy.cn/tags/ELK/"/>
+    <category term="ELK" scheme="https://struy.cn/tags/ELK/"/>
     
-    <category term="cgroup" scheme="http://struy.cn/tags/cgroup/"/>
+    <category term="cgroup" scheme="https://struy.cn/tags/cgroup/"/>
     
-    <category term="Linux" scheme="http://struy.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://struy.cn/tags/Linux/"/>
     
-    <category term="可观测性" scheme="http://struy.cn/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>构建与部署中心基本设计</title>
-    <link href="http://struy.cn/2019/01/03/build-deploy-server-1/"/>
-    <id>http://struy.cn/2019/01/03/build-deploy-server-1/</id>
-    <published>2019-01-03T12:09:36.000Z</published>
-    <updated>2023-04-27T10:17:29.762Z</updated>
-    
-    <content type="html"><![CDATA[<p>构建与部署，是日常开发过程中很频繁也很关键的步骤，本文将介绍dapeng部署构建中心两大模块的核心概念和操作流程。</p><span id="more"></span><h2 id="平台架构"><a href="#平台架构" class="headerlink" title="平台架构"></a>平台架构</h2><p>系统分为两个主要部分:</p><ul><li><p>配置中心<br>配置将服务运行所需要的所有配置项入库, 负责生成运行所需的配置文件(一般为yml), 并指示agent进行系统的发布&#x2F;回滚等.</p></li><li><p>agent-client(以下简称agent).<br>agent部署在服务节点上, 并接收配置中心的指令并根据指令做具体的操作.<br><img src="http://img.struy.cn/19-1-3/61850243.jpg"></p></li><li><p>配置管理员在web配置中心进行增删改操作，更新配置</p></li><li><p>配置管理员确认配置参数无误，进行配置的同步下发(web端表现为升级操作)</p><ul><li>配置中心从数据库获取各项配置返回至配置中心</li><li>配置中心将配置按照优先级进行整理，基于docker-compose文件模型生成最终配置</li><li>在升级前通过指定事件消息将当前已经在运行的配置文件内容返回，与配置中心生成的配置文件进行对比(差异可视)</li><li>当文件最终确定后，通过事件消息将配置发送至agent</li><li>agent接收到事件消息后将文件生成，并执行指定的操作(升级)</li></ul></li><li><p>升级完成</p></li></ul><h2 id="主要功能项"><a href="#主要功能项" class="headerlink" title="主要功能项"></a>主要功能项</h2><ul><li>持续集成<ul><li>构建任务<ul><li>展示构建任务列表</li><li>发送构建操作</li><li>查看构建历史</li><li>删除构建历史</li><li>查看当前构建任务</li><li>点击历史查看构建日志</li></ul></li></ul></li><li>发布部署<ul><li>服务管理<ul><li>展示服务列表</li><li>导入导出服务</li><li>服务信息增删改查</li></ul></li><li>环境管理<ul><li>展示环境集列表 </li><li>环境集信息增删改查</li><li>指定构建主机</li><li>管理SetSubEnv</li></ul></li><li>节点管理<ul><li>展示节点列表</li><li>节点信息增删改查</li></ul></li><li>部署单元管理<ul><li>展示部署单元列表</li><li>部署单元增删改查</li><li>批量修改tag</li><li>批量修改分支</li><li>对比配置</li></ul></li><li>上线部署<ul><li>展示容器信息;容器状态，容器tag</li><li>升级,停止,重启,预览配置,移除容器操作</li><li>查看agent列表</li></ul></li><li>部署记录<ul><li>展示部署的操作记录</li><li>回滚服务配置</li></ul></li><li>文件管理<ul><li>管理容器与宿主机卷挂载的文件，一般是内容有限内容的明文配置文件</li><li>文件增删改查</li><li>关联部署单元，换言之可具体关联某个节点的容器</li></ul></li><li>网络管理<ul><li>预定义和配置容器网络参数</li><li>将配置的网络关联到节点</li><li>下发网络配置，在关联节点创建网络</li></ul></li></ul></li></ul><h2 id="功能主逻辑"><a href="#功能主逻辑" class="headerlink" title="功能主逻辑"></a>功能主逻辑</h2><p><img src="http://img.struy.cn/19-1-3/52076907.jpg"></p><p><strong>服务</strong>：微服务架构，将业务细化，每个模块作为一个服务向外提供服务，往往每个模块具体化为一个代码库，而这里的服务就是描述这个镜像最基本的配置</p><p><strong>环境集</strong>：一个环境集合，例如测试环境中的某个sandbox环境，生产的统一集群环境。环境集中包含一个环境集中服务高度共享的<code>environment</code>信息</p><p><strong>SetSubEnv</strong>：环境集内描述某个服务在某个节点的<code>environment</code>信息</p><p><strong>节点</strong>：节点从属于环境，一个环境集下可存在多个节点。如生产环境的多个节点app1，app2</p><p><strong>部署单元</strong>：部署单元由环境集，节点，服务，三部分组合而成的服务容器(通俗的描述：就是在某个环境集的某台节点部署某个服务，在docker服务下表现为服务容器，运行状态下可使用docker ps查询)</p><p><strong>文件</strong>：文件将会绑定部署单元，而部署单元在升级时会携带绑定的文件和内容<br><strong>网络</strong>：解决特定的网络环境问题，如mtu,容器子网网段</p><p><strong>yaml配置文件</strong>：每一个容器，在docker-compose模型中，都可以以一份yaml文件来描述其运行信息，应用以各项配置的优先级<code>(服务&lt;环境集&lt;SetSubEnv&lt;节点&lt;部署单元)</code>进行整合，最终生成为一份yaml配置文件。</p><p><strong>构建任务</strong>：构建任务描述信心实际上是部署单元的描述信息(在某个环境构建某个服务的某个分支，部署在这个环境的某个节点上)</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;构建与部署，是日常开发过程中很频繁也很关键的步骤，本文将介绍dapeng部署构建中心两大模块的核心概念和操作流程。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Dapeng微服务" scheme="http://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
-    <category term="CICD" scheme="http://struy.cn/tags/CICD/"/>
-    
-    <category term="DevOps" scheme="http://struy.cn/tags/DevOps/"/>
+    <category term="可观测性" scheme="https://struy.cn/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>构建与部署中心使用流程</title>
-    <link href="http://struy.cn/2019/01/03/build-deploy-server-use2/"/>
-    <id>http://struy.cn/2019/01/03/build-deploy-server-use2/</id>
+    <link href="https://struy.cn/2019/01/03/build-deploy-server-use2/"/>
+    <id>https://struy.cn/2019/01/03/build-deploy-server-use2/</id>
     <published>2019-01-03T12:09:36.000Z</published>
     <updated>2023-04-25T00:32:10.346Z</updated>
     
@@ -234,18 +211,41 @@
     
     
     
-    <category term="Dapeng微服务" scheme="http://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
-    <category term="CICD" scheme="http://struy.cn/tags/CICD/"/>
+    <category term="CICD" scheme="https://struy.cn/tags/CICD/"/>
     
-    <category term="DevOps" scheme="http://struy.cn/tags/DevOps/"/>
+    <category term="DevOps" scheme="https://struy.cn/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>构建与部署中心基本设计</title>
+    <link href="https://struy.cn/2019/01/03/build-deploy-server-1/"/>
+    <id>https://struy.cn/2019/01/03/build-deploy-server-1/</id>
+    <published>2019-01-03T12:09:36.000Z</published>
+    <updated>2023-04-27T10:17:29.762Z</updated>
+    
+    <content type="html"><![CDATA[<p>构建与部署，是日常开发过程中很频繁也很关键的步骤，本文将介绍dapeng部署构建中心两大模块的核心概念和操作流程。</p><span id="more"></span><h2 id="平台架构"><a href="#平台架构" class="headerlink" title="平台架构"></a>平台架构</h2><p>系统分为两个主要部分:</p><ul><li><p>配置中心<br>配置将服务运行所需要的所有配置项入库, 负责生成运行所需的配置文件(一般为yml), 并指示agent进行系统的发布&#x2F;回滚等.</p></li><li><p>agent-client(以下简称agent).<br>agent部署在服务节点上, 并接收配置中心的指令并根据指令做具体的操作.<br><img src="http://img.struy.cn/19-1-3/61850243.jpg"></p></li><li><p>配置管理员在web配置中心进行增删改操作，更新配置</p></li><li><p>配置管理员确认配置参数无误，进行配置的同步下发(web端表现为升级操作)</p><ul><li>配置中心从数据库获取各项配置返回至配置中心</li><li>配置中心将配置按照优先级进行整理，基于docker-compose文件模型生成最终配置</li><li>在升级前通过指定事件消息将当前已经在运行的配置文件内容返回，与配置中心生成的配置文件进行对比(差异可视)</li><li>当文件最终确定后，通过事件消息将配置发送至agent</li><li>agent接收到事件消息后将文件生成，并执行指定的操作(升级)</li></ul></li><li><p>升级完成</p></li></ul><h2 id="主要功能项"><a href="#主要功能项" class="headerlink" title="主要功能项"></a>主要功能项</h2><ul><li>持续集成<ul><li>构建任务<ul><li>展示构建任务列表</li><li>发送构建操作</li><li>查看构建历史</li><li>删除构建历史</li><li>查看当前构建任务</li><li>点击历史查看构建日志</li></ul></li></ul></li><li>发布部署<ul><li>服务管理<ul><li>展示服务列表</li><li>导入导出服务</li><li>服务信息增删改查</li></ul></li><li>环境管理<ul><li>展示环境集列表 </li><li>环境集信息增删改查</li><li>指定构建主机</li><li>管理SetSubEnv</li></ul></li><li>节点管理<ul><li>展示节点列表</li><li>节点信息增删改查</li></ul></li><li>部署单元管理<ul><li>展示部署单元列表</li><li>部署单元增删改查</li><li>批量修改tag</li><li>批量修改分支</li><li>对比配置</li></ul></li><li>上线部署<ul><li>展示容器信息;容器状态，容器tag</li><li>升级,停止,重启,预览配置,移除容器操作</li><li>查看agent列表</li></ul></li><li>部署记录<ul><li>展示部署的操作记录</li><li>回滚服务配置</li></ul></li><li>文件管理<ul><li>管理容器与宿主机卷挂载的文件，一般是内容有限内容的明文配置文件</li><li>文件增删改查</li><li>关联部署单元，换言之可具体关联某个节点的容器</li></ul></li><li>网络管理<ul><li>预定义和配置容器网络参数</li><li>将配置的网络关联到节点</li><li>下发网络配置，在关联节点创建网络</li></ul></li></ul></li></ul><h2 id="功能主逻辑"><a href="#功能主逻辑" class="headerlink" title="功能主逻辑"></a>功能主逻辑</h2><p><img src="http://img.struy.cn/19-1-3/52076907.jpg"></p><p><strong>服务</strong>：微服务架构，将业务细化，每个模块作为一个服务向外提供服务，往往每个模块具体化为一个代码库，而这里的服务就是描述这个镜像最基本的配置</p><p><strong>环境集</strong>：一个环境集合，例如测试环境中的某个sandbox环境，生产的统一集群环境。环境集中包含一个环境集中服务高度共享的<code>environment</code>信息</p><p><strong>SetSubEnv</strong>：环境集内描述某个服务在某个节点的<code>environment</code>信息</p><p><strong>节点</strong>：节点从属于环境，一个环境集下可存在多个节点。如生产环境的多个节点app1，app2</p><p><strong>部署单元</strong>：部署单元由环境集，节点，服务，三部分组合而成的服务容器(通俗的描述：就是在某个环境集的某台节点部署某个服务，在docker服务下表现为服务容器，运行状态下可使用docker ps查询)</p><p><strong>文件</strong>：文件将会绑定部署单元，而部署单元在升级时会携带绑定的文件和内容<br><strong>网络</strong>：解决特定的网络环境问题，如mtu,容器子网网段</p><p><strong>yaml配置文件</strong>：每一个容器，在docker-compose模型中，都可以以一份yaml文件来描述其运行信息，应用以各项配置的优先级<code>(服务&lt;环境集&lt;SetSubEnv&lt;节点&lt;部署单元)</code>进行整合，最终生成为一份yaml配置文件。</p><p><strong>构建任务</strong>：构建任务描述信心实际上是部署单元的描述信息(在某个环境构建某个服务的某个分支，部署在这个环境的某个节点上)</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;构建与部署，是日常开发过程中很频繁也很关键的步骤，本文将介绍dapeng部署构建中心两大模块的核心概念和操作流程。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    <category term="CICD" scheme="https://struy.cn/tags/CICD/"/>
+    
+    <category term="DevOps" scheme="https://struy.cn/tags/DevOps/"/>
     
   </entry>
   
   <entry>
     <title>dapeng构建中心随记</title>
-    <link href="http://struy.cn/2018/12/10/dapeng-build-center-essay/"/>
-    <id>http://struy.cn/2018/12/10/dapeng-build-center-essay/</id>
+    <link href="https://struy.cn/2018/12/10/dapeng-build-center-essay/"/>
+    <id>https://struy.cn/2018/12/10/dapeng-build-center-essay/</id>
     <published>2018-12-10T13:57:55.000Z</published>
     <updated>2023-04-25T00:32:10.346Z</updated>
     
@@ -257,14 +257,14 @@
     
     
     
-    <category term="Dapeng微服务" scheme="http://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>vue实例生命周期</title>
-    <link href="http://struy.cn/2018/07/15/vue-life/"/>
-    <id>http://struy.cn/2018/07/15/vue-life/</id>
+    <link href="https://struy.cn/2018/07/15/vue-life/"/>
+    <id>https://struy.cn/2018/07/15/vue-life/</id>
     <published>2018-07-15T15:00:47.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -276,14 +276,14 @@
     
     
     
-    <category term="Vue" scheme="http://struy.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://struy.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>maven常用插件使用范例</title>
-    <link href="http://struy.cn/2018/06/26/maven-plugins-use/"/>
-    <id>http://struy.cn/2018/06/26/maven-plugins-use/</id>
+    <link href="https://struy.cn/2018/06/26/maven-plugins-use/"/>
+    <id>https://struy.cn/2018/06/26/maven-plugins-use/</id>
     <published>2018-06-26T09:35:38.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -295,14 +295,14 @@
     
     
     
-    <category term="Maven" scheme="http://struy.cn/tags/Maven/"/>
+    <category term="Maven" scheme="https://struy.cn/tags/Maven/"/>
     
   </entry>
   
   <entry>
     <title>无问西东</title>
-    <link href="http://struy.cn/2018/05/28/wu-wen-xi-dong/"/>
-    <id>http://struy.cn/2018/05/28/wu-wen-xi-dong/</id>
+    <link href="https://struy.cn/2018/05/28/wu-wen-xi-dong/"/>
+    <id>https://struy.cn/2018/05/28/wu-wen-xi-dong/</id>
     <published>2018-05-27T16:39:41.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -319,14 +319,14 @@
     
     
     
-    <category term="电影" scheme="http://struy.cn/tags/%E7%94%B5%E5%BD%B1/"/>
+    <category term="电影" scheme="https://struy.cn/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>白话tscompose</title>
-    <link href="http://struy.cn/2018/05/28/tscompose-bai-hua/"/>
-    <id>http://struy.cn/2018/05/28/tscompose-bai-hua/</id>
+    <link href="https://struy.cn/2018/05/28/tscompose-bai-hua/"/>
+    <id>https://struy.cn/2018/05/28/tscompose-bai-hua/</id>
     <published>2018-05-27T16:36:57.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -338,16 +338,16 @@
     
     
     
-    <category term="Dapeng微服务" scheme="http://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
-    <category term="Docker" scheme="http://struy.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://struy.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>influxdb常用操作</title>
-    <link href="http://struy.cn/2018/04/30/influxdb-commons-action/"/>
-    <id>http://struy.cn/2018/04/30/influxdb-commons-action/</id>
+    <link href="https://struy.cn/2018/04/30/influxdb-commons-action/"/>
+    <id>https://struy.cn/2018/04/30/influxdb-commons-action/</id>
     <published>2018-04-30T03:32:50.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -365,16 +365,16 @@
     
     
     
-    <category term="Influxdb" scheme="http://struy.cn/tags/Influxdb/"/>
+    <category term="Influxdb" scheme="https://struy.cn/tags/Influxdb/"/>
     
-    <category term="时序数据库" scheme="http://struy.cn/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="时序数据库" scheme="https://struy.cn/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>事件总线EventBus实现架构原理分析</title>
-    <link href="http://struy.cn/2018/03/16/eventbus-archtech-0316/"/>
-    <id>http://struy.cn/2018/03/16/eventbus-archtech-0316/</id>
+    <link href="https://struy.cn/2018/03/16/eventbus-archtech-0316/"/>
+    <id>https://struy.cn/2018/03/16/eventbus-archtech-0316/</id>
     <published>2018-03-16T15:49:49.000Z</published>
     <updated>2023-04-27T10:17:01.862Z</updated>
     
@@ -388,18 +388,18 @@
     
     
     
-    <category term="DDD" scheme="http://struy.cn/tags/DDD/"/>
+    <category term="DDD" scheme="https://struy.cn/tags/DDD/"/>
     
-    <category term="领域驱动设计" scheme="http://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
+    <category term="领域驱动设计" scheme="https://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="Dapeng微服务" scheme="http://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>领域事件及事件总线EventBus使用实践</title>
-    <link href="http://struy.cn/2018/03/10/DDD-event-bus/"/>
-    <id>http://struy.cn/2018/03/10/DDD-event-bus/</id>
+    <link href="https://struy.cn/2018/03/10/DDD-event-bus/"/>
+    <id>https://struy.cn/2018/03/10/DDD-event-bus/</id>
     <published>2018-03-10T15:49:49.000Z</published>
     <updated>2023-04-25T00:32:10.345Z</updated>
     
@@ -413,20 +413,20 @@
     
     
     
-    <category term="DDD" scheme="http://struy.cn/tags/DDD/"/>
+    <category term="DDD" scheme="https://struy.cn/tags/DDD/"/>
     
-    <category term="领域驱动设计" scheme="http://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
+    <category term="领域驱动设计" scheme="https://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="EventBus" scheme="http://struy.cn/tags/EventBus/"/>
+    <category term="EventBus" scheme="https://struy.cn/tags/EventBus/"/>
     
-    <category term="Dapeng微服务" scheme="http://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>scala函数的演变过程,函数式的优点</title>
-    <link href="http://struy.cn/2018/01/06/scala-function-5w/"/>
-    <id>http://struy.cn/2018/01/06/scala-function-5w/</id>
+    <link href="https://struy.cn/2018/01/06/scala-function-5w/"/>
+    <id>https://struy.cn/2018/01/06/scala-function-5w/</id>
     <published>2018-01-06T14:05:50.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -440,16 +440,16 @@
     
     
     
-    <category term="Scala" scheme="http://struy.cn/tags/Scala/"/>
+    <category term="Scala" scheme="https://struy.cn/tags/Scala/"/>
     
-    <category term="函数式编程" scheme="http://struy.cn/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    <category term="函数式编程" scheme="https://struy.cn/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Angular(4)中加载Arcgis for JavaScript地图</title>
-    <link href="http://struy.cn/2017/09/16/Angular-load-ArcGis-for-JavaScript/"/>
-    <id>http://struy.cn/2017/09/16/Angular-load-ArcGis-for-JavaScript/</id>
+    <link href="https://struy.cn/2017/09/16/Angular-load-ArcGis-for-JavaScript/"/>
+    <id>https://struy.cn/2017/09/16/Angular-load-ArcGis-for-JavaScript/</id>
     <published>2017-09-16T06:40:36.000Z</published>
     <updated>2023-04-25T00:32:10.345Z</updated>
     
@@ -465,16 +465,16 @@
     
     
     
-    <category term="Angular" scheme="http://struy.cn/tags/Angular/"/>
+    <category term="Angular" scheme="https://struy.cn/tags/Angular/"/>
     
-    <category term="WebGis" scheme="http://struy.cn/tags/WebGis/"/>
+    <category term="WebGis" scheme="https://struy.cn/tags/WebGis/"/>
     
   </entry>
   
   <entry>
     <title>一个命令,解决hexo多机更新操作</title>
-    <link href="http://struy.cn/2017/09/09/hexo-all-update-by-shell/"/>
-    <id>http://struy.cn/2017/09/09/hexo-all-update-by-shell/</id>
+    <link href="https://struy.cn/2017/09/09/hexo-all-update-by-shell/"/>
+    <id>https://struy.cn/2017/09/09/hexo-all-update-by-shell/</id>
     <published>2017-09-08T23:44:46.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -486,16 +486,16 @@
     
     
     
-    <category term="Hexo" scheme="http://struy.cn/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://struy.cn/tags/Hexo/"/>
     
-    <category term="Shell" scheme="http://struy.cn/tags/Shell/"/>
+    <category term="Shell" scheme="https://struy.cn/tags/Shell/"/>
     
   </entry>
   
   <entry>
     <title>罪恶的起源，git初识</title>
-    <link href="http://struy.cn/2017/09/02/git-0/"/>
-    <id>http://struy.cn/2017/09/02/git-0/</id>
+    <link href="https://struy.cn/2017/09/02/git-0/"/>
+    <id>https://struy.cn/2017/09/02/git-0/</id>
     <published>2017-09-02T01:46:00.000Z</published>
     <updated>2023-04-25T00:32:10.346Z</updated>
     
@@ -514,14 +514,14 @@
     
     
     
-    <category term="Git" scheme="http://struy.cn/tags/Git/"/>
+    <category term="Git" scheme="https://struy.cn/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>hexo+github pages搭建静态博客</title>
-    <link href="http://struy.cn/2017/09/01/hexo+github%20pages%20blog/"/>
-    <id>http://struy.cn/2017/09/01/hexo+github%20pages%20blog/</id>
+    <link href="https://struy.cn/2017/09/01/hexo+github%20pages%20blog/"/>
+    <id>https://struy.cn/2017/09/01/hexo+github%20pages%20blog/</id>
     <published>2017-08-31T23:44:46.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -540,16 +540,16 @@
     
     
     
-    <category term="Hexo" scheme="http://struy.cn/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://struy.cn/tags/Hexo/"/>
     
-    <category term="GithubPages" scheme="http://struy.cn/tags/GithubPages/"/>
+    <category term="GithubPages" scheme="https://struy.cn/tags/GithubPages/"/>
     
   </entry>
   
   <entry>
     <title>安装Linux后我都做了哪些事？</title>
-    <link href="http://struy.cn/2017/07/10/installed%20Linux%20more/"/>
-    <id>http://struy.cn/2017/07/10/installed%20Linux%20more/</id>
+    <link href="https://struy.cn/2017/07/10/installed%20Linux%20more/"/>
+    <id>https://struy.cn/2017/07/10/installed%20Linux%20more/</id>
     <published>2017-07-10T15:18:46.000Z</published>
     <updated>2023-04-25T00:32:10.347Z</updated>
     
@@ -563,7 +563,7 @@
     
     
     
-    <category term="Linux" scheme="http://struy.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://struy.cn/tags/Linux/"/>
     
   </entry>
   
