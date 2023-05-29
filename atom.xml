@@ -6,7 +6,7 @@
   <link href="https://struy.cn/atom.xml" rel="self"/>
   
   <link href="https://struy.cn/"/>
-  <updated>2023-05-15T01:49:56.115Z</updated>
+  <updated>2023-05-29T03:10:31.942Z</updated>
   <id>https://struy.cn/</id>
   
   <author>
@@ -15,6 +15,79 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI｜用过的AI工具都给你整理好了</title>
+    <link href="https://struy.cn/2023/05/29/ai-tools-all-in-this/"/>
+    <id>https://struy.cn/2023/05/29/ai-tools-all-in-this/</id>
+    <published>2023-05-28T23:55:00.000Z</published>
+    <updated>2023-05-29T03:10:31.942Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近两周冷静下来了，而且个人状况因为二阳有所影响，没有过多关注这些AI工具；前两天给公司伙伴分享的契机，整理了一下这两个月用过的一些AI工具，部分是日常工作也在使用的，部分是偶尔使用（实际上太多了反而觉得不知所措，找合适的提高日常工作效率就行了）</p><span id="more"></span><blockquote><p>AI大模型这场风暴来的很快，每天更新迭代的速度已经让人赶不上了，之前开始做视频、公众号内容也是看AI工具眼花缭乱，可以吸引大家的眼球。</p></blockquote><p><img src="https://img.struy.cn/img/202304212313285.png" alt="⬆️扫码关注我吧"></p><h2 id="我整理的-AI-书签（持续更新）"><a href="#我整理的-AI-书签（持续更新）" class="headerlink" title="我整理的 AI 书签（持续更新）"></a>我整理的 AI 书签（持续更新）</h2><p><a href="https://mp.weixin.qq.com/s/fKKQrsatC9en3PwWiCL-KQ">此章节建议打开公众号原文查看🔗</a></p><p>我整理成了<strong>墨问便签</strong> 的合集 <strong>（墨问便签：AI书签合集）</strong>，大家就随便看看进入对应合集即查看所有链接，点击里面链接即可复制，浏览器粘贴链接即可访问，所以尽量电脑操作，预览图片，后续我会更新到此站点：</p><p><img src="https://img.struy.cn/img/202305291042038.png"></p><h2 id="AI对话大模型哪家强？"><a href="#AI对话大模型哪家强？" class="headerlink" title="AI对话大模型哪家强？"></a>AI对话大模型哪家强？</h2><p>没有对比的话可能看不出来，现在的对话大模型几乎都存在胡编乱造的问题，还有就是计算和逻辑基本上都有所欠缺，不是那么准确。</p><p>由于受限的条件，没有感受过GPT4的魔力，但是其他能体验的模型基本上也都玩了一遍；</p><p>这还得感谢 <a href="https://github.com/sunner/ChatALL">ChatAll🔗</a> 这个项目把市面上几乎所有的大模型都放到一起，我才有机会让他们PK，看看哪个更准确。</p><p><img src="https://img.struy.cn/img/202305291045978.png"><br>(⬆️上图说点正确的废话)</p><p><img src="https://img.struy.cn/img/202305291046982.png"><br>(⬆️《遥远的救世主》-豆豆)</p><p><img src="https://img.struy.cn/img/202305291047014.png"><br>(⬆️这个问题星火也没答对)</p><p>准确性来说肯定是 Bing 结合在线搜索会准确一些，但是那晚给团队分享时一个乘法运算 Bing 给我算错了，有点出乎意料，话说它后面真的由 GPT4 驱动吗。所以大家问的时候悠着点。</p><p>值得关注的是：<a href="https://www.anthropic.com/index/introducing-claude">Claude</a> 已经成为 OpenAI 的强劲对手，从问答体验上来说不输 ChatGPT，并且据网上各位大佬的体验反馈，其多轮对话能力很强，经常需要手动清除会话，不然上下文他记得太清楚了，但此时你的上下文可能已经变了。</p><blockquote><p>据了解，由AI写作再次出圈的 Notion AI 貌似也是由 Claude 驱动。</p></blockquote><h2 id="AI-绘图真的能替代原画师吗？"><a href="#AI-绘图真的能替代原画师吗？" class="headerlink" title="AI 绘图真的能替代原画师吗？"></a>AI 绘图真的能替代原画师吗？</h2><p>这个问题我不是专业的，所以我也不知哈哈哈。<br>最近看到一个新闻说，有个人用AI绘画出了一本漫画，但是为了保持风格一致费了不少劲；而且有些生成的图不能直接使用，需要二次加工。但是这或许会真的改变了很多内容的创作方式。</p><p>以后看到漫画和动画怕是很多由AI生成了；之前用 SD 也生成了一些图，对于不是设计师的人来说，满足了那种创造欲，而且 SD 插件丰富，可玩性很高。</p><p>可以参考我之前的SD文章，一起体验下: <a href="https://struy.cn/2023/04/19/ai-sd-web-ui-build/">本地白嫖AI绘画 ，Stable Diffusion 初探！</a></p><p><img src="https://img.struy.cn/img/202305291050525.png"><br>(⬆️SD 生成的图，比熊穿着铠甲威风凛凛的站在阳光下)</p><h2 id="AI写作，拓宽思路"><a href="#AI写作，拓宽思路" class="headerlink" title="AI写作，拓宽思路"></a>AI写作，拓宽思路</h2><p>AI 写作和 ChatGPT 对话一样，有时候你能看到很多正确的废话和啰嗦的总结，但是有时候的确是可以给你提供一些想法和思路，比如有些事情你就是找不到更好的词来描述，也许他知道怎么去描述。</p><p>AI 写作这样的场景，我个人觉得是对接大模型最简单的场景，因为只需要预设置好角色提示语和问题的摘要，总能给出一系列答案，这些答案也总有能有一部分击中你需求，实在不行就让 AI 多写几遍嘛。</p><p>下面使用的是 <a href="https://www.notion.so/">Notion AI</a></p><p>还推荐另一个：<a href="https://www.xiezuomao.com/">写作猫</a></p><p><img src="https://img.struy.cn/img/202305291052900.png"><br>(⬆️Notion AI 写作，这个言论是之前在一个群里其他人发起的讨论｜不代表个人立场)</p><h2 id="文字、文档、知识库"><a href="#文字、文档、知识库" class="headerlink" title="文字、文档、知识库"></a>文字、文档、知识库</h2><p>除了AI写作，日常的工作、生活、学习，打交道最多的就是文字、文档，以及各种资料书籍。自从 ChatGPT 火爆之后，围绕其探索产品就层出不穷</p><p>比如 <a href="https://chatdoc.com/">ChatDoc</a>、<a href="https://www.chatpdf.com/">ChatPDF</a> 等等，基于文档问答和信息汇总的工具，很受研究、学习的人欢迎</p><iframe src="//player.bilibili.com/player.html?bvid=BV1X84y1g7ja&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="450" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><p><a href="https://www.bilibili.com/video/BV1X84y1g7ja">B站视频地址</a></p><p>文档对话和分析的 ChatDOC 和 ChatPDF 实现原理也大同小异（这类应用基本上都离不开：<strong>llama-index</strong> 和 <strong>langchain</strong>，但我不是这方面的专业人士哈哈，就不误导了），就看谁体验更好，更准确。</p><p>以及智能生成 PPT，比如 <a href="https://www.mindshow.fun/">MindShow</a>，很多人通过 GPT 生成 PPT大纲再让 MindShow 渲染，省去排版和美化的麻烦。挺方便</p><p><img src="https://img.struy.cn/img/202305291057452.png"><br>(⬆️MindShow 生成的 PPT)</p><h3 id="私有知识库"><a href="#私有知识库" class="headerlink" title="私有知识库"></a>私有知识库</h3><p>还有一些场景是企业需要接入这类大模型，做私有知识库的文档或者智能客服，但是企业的隐私数据又不想发送给这些大模型平台，这样的数据安全问题也是值得考虑的。</p><p>那怎么做呢，实际上我也在找，对于一些商用大模型，一些人在观望，一些人已经达成合作；</p><p>还有一些在做开源尝试。<br><a href="https://github.com/imClumsyPanda/langchain-ChatGLM">langchain-ChatGLM</a> 这个开源项目，是我最近比较关注的一个开源项目，他就是本地知识库的开源尝试，LLM 默认选用的是清华大学的 <strong>ChatGLM-6B</strong>：<br>项目地址：<a href="https://github.com/imClumsyPanda/langchain-ChatGLM">https://github.com/imClumsyPanda/langchain-ChatGLM</a></p><p><img src="https://img.struy.cn/img/202305291058498.png"><br>(⬆️langchain-ChatGLM 项目 README)</p><h2 id="AI编程，效率至上"><a href="#AI编程，效率至上" class="headerlink" title="AI编程，效率至上"></a>AI编程，效率至上</h2><p>AI编程不用说了，作为程序员，这个效率工具高低得整一个吧。片头提到的书签合集里包含了编码相关的几个插件，几乎都试用过了哈，编程效率的确提升了不少，主要是一些体力活和常见的逻辑他能及时给你提示，免去你费力敲一堆的代码。</p><p>我现在主力使用的 ChatGPT 生成完整代码，主要是独立的脚本这类 + Github Copilot 基于注释自动补全一些逻辑代码，GPT API 快到期了，后续准备使用 Claude、Bing 继续白嫖。</p><iframe src="//player.bilibili.com/player.html?bvid=BV1em4y1y7cC&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="450" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><p><a href="https://www.bilibili.com/video/BV1em4y1y7cC">B站视频地址</a></p><p>不过说实话，一站式的 AI 代码还得是 Cursor 给力，但是我对付费这件事很谨慎，没有搞，谁搞了可以交流下效果。</p><p>（下面是很早前的版本了，现在已经改版，可能不再适用）</p><iframe src="//player.bilibili.com/player.html?bvid=BV1mX4y1R7dR&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="450" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><p><a href="https://www.bilibili.com/video/BV1mX4y1R7dR">B站视频地址</a></p><h2 id="AI影音，数字人卖货到底有没有人买？"><a href="#AI影音，数字人卖货到底有没有人买？" class="headerlink" title="AI影音，数字人卖货到底有没有人买？"></a>AI影音，数字人卖货到底有没有人买？</h2><p>这个问题实际上不好，因为卖货能不能卖和是不是数字人没关系，我有需求就会买，数字人可以增加直播间的活跃度，毕竟只要有电和设备就能7x24一直播，不过平台要全是数字人，可能那时候大家更希望能看到真人直播，互动性肯定比数字人要强。</p><p>但是群体就是很奇怪，总是有人买单的，所以无所谓数字人，也无所谓什么网红，只要能给平台带来利润，或许热度就是第一位的。平台希望你卖的越多越好。我管你是不是数字人还是真人。</p><p>在技术上，在数字人、AI影片也有很多解决方案，比如：</p><ul><li>d-id(<a href="https://www.d-id.com/">https://www.d-id.com/</a>)</li><li>runway(<a href="https://runwayml.com/">https://runwayml.com/</a>)</li></ul><p>甚至于开源的解决方案也有很多，比如</p><ul><li>sadtalker（<a href="https://sadtalker.github.io/%EF%BC%89">https://sadtalker.github.io/）</a></li></ul><p>基于图片+音频就能生成一张会说话的视频，如下视频所示：<br>（科技真神奇啊）</p><video id="video" width="100%" controls preload poster="https://img.struy.cn/img/202305291105700.png">      <source id="mp4" src="https://raw.githubusercontent.com/sadtalker/sadtalker.github.io/main/static/videos/chinese_speaker.mp4" type="video/mp4"></video><p>就这吧，不想写了，睡觉，记得关注我，然后一键三连，在看、点赞、加星标。</p><p><img src="https://img.struy.cn/img/202304212313285.png"></p><p>这样我才有动力继续更新嘛哈哈哈。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近两周冷静下来了，而且个人状况因为二阳有所影响，没有过多关注这些AI工具；前两天给公司伙伴分享的契机，整理了一下这两个月用过的一些AI工具，部分是日常工作也在使用的，部分是偶尔使用（实际上太多了反而觉得不知所措，找合适的提高日常工作效率就行了）&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="AIGC" scheme="https://struy.cn/categories/AIGC/"/>
+    
+    
+    <category term="AIGC" scheme="https://struy.cn/tags/AIGC/"/>
+    
+    <category term="工具" scheme="https://struy.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="AI编码" scheme="https://struy.cn/tags/AI%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思考｜人是环境的反应器</title>
+    <link href="https://struy.cn/2023/05/28/person-and-env/"/>
+    <id>https://struy.cn/2023/05/28/person-and-env/</id>
+    <published>2023-05-28T07:29:13.000Z</published>
+    <updated>2023-05-29T02:35:11.200Z</updated>
+    
+    <content type="html"><![CDATA[<p>人是环境的反应器，在看张小龙的《微信背后的产品观》时对这句话尤为深刻。时常我都会想起这句话。<br>人的这个特性在很多地方都会尽显：<strong>思考，情绪，决定…</strong></p><p>人在不同场景下会做出不同的反应，不同的思考，比如此时外面蝉鸣鸟叫，烈日炎炎。看了一会书有点困了；睡下前那一刻又写了这一篇。</p><p>我想聊的是记录；<strong>随时随地的记录。</strong></p><p><strong>“随时随地”</strong> 就是一个不停变化的环境，以前很少有这样的感受：<strong>要把这一刻记录下来，才有意义。</strong></p><p>最近使用 <strong>墨问便签</strong> 开始随手记录之后，逐渐感受到，<strong>如果不记录，你刚才那一秒的思考可能会就这样丢失了。</strong><br>你记录下这关键的思考，上下文有可能被记录下来。以后你再翻到也许可以想起这一刻<strong>产生更多新的反应和思考。</strong></p><p>以前一直说写文章，但因为工作原因（找的借口），一直都只是空想，或者提笔不知如何继续多次反复就作罢了。</p><p>现在想想，在当时的场景下，也许那些文章是有意义的，不论是技术，方案，代码。但是过去那么久之后，那些可能早已过时；</p><p><strong>所以为什么不就在那一刻就写下来，那时环境还在、土壤依然肥沃。</strong></p><p>好在，<strong>你随时都可以有新想法，随时都会处于一个新环境，就在接下来这一秒开始也不晚，记录此刻，无问西东。</strong></p><p>—— 2023年5月28日 下午 3:29 老杨<br><a href="https://mp.weixin.qq.com/s/mtWCn_6yj5nDoB8MmAA8EA">同时发布在公众号，点此前往</a><br>同时发布在墨问便签，推荐使用墨问便签，扫图底部二维码进入：<br><img src="https://img.struy.cn/img/202305291033888.png" alt="墨问便签"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;人是环境的反应器，在看张小龙的《微信背后的产品观》时对这句话尤为深刻。时常我都会想起这句话。&lt;br&gt;人的这个特性在很多地方都会尽显：&lt;strong&gt;思考，情绪，决定…&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;人在不同场景下会做出不同的反应，不同的思考，比如此时外面蝉鸣鸟叫，烈日炎炎</summary>
+      
+    
+    
+    
+    <category term="认知提升" scheme="https://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
+    
+    
+    <category term="观点" scheme="https://struy.cn/tags/%E8%A7%82%E7%82%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>杂谈｜梦回学生时代</title>
+    <link href="https://struy.cn/2023/05/27/dream-to-student-days/"/>
+    <id>https://struy.cn/2023/05/27/dream-to-student-days/</id>
+    <published>2023-05-27T02:16:45.000Z</published>
+    <updated>2023-05-29T02:24:39.239Z</updated>
+    
+    <content type="html"><![CDATA[<p>这会夜深了，窗外悉悉的能听到蟋蟀在叫，说一下今天中午梦幻的情绪。<br>—— 于2023年5月27日 夜<br>今天去考了一场没有准备的试，分上午场和下午场，中午吃完饭看时间还充裕，于是在周围剪了个头发，还是按照老样子。</p><p>不过这次我特意让理发师给我剪的成熟一点哈哈哈，和理发师也聊了不少关于发型、关于理发店，很快，哗啦啦的20来分钟就剪完了，一个多月没剪的头发，一下清爽了不少。</p><p>剪完头发一看手机，还有一个多小时才开始考试，但这时考场还是封闭状态，没有办法进入；外面很热，只能到树荫下乘凉刷手机。<br>中午的这个点，放到平常上班都在睡午觉了，天气太热不停的喝水，所以当时我很想做两件事：上厕所和睡觉</p><p>没一会，距离考试还有30来分钟了，可以进场了，快步跑上三楼右拐的卫生间上个厕所；<br><strong>卧槽！！！怎么没有小便池？</strong> 慌乱中才发现跑到了女厕所，太尴尬了，还好及时发现，不然刚好碰到人出来就尴尬了（那我岂不是要被当变态抓起来？）<br>赶紧快步跑出，老脸微红；这时候出门刚好碰到女生进来（感觉有点尴尬，人没说啥，略带微笑？）<br>解决完急事，还有20来分钟时间开始考试，我选择了进入考场吹风扇；外面真的热化了</p><p>进入考场我坐在那适合小学生的凳子小桌，显得格外拥挤，手机上交了很无聊，困意来袭趴在桌子上就睡着了…zzzz</p><p>不知何时，猜想应该睡了十分钟吧：<br>惺忪抬头懵逼四下张望，看到整齐划一的桌椅板凳，写着粉笔字的黑板上方是八个励志大字，我已经记不太清楚写的什么。<br>黑板右侧是值日表和班规张贴的地方，周围还扎了一圈艳色的花。</p><p><strong>头顶有四扇大风扇像无人机的螺旋桨要把教室抬飞</strong></p><p>有那么一瞬间<strong>觉得自己回到的学生时代午睡醒来的教室</strong>，所以我开始仔细观察起来周围：<br>我那张课桌上写满了横七竖八的字，有的是刻在上面的，有的是签字笔写的，还有些英文：</p><p>我依稀记得这么几句：<br><strong>xxx 我老婆</strong><br><strong>坂田黑长直天花板</strong><br><strong>My King Never Die！！！</strong><br><strong>萝莉YYDS</strong><br>额，这是小学生的课桌吗？怎么像B站的弹幕？</p><p>左右两边边的墙上挂着那种名人名言曰：<br>左：<br><strong>宝剑锋从磨砺出</strong><br><strong>梅花香自苦寒来</strong><br>右：<br><strong>努力到无能无力</strong><br><strong>拼搏到感动自己</strong><br>左边的像是我那个年代引用的话，但右边的怎么更像网络名言？<br>感动自己这件事，说起来有点褒贬半参。结果不会因为感动自己而改变，现在的我越发觉得方法更加重要。</p><p>转眼来到右边墙上，贴满了一墙名为“<strong>让愿望起飞</strong>”的每个学生的愿望，每个学生有一张照片和几行愿望整齐地排列成了三排。<br>我只记得两个：<br>A：瘦下来、希望拥有一台iPhone、希望能上英才班、期望有毕业旅行<br>B：希望有一台手机、考上好的中学 ….</p><p>我左手撑着沉重的脑袋，就在想，小时候我那些愿望有没有都实现，似乎已经完全遗忘在小时候了。<br>时间的浪潮推着我们走了很远很远了，模糊不清的时光你还记得清吗？</p><p>想这一会，时间过去的也差不多了，头顶的风扇还在呼啦啦的吹，渐渐我的困意也被这清凉消除了，这时候铃响了。<strong>又要迈向下一场，下一场</strong></p><p>“好，大家看一下啊，这个试卷是没有拆封的啊…”<br>广播：“开始考试。”</p><p><img src="https://img.struy.cn/img/202305291024863.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这会夜深了，窗外悉悉的能听到蟋蟀在叫，说一下今天中午梦幻的情绪。&lt;br&gt;—— 于2023年5月27日 夜&lt;br&gt;今天去考了一场没有准备的试，分上午场和下午场，中午吃完饭看时间还充裕，于是在周围剪了个头发，还是按照老样子。&lt;/p&gt;
+&lt;p&gt;不过这次我特意让理发师给我剪的成熟一点</summary>
+      
+    
+    
+    
+    <category term="杂谈" scheme="https://struy.cn/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>阅读｜如何找到自己的长处？</title>
@@ -136,9 +209,9 @@
     
     <category term="AIGC" scheme="https://struy.cn/tags/AIGC/"/>
     
-    <category term="Github Copilot" scheme="https://struy.cn/tags/Github-Copilot/"/>
-    
     <category term="AI编码" scheme="https://struy.cn/tags/AI%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="Github Copilot" scheme="https://struy.cn/tags/Github-Copilot/"/>
     
   </entry>
   
