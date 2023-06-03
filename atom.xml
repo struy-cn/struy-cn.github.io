@@ -6,7 +6,7 @@
   <link href="https://struy.cn/atom.xml" rel="self"/>
   
   <link href="https://struy.cn/"/>
-  <updated>2023-05-29T03:10:31.942Z</updated>
+  <updated>2023-06-03T05:28:53.108Z</updated>
   <id>https://struy.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>工具｜ILLA Cloud 低代码开发工具</title>
+    <link href="https://struy.cn/2023/06/03/illa-cloud-good/"/>
+    <id>https://struy.cn/2023/06/03/illa-cloud-good/</id>
+    <published>2023-06-03T05:23:51.000Z</published>
+    <updated>2023-06-03T05:28:53.108Z</updated>
+    
+    <content type="html"><![CDATA[<p>或许你可以更高效的构建 WEB 应用；分钟级开发，轻松搭建内部工具和数据报表；今天我来介绍一款开源的低代码工具，<a href="https://github.com/illacloud/illa-builder">ILLA</a>。</p><p><img src="https://img.struy.cn/img//1685767941978-960568c5-25d7-4219-8f1b-c555aab3ed9c.jpg" alt="ILLA Cloud  低代码开发工具"></p><iframe src="//player.bilibili.com/player.html?bvid=BV1oL411q7HB&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="450" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><p><a href="https://www.bilibili.com/video/BV1oL411q7HB">本文B站视频地址</a></p><h3 id="Github-高星"><a href="#Github-高星" class="headerlink" title="Github 高星"></a>Github 高星</h3><p><a href="https://illacloud.com/">ILLA Cloud</a> 是一个开源低代码开发者工具，去年 9 月在 Github 上线以来已经收获了 6千多个 Star。</p><p><img src="https://img.struy.cn/img//1685767844446-e8ab5b40-ec22-456c-9389-abe37e67c075.png" alt="illa-builder 仓库"></p><h3 id="一拖一拉快速开发"><a href="#一拖一拉快速开发" class="headerlink" title="一拖一拉快速开发"></a>一拖一拉快速开发</h3><p>其主要亮点是拖拉拽的方式通过组件库构建页面布局，并且支持多页面布局，其有丰富的UI组件，比如表格，图表，地图等，绝对能满足你的各类业务需求。</p><p><img src="https://img.struy.cn/img//1685768382238-573f0c66-c51f-411a-a73a-22c5a9be9c93.png" alt="丰富的页面组件"></p><h3 id="多样数据源"><a href="#多样数据源" class="headerlink" title="多样数据源"></a>多样数据源</h3><p>还可以通过页面操作的方式来快速链接多样的数据源，比如 <code>PostgreSQL</code>、<code>MySQL</code>、<code>ClickHouse</code>、<code>Elastic Search</code> 等常见数据源。</p><p><img src="https://img.struy.cn/img//1685768429474-d0ff9a24-3227-4156-878d-d858f8882649.png" alt="多样的数据源"></p><h3 id="智能-SQL"><a href="#智能-SQL" class="headerlink" title="智能 SQL"></a>智能 SQL</h3><p>在页面可以通过 AI 结合你提供的 语言描述 生成需要的 SQL 语句，提高数据开发效率。</p><p><img src="https://img.struy.cn/img//1685768585231-1eb524f6-21a7-4caa-a8f5-da00b32ec696.png" alt=" AI 智能生成 SQL，提高效率"></p><p><img src="https://img.struy.cn/img//1685768706979-447f0605-0825-4460-ae87-44e76038773d.png" alt=" AI 智能生成 SQL，提高效率"></p><h3 id="Hugging-Face-API-支持"><a href="#Hugging-Face-API-支持" class="headerlink" title="Hugging Face API 支持"></a>Hugging Face API 支持</h3><p>值得一提的是：工具支持 Hugging Face API 的接入，可以快速调用多种大模型，从而实现有AI能力的工具快速开发。</p><p><img src="https://img.struy.cn/img//1685768903204-4fecf826-018d-45ac-a31a-dbaf5e7e224a.png" alt="Hugging Face API 支持，为应用加持 AI 能力"></p><h3 id="灵活部署"><a href="#灵活部署" class="headerlink" title="灵活部署"></a>灵活部署</h3><p>ILLA Cloud 还有领先的协作功能，用户可以在这里通过协作方式快速构建页面布局；另外它还提供了丰富的页面模板和专业的文档。支持 云端体验和私有化部署</p><p><img src="https://img.struy.cn/img//1685768795269-02bf9bdd-874e-4442-99b5-3c8cbe86af3d.png" alt="灵活部署"></p><p>如果你对 ILLA Cloud 感兴趣，就赶快点击下面的链接，免费使用吧，让我们的开发更高效！</p><p>我是 StruggleYang，关注我了解更多有价值的内容</p><p><img src="https://img.struy.cn/img/202304212313285.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;或许你可以更高效的构建 WEB 应用；分钟级开发，轻松搭建内部工具和数据报表；今天我来介绍一款开源的低代码工具，&lt;a href=&quot;https://github.com/illacloud/illa-builder&quot;&gt;ILLA&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;ht</summary>
+      
+    
+    
+    
+    <category term="生产力工具" scheme="https://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="https://struy.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="低代码" scheme="https://struy.cn/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>AI｜用过的AI工具都给你整理好了</title>
@@ -461,11 +488,11 @@
     
     
     
-    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
     <category term="DDD" scheme="https://struy.cn/tags/DDD/"/>
     
     <category term="领域驱动设计" scheme="https://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
@@ -486,13 +513,13 @@
     
     
     
-    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
     <category term="DDD" scheme="https://struy.cn/tags/DDD/"/>
     
     <category term="领域驱动设计" scheme="https://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
     
     <category term="EventBus" scheme="https://struy.cn/tags/EventBus/"/>
+    
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
