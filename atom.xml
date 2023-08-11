@@ -6,7 +6,7 @@
   <link href="https://struy.cn/atom.xml" rel="self"/>
   
   <link href="https://struy.cn/"/>
-  <updated>2023-06-03T05:28:53.108Z</updated>
+  <updated>2023-08-11T14:54:47.755Z</updated>
   <id>https://struy.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对比图像内容差异并标记</title>
+    <link href="https://struy.cn/2023/08/12/diff-images/"/>
+    <id>https://struy.cn/2023/08/12/diff-images/</id>
+    <published>2023-08-12T14:53:55.000Z</published>
+    <updated>2023-08-11T14:54:47.755Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天在一个群里，一个兄弟发起了一个讨论，两个线路板的图片，怎么能对比出两者的不同之处。</p><p><img src="https://img.struy.cn/img//1691747434297-487da19b-7520-4566-a091-0578ef368cfe.png"></p><p>这里我暂时假设两张图片都是像素大小差不多标准化的图像，内容只有<code>细微差异</code>（想一下如果差异太大，那还对比啥呢？）</p><p>大胆猜测一下大概率用于生产过程中的质量控制或者分类等场景；只要找到些许不同，人眼应该就能一眼判断是否需要继续下一步操作，所以找到不同之处之后还需要<code>标记</code>。</p><blockquote><p>这不就是以前我们常玩的游戏找不同吗？</p></blockquote><p><img src="https://img.struy.cn/img//1691761201394-7269dc6e-767d-4a31-bad1-f41e21e696b5.png"></p><h2 id="让ChatGPT为我们工作"><a href="#让ChatGPT为我们工作" class="headerlink" title="让ChatGPT为我们工作"></a>让ChatGPT为我们工作</h2><p>因为没有专门学习这方面的知识，所以尝试问了一下 ChatGPT ，并检查它生成的代码是否能直接运行。</p><p>需求：<br><strong>输入两张图，对比差异，标记差异</strong></p><p>由于我的确不知道需要使用什么库去做就不限定使用库了，直接说需求。</p><p><strong>问</strong>：<br><code>请使用 Python 编写一个程序，对比两张图片，并在后一张图上标记出差异</code></p><p><strong>ChatGPT答</strong>:<br><code>要使用Python比较两张图并在后一张图上标记差异，你可以使用OpenCV和Matplotlib库。下面是一个简单的示例代码：</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compare_images</span>(<span class="params">image1, image2</span>):</span><br><span class="line">    <span class="comment"># 加载两张图像</span></span><br><span class="line">    img1 = cv2.imread(image1)</span><br><span class="line">    img2 = cv2.imread(image2)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将图像转换为灰度图</span></span><br><span class="line">    gray1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    gray2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算两张图像的差异</span></span><br><span class="line">    diff = cv2.absdiff(gray1, gray2)</span><br><span class="line">    _, threshold = cv2.threshold(diff, <span class="number">30</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查找差异的轮廓</span></span><br><span class="line">    contours, _ = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在第二张图像上绘制差异的轮廓</span></span><br><span class="line">    marked_image = img2.copy()</span><br><span class="line">    <span class="keyword">for</span> contour <span class="keyword">in</span> contours:</span><br><span class="line">        (x, y, w, h) = cv2.boundingRect(contour)</span><br><span class="line">        cv2.rectangle(marked_image, (x, y), (x + w, y + h), (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 显示图像</span></span><br><span class="line">    plt.subplot(<span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">    plt.imshow(cv2.cvtColor(img1, cv2.COLOR_BGR2RGB))</span><br><span class="line">    plt.title(<span class="string">&#x27;Image 1&#x27;</span>)</span><br><span class="line">    plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    plt.subplot(<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">    plt.imshow(cv2.cvtColor(img2, cv2.COLOR_BGR2RGB))</span><br><span class="line">    plt.title(<span class="string">&#x27;Image 2&#x27;</span>)</span><br><span class="line">    plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    plt.subplot(<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">    plt.imshow(cv2.cvtColor(marked_image, cv2.COLOR_BGR2RGB))</span><br><span class="line">    plt.title(<span class="string">&#x27;Differences&#x27;</span>)</span><br><span class="line">    plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    plt.tight_layout()</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较两张图像并标记出差异</span></span><br><span class="line">compare_images(<span class="string">&#x27;image1.png&#x27;</span>, <span class="string">&#x27;image2.png&#x27;</span>)</span><br></pre></td></tr></table></figure><p><code>请确保已安装所需的库（OpenCV和Matplotlib），并将image1.png和image2.png替换为你要比较的实际图像的文件路径。此代码将显示两张原始图像以及第二张图像上标记出的差异。</code></p><h2 id="验证程序"><a href="#验证程序" class="headerlink" title="验证程序"></a>验证程序</h2><p>1、拷贝程序代码到脚本文件，命名为<code>diffimg.py</code></p><p>2、安装必要的依赖库，主要是  <code>OpenCV</code>  进行图像 <code>diff</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install opencv-python</span><br></pre></td></tr></table></figure><p>3、找一张图拷贝一份，并对任意一张图像做任意修改，并分别命名为程序所需命名 <code>image1.png</code> 和 <code>image2.png</code></p><p><img src="https://img.struy.cn/img//1691762118598-9183b5b4-1d2d-449b-a287-919e6cb36111.png" alt="增加一个小红点，人眼很容易看的出来"></p><p>4、执行脚本 <code>diffimg.py</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 diffimg.py</span><br></pre></td></tr></table></figure><p><img src="https://img.struy.cn/img//1691762430892-8542c727-152a-49c9-87fa-a5f8f084fb0d.png" alt="运行对比结果，效果不错"></p><p>5、增加点难度，找一个找不同游戏里的照片进行对比，看看答案是否正确</p><p><img src="https://img.struy.cn/img//1691762645342-62af98a0-f1c7-4ad9-ac4d-963c53c7d6a3.png" alt="还是很精准的"></p><p>改一改就能用了哦吼。</p><p>我是 StruggleYang，感谢关注</p><p><img src="https://img.struy.cn/img/202304212313285.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天在一个群里，一个兄弟发起了一个讨论，两个线路板的图片，怎么能对比出两者的不同之处。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.struy.cn/img//1691747434297-487da19b-7520-4566-a091-0578ef368cfe</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>工具｜ILLA Cloud 低代码开发工具</title>
@@ -488,11 +509,11 @@
     
     
     
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
     <category term="DDD" scheme="https://struy.cn/tags/DDD/"/>
     
     <category term="领域驱动设计" scheme="https://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
-    
-    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
@@ -513,13 +534,13 @@
     
     
     
+    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
     <category term="DDD" scheme="https://struy.cn/tags/DDD/"/>
     
     <category term="领域驱动设计" scheme="https://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/"/>
     
     <category term="EventBus" scheme="https://struy.cn/tags/EventBus/"/>
-    
-    <category term="Dapeng微服务" scheme="https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
