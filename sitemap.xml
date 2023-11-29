@@ -332,7 +332,7 @@
   </url>
   
   <url>
-    <loc>https://struy.cn/tags/%E6%91%98%E5%BD%95/</loc>
+    <loc>https://struy.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -340,6 +340,13 @@
   
   <url>
     <loc>https://struy.cn/tags/AIGC/</loc>
+    <lastmod>2023-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://struy.cn/tags/AI%E7%BC%96%E7%A0%81/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -374,14 +381,7 @@
   </url>
   
   <url>
-    <loc>https://struy.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2023-11-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://struy.cn/tags/AI%E7%BC%96%E7%A0%81/</loc>
+    <loc>https://struy.cn/tags/%E6%91%98%E5%BD%95/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -423,14 +423,14 @@
   </url>
   
   <url>
-    <loc>https://struy.cn/tags/Github-Copilot/</loc>
+    <loc>https://struy.cn/tags/Git/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://struy.cn/tags/Git/</loc>
+    <loc>https://struy.cn/tags/Github-Copilot/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -551,6 +551,13 @@
 
   
   <url>
+    <loc>https://struy.cn/categories/AIGC/</loc>
+    <lastmod>2023-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -558,7 +565,7 @@
   </url>
   
   <url>
-    <loc>https://struy.cn/categories/AIGC/</loc>
+    <loc>https://struy.cn/categories/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -573,13 +580,6 @@
   
   <url>
     <loc>https://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2023-11-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://struy.cn/categories/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2023-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
