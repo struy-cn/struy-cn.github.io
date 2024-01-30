@@ -39,10 +39,10 @@ https://struy.cn/tags/DDD/
 https://struy.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/
 https://struy.cn/tags/EventBus/
 https://struy.cn/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/
-https://struy.cn/tags/%E6%91%98%E5%BD%95/
 https://struy.cn/tags/AIGC/
 https://struy.cn/tags/Stable-Diffusion/
 https://struy.cn/tags/AI%E7%BB%98%E5%9B%BE/
+https://struy.cn/tags/%E6%91%98%E5%BD%95/
 https://struy.cn/tags/%E5%B7%A5%E5%85%B7/
 https://struy.cn/tags/AI%E7%BC%96%E7%A0%81/
 https://struy.cn/tags/CICD/
@@ -74,8 +74,8 @@ https://struy.cn/tags/Docker/
 https://struy.cn/tags/Vue/
 https://struy.cn/tags/%E7%94%B5%E5%BD%B1/
 https://struy.cn/categories/%E8%AF%BB%E4%B9%A6/
-https://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/
 https://struy.cn/categories/AIGC/
+https://struy.cn/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/
 https://struy.cn/categories/%E6%9D%82%E8%B0%88/
 https://struy.cn/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/
 https://struy.cn/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/
