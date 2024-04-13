@@ -6,7 +6,7 @@
   <link href="https://struy.cn/atom.xml" rel="self"/>
   
   <link href="https://struy.cn/"/>
-  <updated>2024-01-30T01:39:10.070Z</updated>
+  <updated>2024-04-13T15:43:40.588Z</updated>
   <id>https://struy.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我发布了一个浏览器插件，Nice NewTab</title>
+    <link href="https://struy.cn/2024/04/13/nicenewtab-com/"/>
+    <id>https://struy.cn/2024/04/13/nicenewtab-com/</id>
+    <published>2024-04-13T15:38:51.000Z</published>
+    <updated>2024-04-13T15:43:40.588Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Nice-NewTab"><a href="#Nice-NewTab" class="headerlink" title="Nice NewTab"></a>Nice NewTab</h2><p>官网：<a href="https://nicenewtab.com/zh/">Nice NewTab | 极简新标签页插件</a><br>Chrome 插件商店下载：<a href="https://chromewebstore.google.com/detail/icdelibkfnkghpbknlpilccddfeiiece">Chrome 插件详情页</a><br>也可以在官网下载 crx 文件安装到 Edge 或者其他 Chromium 内核浏览器（没有测试）<br>版本：0.0.1</p><h2 id="Why？"><a href="#Why？" class="headerlink" title="Why？"></a>Why？</h2><p>为什么开发这个插件？</p><p>1、媳妇需要一个有强提醒的番茄钟插件[每天工作大部分在 Web 上]<br>2、其他的新标签和番茄钟插件太花里胡哨<br>3、了解浏览器插件开发的流程【一个插件如何研发到上线】<br>4、完全按照自己的想法去做一些小的美的【作品】</p><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>第一个版本很简单：<br>1、🌟一个简单的新标签页，搜索，时钟，番茄钟<br>2、📷几张内置的壁纸，其中部分来自 unsplash，一张来自墨问“单仁”老师<br>3、🔍一个默认的搜索框（暂时支持必应、谷歌）<br>4、💬一段内置的金句引用<br>5、✍️快速设定每日目标<br>6、🍅快速开始番茄钟<br>7、📢番茄钟完成后的强提醒（通知，声音，已打开标签页的遮罩提醒）<br>8、🔐暂时所有功能不联网，隐私安全</p><hr><p>后续版本会支持更多自定义（如壁纸与搜索还有我不告诉你的）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Nice-NewTab&quot;&gt;&lt;a href=&quot;#Nice-NewTab&quot; class=&quot;headerlink&quot; title=&quot;Nice NewTab&quot;&gt;&lt;/a&gt;Nice NewTab&lt;/h2&gt;&lt;p&gt;官网：&lt;a href=&quot;https://nicenewtab.com</summary>
+      
+    
+    
+    
+    <category term="插件" scheme="https://struy.cn/categories/%E6%8F%92%E4%BB%B6/"/>
+    
+    
+    <category term="Nice NewTab" scheme="https://struy.cn/tags/Nice-NewTab/"/>
+    
+  </entry>
   
   <entry>
     <title>2023年读过的书</title>
