@@ -6,7 +6,7 @@
   <link href="https://struy.cn/atom.xml" rel="self"/>
   
   <link href="https://struy.cn/"/>
-  <updated>2024-04-13T15:43:40.588Z</updated>
+  <updated>2024-05-25T02:30:57.249Z</updated>
   <id>https://struy.cn/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用本地大模型(llama3)进行数据分类标记｜LLM 用例</title>
+    <link href="https://struy.cn/2024/05/25/local-large-models-for-data-classification/"/>
+    <id>https://struy.cn/2024/05/25/local-large-models-for-data-classification/</id>
+    <published>2024-05-25T02:15:40.000Z</published>
+    <updated>2024-05-25T02:30:57.249Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="001｜背景"><a href="#001｜背景" class="headerlink" title="001｜背景"></a>001｜背景</h2><p>这是我最新发布的导航站点 <a href="https://aiwith.me/">https://aiwith.me</a></p><p>这个站点由于第一版数据来源于第三方，只有站点基础数据，没有对数据进行分类，最近站点上线了，主体框架都搭建完成了，这才有空去对数据做分类. 目前的快捷筛选，完全依靠关键字匹配检索。</p><p>前期为了快速上线，直接拿到词频相对较高和常用的词语进行筛选。<br>这样过于粗暴，而且有时候不太准确。</p><p><img src="https://img.struy.cn/img/202405251017387.png" alt="AI WITH.ME 关键字筛选"></p><h2 id="002｜分类方案"><a href="#002｜分类方案" class="headerlink" title="002｜分类方案"></a>002｜分类方案</h2><p>数据量多了之后，这样的筛选会越来越不准确，有时候站点信息没有这些关键字，但分类上是一致的。<br>为更好的把站点按照类型区分，我想了这些办法：</p><p>1、人工标记 - 历史数据太多了，太费时（）<br>2、通过大模型去分类 - Kimi 或者 ChatGPT-3.5<br>3、通过本地大模型去分类-正好测试一下本地大模型的性能和准确性如何。</p><p>最后选择了第三种方案，因为不需要 API 成本，并且可以试试本地模型性能！</p><h2 id="003｜使用-Ollma-运行本地模型"><a href="#003｜使用-Ollma-运行本地模型" class="headerlink" title="003｜使用 Ollma 运行本地模型"></a>003｜使用 Ollma 运行本地模型</h2><p>使用 Ollma 来快捷的运行本地大模型：<br><a href="https://aiwith.me/tools/ollama-com">ollama 介绍</a><br><a href="https://ollama.com/">https://ollama.com/</a></p><p><img src="https://img.struy.cn/img/202405251020079.png" alt="ollama 官网截图"></p><p>Ollma 支持运行的常见模型：<br><a href="https://github.com/ollama/ollama">https://github.com/ollama/ollama</a></p><p><img src="https://img.struy.cn/img/202405251021428.png" alt="Ollma 支持运行的常见模型列表"></p><p><img src="https://img.struy.cn/img/202405251021856.png" alt="这里我们使用最新的 llama3"></p><p>下载 安装 Ollma 后，运行可以按照官网的命令 ollama run [模型名字]</p><p><img src="https://img.struy.cn/img/202405251022979.png" alt="本地运行Ollma+llama3"></p><h2 id="004｜使用-API-调用模型"><a href="#004｜使用-API-调用模型" class="headerlink" title="004｜使用 API 调用模型"></a>004｜使用 API 调用模型</h2><p>命令行可以支持对话，但是我有 800 条数据要跑，我不可能在这个窗口完成。所以这就需要用 ollma 的 API 执行。</p><p>默认情况下，ollma 的 API 端点在11434端口，如果你没有启动的话，执行以下命令。<br><img src="https://img.struy.cn/img/202405251023855.png" alt="ollma 的 API 端点启动命令"></p><p>参考 API 文档：<br><a href="https://github.com/ollama/ollama/blob/main/docs/api.md">https://github.com/ollama/ollama/blob/main/docs/api.md</a></p><p><img src="https://img.struy.cn/img/202405251024428.png" alt="ollma 常用 API"></p><p>因为不需要对话和记忆，只要文本生成就是了，所以我们选择 <code>/api/generate</code> 端点。</p><p>需要处理的数据结构如下：<br><img src="https://img.struy.cn/img/202405251025627.png" alt="AI WITH.ME 站点数据"></p><h2 id="005｜编写提示词-调试提示词"><a href="#005｜编写提示词-调试提示词" class="headerlink" title="005｜编写提示词&amp;调试提示词"></a>005｜编写提示词&amp;调试提示词</h2><p>这个过程实际上挺麻烦的，我前前后后写了四版提示词，进行测试。<br>主要诉求是：通过我给出的已知网站信息，给出最符合我限定范围内的分类。</p><p>随便来段 Python 代码，批量执行数据。进行提示词的调试。<br><img src="https://img.struy.cn/img/202405251025232.png" alt="调用 ollma API，提示词在payload 里"></p><p><img src="https://img.struy.cn/img/202405251027579.png" alt="对数据做分类的提示词"></p><p>1、使用 llama3 模型并禁用流输出，默认是流输出，为了序列化方便，我们一次调用一次性获得结果即可。<br>2、将已知的网站信息，主要是描述信息给到大模型，参照以下上面的数据结果，大约 800 +个类似的数据<br>3、限定输出的格式为 JSON 数组，便于编程使用（也可以直接更新数据写到新的 JSON 文件）</p><p><em>遇到的问题：</em><br>在最终版本确认之前改几次，几乎很多站点都分类到了 <code>Code&amp;IT</code> 这个分类，这是为啥呢？<br>后来我分析了一下，因为我的站点都是 AI 站点，几乎都会出现关键字 AI Power 或者 AI xxx 等词语，这会让它将大部分数据分类为 IT 类。<br>所以我加了一个限定如下：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">All websites are AI-related websites, so don&#x27;t simply add Code&amp;IT or AI classifications, but types that are combined with artificial intelligence, unless it&#x27;s obvious that it&#x27;s code assistant, low-code, or website building, don&#x27;t easily classify them as Code&amp;IT or AI</span><br><span class="line">...</span><br><span class="line">// 翻译如下（实际是最初由中文翻译过去的...）：</span><br><span class="line">所有网站都是与AI相关的网站，所以不要简单地添加Code&amp;IT或AI分类，而是与人工智能相结合的分类，除非很明显是代码助手、低代码或网站建设，否则不要轻易将它们归类为Code&amp;IT或AI</span><br></pre></td></tr></table></figure><h2 id="006-最终运行效果如下"><a href="#006-最终运行效果如下" class="headerlink" title="006 | 最终运行效果如下:"></a>006 | 最终运行效果如下:</h2><p><img src="https://img.struy.cn/img/202405251028068.png" alt="llama3 对数据分类的最终效果"></p><h2 id="007-如何判定分类效果？"><a href="#007-如何判定分类效果？" class="headerlink" title="007 | 如何判定分类效果？"></a>007 | 如何判定分类效果？</h2><p>1、通过搜索与分类标签的交叉验证<br>2、人工随机抽查数据中的分类</p><p><img src="https://img.struy.cn/img/202405251029541.png" alt="分类效果渲染至站点"></p><p>根据我的判定我觉得准确率应该在 80%左右，速度也挺快。<br>本地跑 CPU 20% 左右，一秒一个的样子。</p><p>本文写于：2024年5月23日</p><p><a href="https://note.mowen.cn/note/detail?noteUuid=U7JwbIwWvTtmbkFdaDZks">同时本文发表于墨问</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;001｜背景&quot;&gt;&lt;a href=&quot;#001｜背景&quot; class=&quot;headerlink&quot; title=&quot;001｜背景&quot;&gt;&lt;/a&gt;001｜背景&lt;/h2&gt;&lt;p&gt;这是我最新发布的导航站点 &lt;a href=&quot;https://aiwith.me/&quot;&gt;https://aiwi</summary>
+      
+    
+    
+    
+    <category term="AIGC" scheme="https://struy.cn/categories/AIGC/"/>
+    
+    
+    <category term="LLM" scheme="https://struy.cn/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我发布了一个新网站 AI WITH.ME</title>
+    <link href="https://struy.cn/2024/05/25/ai-with-me-ai-tool-navs/"/>
+    <id>https://struy.cn/2024/05/25/ai-with-me-ai-tool-navs/</id>
+    <published>2024-05-25T01:20:10.000Z</published>
+    <updated>2024-05-25T01:51:13.780Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="000-AI-WITH-ME"><a href="#000-AI-WITH-ME" class="headerlink" title="000&#x2F;AI WITH.ME"></a>000&#x2F;AI WITH.ME</h2><p>访问：<a href="https://aiwith.me/">AI WITH.ME | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI WITH.ME》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://img.struy.cn/img/202405250939136.png" alt="AI WITH.ME官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://img.struy.cn/img/202405250940406.png" alt="AI WITH.ME Dify工作流"></p><p><img src="https://img.struy.cn/img/202405250941151.png" alt="AI WITH.ME Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://img.struy.cn/img/202405250942589.png" alt="AI WITH.ME 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI WITH.ME</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#x69;&#x40;&#x61;&#105;&#x77;&#x69;&#x74;&#104;&#46;&#109;&#x65;">&#x68;&#x69;&#x40;&#x61;&#105;&#x77;&#x69;&#x74;&#104;&#46;&#109;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI WITH.ME 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI WITH.ME | Discover thousands of AI Tools&quot;&gt;AI WITH.ME&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://img.struy.cn/img/202405250943050.png" alt="AI WITH.ME站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://img.struy.cn/img/202405250945193.png" alt="AI WITH.ME Google 收录"></p><p><img src="https://img.struy.cn/img/202405250946811.png" alt="AI WITH.ME 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;000-AI-WITH-ME&quot;&gt;&lt;a href=&quot;#000-AI-WITH-ME&quot; class=&quot;headerlink&quot; title=&quot;000&amp;#x2F;AI WITH.ME&quot;&gt;&lt;/a&gt;000&amp;#x2F;AI WITH.ME&lt;/h2&gt;&lt;p&gt;访问：&lt;a href=&quot;</summary>
+      
+    
+    
+    
+    <category term="AIGC" scheme="https://struy.cn/categories/AIGC/"/>
+    
+    
+    <category term="AIGC" scheme="https://struy.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>我发布了一个浏览器插件，Nice NewTab</title>
