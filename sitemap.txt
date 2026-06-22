@@ -1,3 +1,4 @@
+https://awesomeyang.com/2026/06/22/ai-meme-collection/
 https://awesomeyang.com/2026/06/14/five-chinese-llm-compare/
 https://awesomeyang.com/2026/06/13/glm52-deep-test/
 https://awesomeyang.com/2026/06/16/ai-engineering-four-paradigms/
@@ -133,6 +134,8 @@ https://awesomeyang.com/tags/%E7%94%B5%E5%BD%B1/
 https://awesomeyang.com/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/
 https://awesomeyang.com/tags/MCP/
 https://awesomeyang.com/tags/YC/
+https://awesomeyang.com/tags/%E6%A2%97%E5%9B%BE/
+https://awesomeyang.com/tags/meme/
 https://awesomeyang.com/categories/%E8%AF%BB%E4%B9%A6/
 https://awesomeyang.com/categories/AI/
 https://awesomeyang.com/categories/AIGC/
