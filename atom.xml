@@ -6,7 +6,7 @@
   <link href="https://awesomeyang.com/atom.xml" rel="self"/>
   
   <link href="https://awesomeyang.com/"/>
-  <updated>2026-06-22T15:04:02.020Z</updated>
+  <updated>2026-06-22T15:23:13.118Z</updated>
   <id>https://awesomeyang.com/</id>
   
   <author>
@@ -17,21 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>AI 编程一年后，我的表情包越来越多了</title>
+    <title>Vibe Coding 一年后的生存报告（附程序员梗图合集）</title>
     <link href="https://awesomeyang.com/2026/06/22/ai-meme-collection/"/>
     <id>https://awesomeyang.com/2026/06/22/ai-meme-collection/</id>
     <published>2026-06-22T15:30:00.000Z</published>
-    <updated>2026-06-22T15:04:02.020Z</updated>
+    <updated>2026-06-22T15:23:13.118Z</updated>
     
-    <content type="html"><![CDATA[<p>做 AI 相关的内容做了大半年，有一个意外的收获——我的表情包库变得越来越丰富了。</p><p>有些场景，真的是一张图比一千句话还管用。</p><hr><h2 id="本地模型-vs-Claude-Code"><a href="#本地模型-vs-Claude-Code" class="headerlink" title="本地模型 vs Claude Code"></a>本地模型 vs Claude Code</h2><p>先来一张经典 Drake。</p><p>花一下午调本地模型：环境装好了、依赖通了一半、报了个看不懂的错。</p><p>然后转头用 Claude Code，一句话搞定。</p><p><img src="https://cdn.awesomeyang.com/img/meme_drake.png" alt="Drake 拒绝调本地模型，选择 Claude Code"></p><p>这不是说本地模型不好——实际上本地模型有它不可替代的价值（隐私、离线、自定义）。但坦白说，<strong>在「快速出活」这件事上，Claude Code 目前确实吊打</strong>。</p><hr><h2 id="两难选择"><a href="#两难选择" class="headerlink" title="两难选择"></a>两难选择</h2><p>但真正的问题来了：你现在有两个都很好用的工具，选哪个？</p><p>Two Buttons 模板最适合这种纠结时刻。</p><p><img src="https://cdn.awesomeyang.com/img/meme_buttons.png" alt="Two Buttons: 自己调参 vs 全托管"></p><p>左边自己调模型参数——深度可控、上限高，但费时间。右边直接用 AI 全托管——快，但总觉得少了点什么。</p><hr><h2 id="Change-My-Mind：AI-不会替代程序员"><a href="#Change-My-Mind：AI-不会替代程序员" class="headerlink" title="Change My Mind：AI 不会替代程序员"></a>Change My Mind：AI 不会替代程序员</h2><p>这个观点我已经听过一百遍了：「AI 不会替代程序员。」</p><p>我信。但我更信后面半句：「<strong>但会用 AI 的会替代不会用的。</strong>」</p><p><img src="https://cdn.awesomeyang.com/img/meme_changemymind.png" alt="Change My Mind 观点图"></p><p>这不是贩卖焦虑，这是现实。就像当年 IDE 替代了用记事本写代码的人一样——不是编程消失了，而是效率阈值被抬高了。</p><hr><h2 id="This-Is-Fine：项目明天上线"><a href="#This-Is-Fine：项目明天上线" class="headerlink" title="This Is Fine：项目明天上线"></a>This Is Fine：项目明天上线</h2><p>写代码的时候最经典的场景：项目明天上线，昨天承诺的功能还没写。</p><p>GitHub Actions 还在跑，眼前还有 30 个报错。但心态不能崩。</p><p><img src="https://cdn.awesomeyang.com/img/meme_thisisfine.png" alt="This Is Fine：火烧眉毛但心态良好"></p><p>如果你也觉得这个场景很熟悉，恭喜你——你是合格的程序员了。</p><hr><h2 id="Expanding-Brain：AI-工具链进化史"><a href="#Expanding-Brain：AI-工具链进化史" class="headerlink" title="Expanding Brain：AI 工具链进化史"></a>Expanding Brain：AI 工具链进化史</h2><p>这一年我自己的 AI 使用路径，大概分了四个阶段：</p><p><img src="https://cdn.awesomeyang.com/img/meme_expandingbrain.png" alt="Expanding Brain：从聊天到让模型自己上线"></p><p>第一阶段：只会用 ChatGPT 聊天，跟 AI 唠嗑。<br>第二阶段：开始用 Claude Code &#x2F; Cursor 写代码，AI 变成了副驾驶。<br>第三阶段：搞了一套 AI Agent 工作流，让模型自己规划、执行、验证。<br>第四阶段：模型自个儿写完代码、部署上线、发通知告诉我——我只需要在群里回个 👍。</p><p>每个阶段的跨越，都是对「AI 能做什么」的一次重新认知。</p><hr><h2 id="Distracted-Boyfriend：VS-Code-vs-Cursor"><a href="#Distracted-Boyfriend：VS-Code-vs-Cursor" class="headerlink" title="Distracted Boyfriend：VS Code vs Cursor"></a>Distracted Boyfriend：VS Code vs Cursor</h2><p>工具党最爱的话题。每次有人问「VS Code 还是 Cursor」，我都想起这个模板。</p><p><img src="https://cdn.awesomeyang.com/img/meme_distracted.png" alt="Distracted Boyfriend：程序员看新工具的眼神"></p><p>VS Code 是老朋友，稳定可靠，插件生态丰富。但 Cursor 的 Composer 和 Tab 补全实在太香了。</p><hr><h2 id="Buff-Doge-vs-Cheems：时代的跨越"><a href="#Buff-Doge-vs-Cheems：时代的跨越" class="headerlink" title="Buff Doge vs Cheems：时代的跨越"></a>Buff Doge vs Cheems：时代的跨越</h2><p>十年前的程序员：手写汇编、背指令集、拿十六进制排 bug。</p><p>现在的程序员：全靠 AI 补全写代码，但也不敢删那两行「好像有用但不知道干嘛」的注释。</p><p><img src="https://cdn.awesomeyang.com/img/meme_buffdoge.png" alt="Buff Doge vs Cheems 时代对比"></p><p>没有贬义——工具进化从来都是把复杂的东西封装掉。你现在写 Python 也不需要懂 CPU 指令集了，AI 写代码也是同理。</p><hr><h2 id="Always-Has-Been：糟糕代码的真相"><a href="#Always-Has-Been：糟糕代码的真相" class="headerlink" title="Always Has Been：糟糕代码的真相"></a>Always Has Been：糟糕代码的真相</h2><p>最后来一张压轴的。</p><p>当你 review 代码的时候，看到一坨让人窒息的东西。第一反应：「这代码是 AI 写的吧？」</p><p>但仔细一想……其实写代码这件事，程序员干得也没比 AI 好到哪去。</p><p><img src="https://cdn.awesomeyang.com/img/meme_alwayshasbeen.png" alt="Always Has Been：糟糕代码的本质"></p><p>水平差的程序员写烂代码，水平好的程序员写……也是烂代码，只是烂得高级一点。</p><p>AI 写的烂代码至少有迹可循。人类的烂代码，有时候连原作者都看不懂。</p><hr><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>表情包是程序员最朴素的快乐。</p><p>这一年 AI 工具进化得飞快，写代码的方式变了，跟模型说话的方式变了，甚至「程序员」这个角色本身也在变。但有些东西没变——项目快上线的时候还是会慌，review 到烂代码的时候还是会血压高，看到新工具的时候还是会手痒。</p><p>这可能就是程序员的浪漫吧。</p><p><strong>工具会变，梗图不会。</strong> 🦐</p><hr><p><em>PS：这些梗图全都是虾仔一键生成的。没上 Imgflip 网站、没手动 P 图、没写一行 HTML。Python PIL + 20 个模板 + 中文字体，3 分钟出一打。</em></p>]]></content>
+    <content type="html"><![CDATA[<p>自从 Andrej Karpathy 发明了「Vibe Coding」这个词，程序员的世界就回不去了。</p><p>Vibe Coding 的核心精神：不写代码，只写感觉。告诉 AI 你要什么，它写，你 review，跑通了就上线。写代码这件事正在变成一种……</p><p><strong>氛围。</strong></p><hr><h2 id="什么叫-Vibe-Coding"><a href="#什么叫-Vibe-Coding" class="headerlink" title="什么叫 Vibe Coding"></a>什么叫 Vibe Coding</h2><p>用 Karpathy 的话说：「我完全不碰代码，只是不断跟 AI 说自己的想法，看它的输出，试着运行，把错误贴回去。」</p><p>这个说法在 HN 上引爆了讨论。最近一篇热帖叫《After two years of vibecoding, I’m back to writing by hand》（865 分，634 条评论），作者两年 vibe coding 后的结论是：<strong>手写更爽。</strong></p><p>但这不妨碍 vibe coding 成为一个时代热词。就像「云原生」一样——不管你喜不喜欢，它已经来了。</p><hr><h2 id="梗图时间"><a href="#梗图时间" class="headerlink" title="梗图时间"></a>梗图时间</h2><p>以下梗图，都是虾仔一键生成的。Python PIL + 20 个模板，3 分钟出一打。不涉及任何手动 PS。</p><h3 id="1-Vibe-Coding-的四个阶段"><a href="#1-Vibe-Coding-的四个阶段" class="headerlink" title="1. Vibe Coding 的四个阶段"></a>1. Vibe Coding 的四个阶段</h3><p>从聊天到让模型自己上线，你到了哪一级？</p><p><img src="https://cdn.awesomeyang.com/img/meme_expandingbrain.png" alt="Expanding Brain: AI 工具链进化"></p><p>第一阶段：只会用 ChatGPT 问问题。<br>第二阶段：用 Claude Code &#x2F; Cursor 写代码。<br>第三阶段：搭了一套 Agent 工作流，模型自己规划、执行、验证。<br>第四阶段：跟模型说一句话，代码写完、部署上线、通知发群里。</p><p><strong>跨越每个阶段的标志，是你对「自己还需要写代码吗」这个问题答案的变化。</strong></p><h3 id="2-本地模型-vs-Claude-Code"><a href="#2-本地模型-vs-Claude-Code" class="headerlink" title="2. 本地模型 vs Claude Code"></a>2. 本地模型 vs Claude Code</h3><p>花一下午调本地模型：环境装好了、依赖通了一半、报了个看不懂的错。</p><p>然后转头用 Claude Code，一句话搞定。</p><p><img src="https://cdn.awesomeyang.com/img/meme_drake.png" alt="Drake 选择"></p><p>不是说本地模型不好——隐私、离线、自定义都有价值。但在「快速出活」这件事上，差距确实明显。</p><h3 id="3-选择困难症"><a href="#3-选择困难症" class="headerlink" title="3. 选择困难症"></a>3. 选择困难症</h3><p>现在工具太多了，每天都冒出新的。</p><p><img src="https://cdn.awesomeyang.com/img/meme_buttons.png" alt="Two Buttons 选择"></p><p>左边自己调参——深度可控，但费时间。右边 AI 全托管——快，但总觉得少了点什么。</p><p><strong>程序员的一生，就是不断在「掌控感」和「效率」之间反复横跳的一生。</strong></p><h3 id="4-AI-不会替代程序员"><a href="#4-AI-不会替代程序员" class="headerlink" title="4. AI 不会替代程序员"></a>4. AI 不会替代程序员</h3><p>这句话已经听过一百遍了。但后面半句才是重点：</p><p><img src="https://cdn.awesomeyang.com/img/meme_changemind.png" alt="Change My Mind"></p><p>「AI 不会替代程序员，但会用 AI 的会替代不会用的。」</p><p>这不是焦虑营销——这是效率阈值的抬升。当年用 IDE 的替代了用记事本的，现在用 AI 的替代了不用的。工具在变，规律不变。</p><h3 id="5-项目明天上线"><a href="#5-项目明天上线" class="headerlink" title="5. 项目明天上线"></a>5. 项目明天上线</h3><p><img src="https://cdn.awesomeyang.com/img/meme_thisisfine.png" alt="This Is Fine"></p><p>Git 有 47 个未提交的改动。<br>CI&#x2F;CD 还在跑第 3 次重试。<br>昨天承诺的功能——还没开始写。</p><p><strong>但心态不能崩。This is fine.</strong></p><h3 id="6-VS-Code-vs-Cursor"><a href="#6-VS-Code-vs-Cursor" class="headerlink" title="6. VS Code vs Cursor"></a>6. VS Code vs Cursor</h3><p>Distracted Boyfriend 模板最适合这个场景：</p><p><img src="https://cdn.awesomeyang.com/img/meme_distracted.png" alt="Distracted Boyfriend"></p><p>VS Code 是老朋友——稳定、可靠、插件生态丰富。但 Cursor 的 Tab 补全和 Composer 实在太香了。</p><p>现在还多了 Windsurf 和 Zed AI……选择只会更多。</p><h3 id="7-十年前-vs-现在"><a href="#7-十年前-vs-现在" class="headerlink" title="7. 十年前 vs 现在"></a>7. 十年前 vs 现在</h3><p><img src="https://cdn.awesomeyang.com/img/meme_buffdoge.png" alt="Buff Doge vs Cheems"></p><p>十年前：手写汇编，背指令集，拿十六进制排 bug。<br>现在：全靠 AI 补全写代码，但也不敢删那两行「好像有用但不知道干嘛」的注释。</p><p>工具进化从来都是把复杂的东西封装掉。以前你不需要懂 CPU 指令集也能写 Python，现在你不需要懂所有 API 细节也能 vibe coding。</p><h3 id="8-代码-Review-的真相"><a href="#8-代码-Review-的真相" class="headerlink" title="8. 代码 Review 的真相"></a>8. 代码 Review 的真相</h3><p>最后是全场最真实的一张。</p><p><img src="https://cdn.awesomeyang.com/img/meme_alwayshasbeen.png" alt="Always Has Been"></p><p>当你 review 代码看到一坨离谱的东西：<br>—「这代码是 AI 写的吧？」<br>—「……一直都是。」</p><p>水平差的程序员写烂代码，水平好的程序员写的……也是烂代码，只是烂得更有架构感。</p><p>AI 至少不会在代码里写 <code>// TODO: fix this later</code> 然后一放就是三年。</p><hr><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Vibe Coding 这个词之所以火，是因为它戳中了一个真实的变化：<strong>写代码的方式确实在变。</strong></p><p>以前写代码是「翻译」——把脑子里的逻辑翻译成语言。<br>现在写代码是「对话」——跟 AI 描述你想要的东西，它来翻译。</p><p>以前是 you are what you code。<br>现在是 you are what you prompt。</p><p>工具会变，梗图不会。项目快上线的时候还是会慌，review 到烂代码还是会血压高，看到新工具还是会手痒。</p><p><strong>这可能就是程序员不变的浪漫。</strong> 🦐</p><hr><p><em>PS：以上 8 张梗图，全部由虾仔自动生成。Python PIL + meme 模板库 + 中文字体，零手动 PS。想自己搞一套？<a href="https://github.com/openclaw/openclaw">meme-gen 开源技能</a>拿走不谢。</em></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;做 AI 相关的内容做了大半年，有一个意外的收获——我的表情包库变得越来越丰富了。&lt;/p&gt;
-&lt;p&gt;有些场景，真的是一张图比一千句话还管用。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;本地模型-vs-Claude-Code&quot;&gt;&lt;a href=&quot;#本地模型-vs-Claude-Code</summary>
+    <summary type="html">&lt;p&gt;自从 Andrej Karpathy 发明了「Vibe Coding」这个词，程序员的世界就回不去了。&lt;/p&gt;
+&lt;p&gt;Vibe Coding 的核心精神：不写代码，只写感觉。告诉 AI 你要什么，它写，你 review，跑通了就上线。写代码这件事正在变成一种……&lt;/p&gt;
+&lt;</summary>
       
     
     
@@ -41,11 +40,11 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="编程" scheme="https://awesomeyang.com/tags/%E7%BC%96%E7%A8%8B/"/>
+    <category term="vibe coding" scheme="https://awesomeyang.com/tags/vibe-coding/"/>
     
     <category term="梗图" scheme="https://awesomeyang.com/tags/%E6%A2%97%E5%9B%BE/"/>
     
-    <category term="meme" scheme="https://awesomeyang.com/tags/meme/"/>
+    <category term="程序员" scheme="https://awesomeyang.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
   </entry>
   
