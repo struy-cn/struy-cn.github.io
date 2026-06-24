@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="最好的知识分享博客，分享AI 人工智能，编码、架构经验、效率工具、阅读感悟，刚刚更新"><meta name="keywords"><title>一句话到上线：GLM-5.2 深度实测 | 老杨的知识荒原</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script src="https://www.googletagmanager.com/gtag/js?id=G-7HLMFGQR9B" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7HLMFGQR9B');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + 'd2ed00d27f11374630ac0efc2332b027';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
+
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">一句话到上线：GLM-5.2 深度实测</h1><a id="logo" href="/.">老杨的知识荒原</a><p class="description">公众号：AwesomeYang｜你只活一次，临渊羡鱼，不如退而结网</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tools/"><i class="fa fa-coffee"> 工具箱</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">一句话到上线：GLM-5.2 深度实测</h1><div class="post-meta">2026-06-13<span> | </span><span class="category"><a href="/categories/AI/">AI</a></span><!-- 移动到footer.pug--><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%8F%90%E7%A4%BA%E8%AF%8D"><span class="toc-number">2.</span> <span class="toc-text">一句话提示词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GLM-5-2-%E6%98%AF%E6%80%8E%E4%B9%88%E5%B9%B2%E6%B4%BB%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text">GLM-5.2 是怎么干活的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E7%8E%AF%E5%A2%83%E4%BE%A6%E5%AF%9F%EF%BC%88-10-%E7%A7%92%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">第一步：环境侦察（~10 秒）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E4%BB%BB%E5%8A%A1%E6%8B%86%E8%A7%A3"><span class="toc-number">3.2.</span> <span class="toc-text">第二步：任务拆解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E4%B8%80%E5%8F%A3%E6%B0%94%E5%86%99%E5%AE%8C-32-%E4%B8%AA%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-number">3.3.</span> <span class="toc-text">第三步：一口气写完 32 个源文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E8%87%AA%E6%88%91%E9%AA%8C%E8%AF%81"><span class="toc-number">3.4.</span> <span class="toc-text">第四步：自我验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF"><span class="toc-number">4.</span> <span class="toc-text">部署上线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E7%BA%BF%E6%95%88%E6%9E%9C"><span class="toc-number">5.</span> <span class="toc-text">上线效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E7%A0%81%EF%BC%9A%E5%9B%BD%E9%99%85%E5%8C%96%EF%BC%8C%E4%BE%9D%E7%84%B6%E4%B8%80%E6%AC%A1%E8%BF%87"><span class="toc-number">6.</span> <span class="toc-text">加码：国际化，依然一次过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%82%B9%E8%A7%82%E5%AF%9F"><span class="toc-number">7.</span> <span class="toc-text">几点观察</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">9.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="post-content"><p>最近智谱发布了 GLM-5.2，号称在代码生成和 Agent 能力上有大幅提升。</p>
+<p>实测怎么测？跑个 Benchmark？太无聊了。</p>
+<p>我直接在 Claude Code 里挂上 GLM-5.2，丢给它一个空白目录，用一句话启动整个项目，然后部署上线。全程不干预、不追问、不补需求。</p>
+<p>看看它能不能「一句提示词，从零到上线」。</p>
+<hr>
+<h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><p><strong>工具：</strong> Claude Code v2.1.138（Anthropic 官方 CLI Agent）</p>
+<p><strong>模型：</strong> GLM-5.2（智谱 AI）</p>
+<p><strong>工作目录：</strong> <code>~/working/holidays-calendar</code>（空目录）</p>
+<p><strong>运行环境：</strong> Node.js v24.12.0 + pnpm 11.6.2</p>
+<p>有意思的是，当我在 Claude Code 里问 GLM-5.2「你是什么模型」，它的自我认知相当清晰——知道自己是 GLM-5.2 驱动的，也知道 Claude Code 是 Anthropic 的壳。没有装，也没有绕。</p>
+<p><img src="https://cdn.awesomeyang.com/img/claude-code--glm-52.png" alt="Claude Code 中确认模型为 GLM-5.2，并输入一句话提示词"></p>
+<hr>
+<h2 id="一句话提示词"><a href="#一句话提示词" class="headerlink" title="一句话提示词"></a>一句话提示词</h2><blockquote>
+<p>完整完成此项目的设计与实现，不用问我，使用最新的框架和技术，项目就是当前目录名，自由发挥。考虑易用性与 SEO。</p>
+</blockquote>
+<p>就这一句。没有需求文档，没有设计稿，没有技术栈指定。</p>
+<p>关键词只有三个：<strong>完整完成</strong>（不许中途问我）、<strong>最新框架</strong>（你自己选）、<strong>SEO</strong>（别忘了搜索引擎）。</p>
+<p>目录名 <code>holidays-calendar</code> 就是唯一的需求线索——做一个节假日日历。</p>
+<hr>
+<h2 id="GLM-5-2-是怎么干活的"><a href="#GLM-5-2-是怎么干活的" class="headerlink" title="GLM-5.2 是怎么干活的"></a>GLM-5.2 是怎么干活的</h2><p>收到提示词后，GLM-5.2 的反应可以分为几个阶段：</p>
+<h3 id="第一步：环境侦察（-10-秒）"><a href="#第一步：环境侦察（-10-秒）" class="headerlink" title="第一步：环境侦察（~10 秒）"></a>第一步：环境侦察（~10 秒）</h3><p>先用一句 <code>node --version &amp;&amp; npm --version &amp;&amp; which pnpm</code> 摸清运行环境。确认了 Node.js v24.12.0、pnpm 11.6.2 可用。</p>
+<p>然后进入思考模式，快速规划：</p>
+<ul>
+<li><strong>项目定位：</strong> 中国法定节假日、调休日、传统节日、二十四节日的现代化日历应用</li>
+<li><strong>技术栈选择：</strong> Next.js 15 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS v4 + shadcn&#x2F;ui</li>
+<li><strong>数据方案：</strong> 本地 JSON&#x2F;TS（节假日数据相对静态，不需要数据库）</li>
+</ul>
+<p>这个技术选型有几个值得注意的点：全部是最新的稳定版，没有一个旧的。Next.js 15 的 App Router、React 19、Tailwind CSS v4，都是 2025-2026 年最新Production Ready 的版本。说明 GLM-5.2 对技术版本有很好的时效感知。</p>
+<p><img src="https://cdn.awesomeyang.com/img/glm-52-.png" alt="GLM-5.2 环境侦察与技术选型规划"></p>
+<h3 id="第二步：任务拆解"><a href="#第二步：任务拆解" class="headerlink" title="第二步：任务拆解"></a>第二步：任务拆解</h3><p>它给自己列了这样一个任务清单：</p>
+<ol>
+<li>初始化项目</li>
+<li>设计节假日数据模型与数据</li>
+<li>实现核心组件</li>
+<li>实现页面路由</li>
+<li>SEO 优化</li>
+<li>运行验证</li>
+</ol>
+<p><strong>编写节假日数据这一步，花了 3 分 6 秒，消耗了 5.2k tokens。</strong> 它一口气写了 2025、2026、2027 三年的节日数据，共 60+ 个节日，涵盖法定节假日、传统节日、二十四节气三大分类，每个节日都有日期、类型、描述、放假安排等完整字段。</p>
+<p><img src="https://cdn.awesomeyang.com/img/img2.png" alt="任务列表：编写节假日数据进行中"></p>
+<h3 id="第三步：一口气写完-32-个源文件"><a href="#第三步：一口气写完-32-个源文件" class="headerlink" title="第三步：一口气写完 32 个源文件"></a>第三步：一口气写完 32 个源文件</h3><p>这是最让我意外的部分。</p>
+<p>GLM-5.2 没有像很多模型那样写两个文件就停下来问你「要不要继续」，而是一口气把整个项目全部写完了：</p>
+<ul>
+<li><strong>类型定义：</strong> <code>src/types/holiday.ts</code> — 5 大分类的类型系统</li>
+<li><strong>数据层：</strong> <code>src/data/holidays/&#123;2025,2026,2027&#125;.ts</code> — 60+ 节日完整数据</li>
+<li><strong>组件层：</strong> <code>src/components/*</code> — 13 个组件，包括交互式月历、倒计时模块、搜索框、主题切换、面包屑导航等</li>
+<li><strong>路由层：</strong> <code>src/app/*</code> — 8 个路由页面 + sitemap&#x2F;robots&#x2F;manifest&#x2F;not-found</li>
+</ul>
+<p><strong>总共 32 个源文件，一次写完，没有中断。</strong></p>
+<p>最终整体构建耗时约 19 分钟（<code>Cogitated for 19m 9s</code>）。</p>
+<h3 id="第四步：自我验证"><a href="#第四步：自我验证" class="headerlink" title="第四步：自我验证"></a>第四步：自我验证</h3><p>写完代码不等于完事。GLM-5.2 自己跑了一轮验证：</p>
+<ul>
+<li>✅ 74 个页面全部静态预渲染（SSG），首屏 JS 仅 ~101KB</li>
+<li>✅ <code>tsc --noEmit</code> 类型检查通过</li>
+<li>✅ 月历支持前后月切换、点击日期查看节日</li>
+<li>✅ 暗色模式完整生效，主题切换无闪烁</li>
+<li>✅ 移动端响应式 + 汉堡菜单</li>
+<li>✅ 所有路由 HTTP 200，404 页面正确</li>
+</ul>
+<p>SEO 方面也做得很全：</p>
+<ul>
+<li>动态 metadata（每页独立 title&#x2F;description&#x2F;canonical）</li>
+<li>JSON-LD 结构化数据（首页 WebSite + 搜索 Action，详情页 Event）</li>
+<li>sitemap.xml（68 条 URL）</li>
+<li>robots.txt + manifest.webmanifest</li>
+<li>Open Graph &#x2F; Twitter Card &#x2F; favicon.svg</li>
+<li>语义化 HTML、面包屑、无障碍跳转链接</li>
+</ul>
+<p>这不是「跑通了」，是<strong>完整跑通了</strong>。类型检查过了，构建过了，页面全部 200，UI 功能完整，SEO 配置齐全。</p>
+<p><img src="https://cdn.awesomeyang.com/img/seo-.png" alt="项目完成总结：技术栈、文件结构、功能验证、SEO 优化"></p>
+<hr>
+<h2 id="部署上线"><a href="#部署上线" class="headerlink" title="部署上线"></a>部署上线</h2><p>项目构建通过后，我给了第二步指令：「部署到 CF」。</p>
+<p>GLM-5.2 给了两条部署路径让我选（Pages + wrangler CLI 直推 vs Workers），我选了 Pages 直推。</p>
+<p>接下来它自动完成了整个部署流程：</p>
+<ol>
+<li>检查 wrangler 是否安装（未安装 → 自动装到项目里）</li>
+<li>构建静态导出版本（<code>output: &quot;export&quot;</code>）</li>
+<li><code>wrangler pages deploy</code> 一把推上去</li>
+</ol>
+<p><strong>5.3 秒，179 个静态文件上传完毕。</strong></p>
+<p>线上地址：<code>https://holidays-calendar-1yv.pages.dev/</code></p>
+<p>部署完成后，GLM-5.2 还自动验证了：</p>
+<ul>
+<li>12 个路由全部返回 200</li>
+<li>canonical 和 OG URL 已指向真实域名</li>
+<li>robots.txt 和 sitemap.xml 已生效</li>
+<li>浏览器控制台 0 error</li>
+</ul>
+<p>整个部署过程只花了 5 分 34 秒。</p>
+<p><img src="https://cdn.awesomeyang.com/img/-cloudflare-pages-.png" alt="部署到 Cloudflare Pages 全过程"></p>
+<hr>
+<h2 id="上线效果"><a href="#上线效果" class="headerlink" title="上线效果"></a>上线效果</h2><p>打开线上地址，看到的是一个完成度相当高的节假日日历网站。</p>
+<p><strong>首页：</strong> 大标题「看见每一个值得期待的日子」，带节日倒计时模块（距离端午节还有 6 天），交互式月历（可切换月份，点击日期查看节日），按分类浏览（法定节假日 21 个、传统节日 11 个、二十四节气 23 个），重点节日卡片和近期节日推荐。</p>
+<p><strong>亮色模式</strong>下，整体配色干净——红色为主色调，绿色标记节气，橙色做强调。</p>
+<p><img src="https://cdn.awesomeyang.com/img/img5.png" alt="首页亮色模式"></p>
+<p><strong>暗色模式</strong>也做得完整，不是简单的反色，而是重新调过的深色配色方案。</p>
+<p><img src="https://cdn.awesomeyang.com/img/img6.png" alt="首页暗色模式"></p>
+<p><strong>年度页面</strong>展示了 2025&#x2F;2026&#x2F;2027 三年的完整放假安排，按月排列，每个月的节日和节气清清楚楚。</p>
+<p><img src="https://cdn.awesomeyang.com/img/2026-.png" alt="2026 年放假安排页面"></p>
+<p><strong>近期节日页面</strong>按时间梯度展示——未来 30 天有 3 个节日、60 天有 5 个、90 天有 9 个，每个都带倒计时和分类标签。</p>
+<p><img src="https://cdn.awesomeyang.com/img/img8.png" alt="近期节日页面（暗色模式）"></p>
+<p>说实话，如果是一个有经验的前端工程师独立做这个项目，从设计到上线，保守估计也要 2-3 天。GLM-5.2 用了大约 25 分钟（构建 19 分钟 + 部署 5.5 分钟）。</p>
+<hr>
+<h2 id="加码：国际化，依然一次过"><a href="#加码：国际化，依然一次过" class="headerlink" title="加码：国际化，依然一次过"></a>加码：国际化，依然一次过</h2><p>项目上线后，我又追了一个需求：<strong>国际化</strong>。</p>
+<p>结果呢？同样一次过。GLM-5.2 自动完成了多语言方案的设计与实现——</p>
+<ul>
+<li>多语言路由与内容切换</li>
+<li><code>hreflang</code> 标签与 canonical 配置</li>
+<li>多语言的 metadata、sitemap、结构化数据</li>
+<li>自动构建并重新部署到 Cloudflare Pages</li>
+</ul>
+<p><strong>整个过程零干预，自动推上线。</strong></p>
+<p>最终线上版本已经是一个支持多语言的完整网站：</p>
+<p>👉 <strong>项目地址：</strong> <a target="_blank" rel="noopener" href="https://holidays-calendar-1yv.pages.dev/">https://holidays-calendar-1yv.pages.dev/</a></p>
+<p>从空白目录到国际化上线，整个链路全部由 GLM-5.2 + Claude Code 自主完成。</p>
+<hr>
+<h2 id="几点观察"><a href="#几点观察" class="headerlink" title="几点观察"></a>几点观察</h2><p><strong>1. Agent 能力是真正的分水岭。</strong> 以前测试代码模型，通常是给一段需求，看它写出一段代码。但 GLM-5.2 在 Claude Code 里展示的是 Agent 能力——自己规划、自己拆任务、自己验证、自己修错。从「能写代码」到「能完成项目」，这是质变。</p>
+<p><strong>2. 技术时效性不错。</strong> 选的全是最新的稳定版框架（Next.js 15.5、React 19、Tailwind v4、TypeScript 5.9），没有用过时的 API 或废弃的写法。说明训练数据足够新。</p>
+<p><strong>3. 不打断、不啰嗦。</strong> 很多模型在中途会频繁确认「要不要继续」「这样做可以吗」，GLM-5.2 没有这个问题——用户说了「不用问我」，它就真的不问了，一口气干完。</p>
+<p><strong>4. SEO 意识在线。</strong> 这不是简单加几个 meta 标签，而是从架构层面就考虑了 SSG、结构化数据、sitemap、语义化 HTML，是一套完整的 SEO 方案。这对实际项目来说很有价值。</p>
+<p><strong>5. 部署也能做。</strong> 很多代码模型到「代码能跑」就结束了，但 GLM-5.2 在 Claude Code 的工具链配合下，能完成从构建到部署到验证的全链路。这才是「从零到上线」。</p>
+<p><strong>6. 追加需求也能一把过。</strong> 国际化这种涉及全局架构的改动——多语言路由、hreflang、多语言 SEO——GLM-5.2 同样一次完成并自动部署。不是只能做 fresh project，改现有项目也一样靠谱。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一句话提示词，GLM-5.2 + Claude Code 的组合完成了：</p>
+<ul>
+<li>✅ 项目规划与技术选型</li>
+<li>✅ 32 个源文件的完整实现</li>
+<li>✅ 60+ 节日数据编写</li>
+<li>✅ 13 个组件 + 8 个路由页面</li>
+<li>✅ 完整的 SEO 配置</li>
+<li>✅ 类型检查与构建验证</li>
+<li>✅ Cloudflare Pages 部署上线</li>
+<li>✅ 线上路由验证</li>
+<li>✅ 国际化（i18n）——多语言路由、hreflang、多语言 SEO</li>
+<li>✅ 自动重新部署上线</li>
+</ul>
+<p>从空白目录到国际化上线，全程零人工干预。</p>
+<p>👉 <strong>线上体验：</strong> <a target="_blank" rel="noopener" href="https://holidays-calendar-1yv.pages.dev/">https://holidays-calendar-1yv.pages.dev/</a></p>
+<p>如果你想自己试试，只需要 Claude Code + GLM-5.2 的 API，随便建个空目录，给它一句话就行。</p>
+<hr>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><p>Claude Code 官方<br><a target="_blank" rel="noopener" href="https://docs.anthropic.com/en/docs/claude-code">https://docs.anthropic.com/en/docs/claude-code</a></p>
+</li>
+<li><p>GLM-5.2 模型介绍（智谱 AI）<br><a target="_blank" rel="noopener" href="https://chat.zhipuai.cn/">https://chat.zhipuai.cn/</a></p>
+</li>
+<li><p>项目线上演示<br><a target="_blank" rel="noopener" href="https://holidays-calendar-1yv.pages.dev/">https://holidays-calendar-1yv.pages.dev/</a></p>
+</li>
+<li><p>Next.js 15 文档<br><a target="_blank" rel="noopener" href="https://nextjs.org/docs">https://nextjs.org/docs</a></p>
+</li>
+<li><p>Cloudflare Pages 文档<br><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/pages/">https://developers.cloudflare.com/pages/</a></p>
+</li>
+</ol>
+</div><div id="donate"><link rel="stylesheet" type="text/css" href="/css/donate.css?v=1.0.0"><script type="text/javascript" src="/js/donate.js?v=1.0.0" successtext="复制成功！"></script><a class="pos-f tr3" id="github" href="https://github.com/StruggleYang" target="_blank" title="Github"></a><div id="DonateText">Donate</div><ul class="list pos-f" id="donateBox"><li id="PayPal"><a href="https://paypal.me/struy?country.x=C2&amp;locale.x=zh_XC" target="_blank"></a></li><li id="WeChat" qr="https://cdn.awesomeyang.com/img/wechat-sponsor-code.jpg"></li></ul><div class="pos-f left-100" id="QRBox"><div id="MainBox"></div></div></div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css?v=1.0.0"><p><span>本文标题：</span>一句话到上线：GLM-5.2 深度实测</p><p><span>文章作者：</span>AwesomeYang</p><p><span>发布时间：</span>2026-06-13</p><p><span>最后更新：</span>2026-06-22</p><p><span>原始链接：</span><a href="/2026/06/13/glm52-deep-test/">https://awesomeyang.com/2026/06/13/glm52-deep-test/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://awesomeyang.com/2026/06/13/glm52-deep-test/"></i></span></p><p><span>版权声明：</span>未经允许禁止转载，请关注公众号联系作者</p></div><br><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GLM/" rel="tag">GLM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E6%B5%8B/" rel="tag">实测</a></li></ul></div><div class="post-nav"><a class="pre" href="/2026/06/14/five-chinese-llm-compare/">GLM-5.2、GLM-5.1、DeepSeek V4 Pro、小米 MiMo V2.5 Pro 分别做同一个项目效果对比</a><a class="next" href="/2026/06/12/ai-coding-guardrails/">两个让 AI 写代码守规矩的开源项目，加起来 28 万星</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: 'f9f8d6e8db578e1d4cec',
+  clientSecret: 'a26c8b120d01d4d92eb4b69f5b4e9683b1ef9c3d',
+  repo: 'struy-cn.github.io',
+  owner: 'struy-cn',
+  admin: ['StruggleYang'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://awesomeyang.com"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="https://cdn.awesomeyang.com/img/202209061104733.png"/></a><p>你只活一次，临渊羡鱼，不如退而结网</p><a class="info-icon" href="https://twitter.com/AwesomeYang_com" title="twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yq1724555319@gmail.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/StruggleYang" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="/atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AIGC/">AIGC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%97%E5%B1%B1%E5%B0%8F%E8%AE%BA%E5%9D%9B/">南山小论坛</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8F%92%E4%BB%B6/">插件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/">独立开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/">生产力工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/">认知提升</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 15px;">读书</a> <a href="/tags/Angular/" style="font-size: 15px;">Angular</a> <a href="/tags/WebGis/" style="font-size: 15px;">WebGis</a> <a href="/tags/DDD/" style="font-size: 15px;">DDD</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">领域驱动设计</a> <a href="/tags/EventBus/" style="font-size: 15px;">EventBus</a> <a href="/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">Dapeng微服务</a> <a href="/tags/%E6%91%98%E5%BD%95/" style="font-size: 15px;">摘录</a> <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 15px;">开源</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">编程工具</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Prompt/" style="font-size: 15px;">Prompt</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E8%8C%83%E5%BC%8F/" style="font-size: 15px;">工程范式</a> <a href="/tags/%E6%A2%97%E5%9B%BE/" style="font-size: 15px;">梗图</a> <a href="/tags/vibe-coding/" style="font-size: 15px;">vibe coding</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 15px;">程序员</a> <a href="/tags/AIGC/" style="font-size: 15px;">AIGC</a> <a href="/tags/Stable-Diffusion/" style="font-size: 15px;">Stable Diffusion</a> <a href="/tags/AI%E7%BB%98%E5%9B%BE/" style="font-size: 15px;">AI绘图</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">工具</a> <a href="/tags/AI%E7%BC%96%E7%A0%81/" style="font-size: 15px;">AI编码</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/YouTube/" style="font-size: 15px;">YouTube</a> <a href="/tags/Anthropic/" style="font-size: 15px;">Anthropic</a> <a href="/tags/%E8%A7%82%E7%82%B9/" style="font-size: 15px;">观点</a> <a href="/tags/CICD/" style="font-size: 15px;">CICD</a> <a href="/tags/DevOps/" style="font-size: 15px;">DevOps</a> <a href="/tags/ChatGPT/" style="font-size: 15px;">ChatGPT</a> <a href="/tags/%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/" style="font-size: 15px;">行业分析</a> <a href="/tags/Filebeat/" style="font-size: 15px;">Filebeat</a> <a href="/tags/ELK/" style="font-size: 15px;">ELK</a> <a href="/tags/cgroup/" style="font-size: 15px;">cgroup</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" style="font-size: 15px;">可观测性</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 15px;">科普</a> <a href="/tags/Github-Copilot/" style="font-size: 15px;">Github Copilot</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/%E6%A8%AA%E8%AF%84/" style="font-size: 15px;">横评</a> <a href="/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">国产模型</a> <a href="/tags/GLM/" style="font-size: 15px;">GLM</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 15px;">实测</a> <a href="/tags/gstack/" style="font-size: 15px;">gstack</a> <a href="/tags/Claude-Code/" style="font-size: 15px;">Claude Code</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">开发者工具</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/GithubPages/" style="font-size: 15px;">GithubPages</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">本地模型</a> <a href="/tags/LLM/" style="font-size: 15px;">LLM</a> <a href="/tags/HN/" style="font-size: 15px;">HN</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85/" style="font-size: 15px;">开发者</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/%E5%8D%97%E5%B1%B1%E5%B0%8F%E8%AE%BA%E5%9D%9B/" style="font-size: 15px;">南山小论坛</a> <a href="/tags/%E8%A1%A8%E8%BE%BE/" style="font-size: 15px;">表达</a> <a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/" style="font-size: 15px;">低代码</a> <a href="/tags/Influxdb/" style="font-size: 15px;">Influxdb</a> <a href="/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">时序数据库</a> <a href="/tags/Chatbot/" style="font-size: 15px;">Chatbot</a> <a href="/tags/ChatDoc/" style="font-size: 15px;">ChatDoc</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Nice-NewTab/" style="font-size: 15px;">Nice NewTab</a> <a href="/tags/%E8%8B%B1%E4%BC%9F%E8%BE%BE/" style="font-size: 15px;">英伟达</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 15px;">硬件</a> <a href="/tags/OpenAI/" style="font-size: 15px;">OpenAI</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 15px;">视频编辑</a> <a href="/tags/MCP/" style="font-size: 15px;">MCP</a> <a href="/tags/YC/" style="font-size: 15px;">YC</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">函数式编程</a> <a href="/tags/Reddit/" style="font-size: 15px;">Reddit</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 15px;">AI视频</a> <a href="/tags/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94/" style="font-size: 15px;">需求调研</a> <a href="/tags/%E7%A7%91%E6%8A%80%E5%9C%88/" style="font-size: 15px;">科技圈</a> <a href="/tags/%E5%B0%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">小模型</a> <a href="/tags/VibeThinker/" style="font-size: 15px;">VibeThinker</a> <a href="/tags/Moebius/" style="font-size: 15px;">Moebius</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">深度学习</a> <a href="/tags/%E8%85%BE%E8%AE%AF/" style="font-size: 15px;">腾讯</a> <a href="/tags/Agent/" style="font-size: 15px;">Agent</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/v0/" style="font-size: 15px;">v0</a> <a href="/tags/favicon-run/" style="font-size: 15px;">favicon.run</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">大语言模型</a> <a href="/tags/DeepSeek/" style="font-size: 15px;">DeepSeek</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 15px;">电影</a> <a href="/tags/Apple/" style="font-size: 15px;">Apple</a> <a href="/tags/Siri/" style="font-size: 15px;">Siri</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://nicenewtab.com/" title="Nice NewTab" target="_blank">Nice NewTab</a><ul></ul><a href="https://nicepasswd.com/" title="Nice Password" target="_blank">Nice Password</a><ul></ul><a href="https://aiwith.me" title="AI With Me" target="_blank">AI With Me</a><ul></ul><a href="https://ai-anime-generators.com" title="AI Anime GeneratorS" target="_blank">AI Anime GeneratorS</a><ul></ul><a href="https://favicon.run" title="favicon.run" target="_blank">favicon.run</a><ul></ul><a href="https://ti-84-calculator-online.com" title="TI 84 Calculator Online" target="_blank">TI 84 Calculator Online</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2026 <a href="/." rel="nofollow">老杨的知识荒原.</a><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async="async"></script><div><span id="busuanzi_container_site_pv">本站 <span id="busuanzi_value_site_pv"></span><span> 次访问</span></span><span id="busuanzi_container_site_uv">. <span id="busuanzi_value_site_uv"></span><span> 个访客</span></span></div>Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js?v=1.0.0"></script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

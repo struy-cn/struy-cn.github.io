@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="最好的知识分享博客，分享AI 人工智能，编码、架构经验、效率工具、阅读感悟，刚刚更新"><meta name="keywords"><title>别再只想着写 Prompt 了：AI 工程范式的四次跃迁 | 老杨的知识荒原</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script src="https://www.googletagmanager.com/gtag/js?id=G-7HLMFGQR9B" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7HLMFGQR9B');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + 'd2ed00d27f11374630ac0efc2332b027';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
+
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">别再只想着写 Prompt 了：AI 工程范式的四次跃迁</h1><a id="logo" href="/.">老杨的知识荒原</a><p class="description">公众号：AwesomeYang｜你只活一次，临渊羡鱼，不如退而结网</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tools/"><i class="fa fa-coffee"> 工具箱</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">别再只想着写 Prompt 了：AI 工程范式的四次跃迁</h1><div class="post-meta">2026-06-16<span> | </span><span class="category"><a href="/categories/AI/">AI</a></span><!-- 移动到footer.pug--><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9APrompt-Engineering-%E2%80%94%E2%80%94-%E8%B7%9F%E6%A8%A1%E5%9E%8B%E8%AF%B4%E8%AF%9D%E7%9A%84%E8%89%BA%E6%9C%AF%EF%BC%882020%E2%80%942024%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">🧩 第一层：Prompt Engineering —— 跟模型说话的艺术（2020—2024）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%AF%E6%BA%90%E4%B8%8E%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">溯源与定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E9%87%8C%E7%A8%8B%E7%A2%91"><span class="toc-number">1.2.</span> <span class="toc-text">核心技术与里程碑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">局限性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%82-%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9AContext-Engineering-%E2%80%94%E2%80%94-%E5%96%82%E4%BB%80%E4%B9%88%E8%BF%9C%E6%AF%94%E6%80%8E%E4%B9%88%E8%AF%B4%E9%87%8D%E8%A6%81%EF%BC%882025%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">📂 第二层：Context Engineering —— 喂什么远比怎么说重要（2025）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%AF%E6%BA%90%E4%B8%8E%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.1.</span> <span class="toc-text">溯源与定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E8%A7%82%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">核心观点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%9A%E7%95%8C%E6%A1%88%E4%BE%8B%EF%BC%9AManus-%E7%9A%84%E5%AE%9E%E8%B7%B5"><span class="toc-number">2.3.</span> <span class="toc-text">业界案例：Manus 的实践</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%8C-%E7%AC%AC%E4%B8%89%E5%B1%82%EF%BC%9AHarness-Engineering-%E2%80%94%E2%80%94-%E4%B8%BA%E6%A8%A1%E5%9E%8B%E7%A9%BF%E4%B8%8A%E5%A4%96%E9%AA%A8%E9%AA%BC%EF%BC%882026%E5%B9%B4%E5%88%9D%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">🔌 第三层：Harness Engineering —— 为模型穿上外骨骼（2026年初）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%AF%E6%BA%90%E4%B8%8E%E5%AE%9A%E4%B9%89-2"><span class="toc-number">3.1.</span> <span class="toc-text">溯源与定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6"><span class="toc-number">3.2.</span> <span class="toc-text">核心框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%90%86%E5%BF%B5%EF%BC%9A%E2%80%9D%E6%A3%98%E8%BD%AE%E6%9C%BA%E5%88%B6%E2%80%9D"><span class="toc-number">3.3.</span> <span class="toc-text">核心理念：”棘轮机制”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%9A%E7%95%8C%E6%A1%88%E4%BE%8B%EF%BC%9AOpenAI-%E7%9A%84%E2%80%9D%E9%9B%B6%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81%E2%80%9D%E5%AE%9E%E9%AA%8C"><span class="toc-number">3.4.</span> <span class="toc-text">业界案例：OpenAI 的”零手写代码”实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%81-%E7%AC%AC%E5%9B%9B%E5%B1%82%EF%BC%9ALoop-Engineering-%E2%80%94%E2%80%94-%E4%B8%80%E6%AC%A1%E5%AE%8C%E7%BE%8E%E4%B8%8D%E9%87%8D%E8%A6%81%EF%BC%8C%E6%8C%81%E7%BB%AD%E6%94%B9%E8%BF%9B%E6%89%8D%E9%87%8D%E8%A6%81%EF%BC%882026%E5%B9%B46%E6%9C%88%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">🔁 第四层：Loop Engineering —— 一次完美不重要，持续改进才重要（2026年6月）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%AF%E6%BA%90%E4%B8%8E%E5%AE%9A%E4%B9%89-3"><span class="toc-number">4.1.</span> <span class="toc-text">溯源与定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84"><span class="toc-number">4.2.</span> <span class="toc-text">核心架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%8F%B3-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%BF%99%E6%A0%B7%E6%BC%94%E8%BF%9B%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">⏳ 为什么会这样演进？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA-Agent-%E5%89%8D%EF%BC%8C%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">🎯 开发一个 Agent 前，应该怎么设计？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1%EF%BC%9A%E6%98%8E%E7%A1%AE%E2%80%9D%E5%A4%96%E8%84%91%E6%9C%89%E5%A4%9A%E9%87%8D%E8%A6%81%E2%80%9D"><span class="toc-number">6.1.</span> <span class="toc-text">Step 1：明确”外脑有多重要”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2%EF%BC%9A%E7%94%BB%E6%B8%85%E2%80%9D%E8%BE%B9%E7%95%8C%E2%80%9D"><span class="toc-number">6.2.</span> <span class="toc-text">Step 2：画清”边界”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3%EF%BC%9A%E8%AE%BE%E8%AE%A1%E2%80%9D%E5%8F%8D%E9%A6%88%E5%9B%9E%E8%B7%AF%E2%80%9D"><span class="toc-number">6.3.</span> <span class="toc-text">Step 3：设计”反馈回路”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%AD-%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">7.</span> <span class="toc-text">💭 写在最后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="post-content"><blockquote>
+<p>AI 领域每隔半年就会冒出一个新名词。但这一次，从 Prompt Engineering 到 Loop Engineering 的演进，不是术语通胀，而是一场真正的范式革命。</p>
+</blockquote>
+<p>ChatGPT 刚出来那会儿，所有人都在学怎么写 Prompt。一问一答，讲究的是”措辞的艺术”。</p>
+<p>一年后大家发现，光会说话不够了——你得给模型喂什么料？工具怎么接？失败了怎么重试？输出了怎么自动改进？</p>
+<p>于是 Prompt Engineering 长出了 Context Engineering，又长出了 Harness Engineering，然后又长出了 Loop Engineering。</p>
+<p>这不是学术论文里的概念分层，这是过去六年 AI 工程化的真实演进路径。<strong>每一层都是被逼出来的。</strong></p>
+<p>当你今天要开发一个 AI Agent 时，到底应该从哪个层面开始设计？本文将系统梳理这四个概念的演进脉络，追溯每个概念的首次提出者和核心观点，并深度剖析推动这一演进的底层逻辑。</p>
+<p>先看整体结构图，帮你建立直觉：</p>
+<p><img src="https://cdn.awesomeyang.com/img/img0.png" alt="四层包含关系架构图"></p>
+<hr>
+<h2 id="🧩-第一层：Prompt-Engineering-——-跟模型说话的艺术（2020—2024）"><a href="#🧩-第一层：Prompt-Engineering-——-跟模型说话的艺术（2020—2024）" class="headerlink" title="🧩 第一层：Prompt Engineering —— 跟模型说话的艺术（2020—2024）"></a>🧩 第一层：Prompt Engineering —— 跟模型说话的艺术（2020—2024）</h2><p><strong>本质：优化单次对话中的措辞，让模型输出更贴近预期。</strong></p>
+<p>这是最原始、最直觉的起点。2022 年末 ChatGPT 爆火，大家发现同一个问题换种问法，答案天差地别。</p>
+<p><strong>在 Code Agent 场景中：</strong> 这一阶段就是我们在网页对话框里让 ChatGPT “帮我写一段实现 XX 功能的 Python 代码”。如果它写错了，我们就再回复一句”报错了，请修改”。这就是典型的单次对话优化。</p>
+<p>有人总结出 few-shot（给例子）、chain-of-thought（让模型一步步想）、role-playing（给角色）等技巧。一时间，如何写好一段提示词成为了最热门的技术话题，企业开始招聘”Prompt Engineer”岗位。</p>
+<h3 id="溯源与定义"><a href="#溯源与定义" class="headerlink" title="溯源与定义"></a>溯源与定义</h3><p>Prompt Engineering 的概念伴随着 2020 年 6 月 OpenAI 发布 GPT-3 而走入大众视野。GPT-3 的论文标题 <em>Language Models are Few-Shot Learners</em> [1] 揭示了其核心洞察：一个足够大的语言模型，仅需少量示例就能学习新任务，而这些示例正是通过 Prompt 来传递的。在 GPT-3 之前，让模型完成新任务需要经历数据标注、模型微调、评估等漫长流程。Prompt Engineering 的出现彻底改变了这一范式——你只需要用自然语言”告诉”模型该做什么。</p>
+<h3 id="核心技术与里程碑"><a href="#核心技术与里程碑" class="headerlink" title="核心技术与里程碑"></a>核心技术与里程碑</h3><p>2022 年 1 月，Google Brain 团队提出了 <strong>Chain-of-Thought (CoT)</strong> 提示词技术 [2]，通过在提示中加入推理步骤的示例，显著提升了模型在复杂推理任务上的表现。研究者甚至发现，仅仅在提示词末尾加上一句 “Let’s think step-by-step”，就能让模型的推理能力产生质的飞跃。</p>
+<p>2023 年 ChatGPT 的爆发将 Prompt Engineering 推向了全民技能的高度。同年 6 月 OpenAI 发布 GPT-4 Function Calling，标志着模型具备了”准确输出结构化参数”的能力，为后续的 Agent 化奠定了基础。</p>
+<h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><p>然而，Prompt Engineering 本质上是<strong>单次交互的优化</strong>。它关注的核心问题是”怎么问”（How to ask）。</p>
+<blockquote>
+<p><em>你可以在 prompt 层面让模型「表现得像」某个角色，但角色本身的背景知识和能力不可能凭空产生。</em></p>
+</blockquote>
+<p>这就像你让一个不认识你的人假装认识你——话说得再漂亮，他也不知道你是谁。当我们开始构建需要多步骤推理、长时间运行、与外部环境交互的 AI Agent 时，仅靠一段精心雕琢的提示词已经远远不够了。</p>
+<p>于是需要 <strong>Context</strong>。</p>
+<hr>
+<h2 id="📂-第二层：Context-Engineering-——-喂什么远比怎么说重要（2025）"><a href="#📂-第二层：Context-Engineering-——-喂什么远比怎么说重要（2025）" class="headerlink" title="📂 第二层：Context Engineering —— 喂什么远比怎么说重要（2025）"></a>📂 第二层：Context Engineering —— 喂什么远比怎么说重要（2025）</h2><p><strong>本质：管理和优化模型能看到的信息环境。</strong></p>
+<p>2023 年一个关键转折是上下文窗口的指数级扩大。模型不再只有”几句话的记忆”了：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>时间</th>
+<th>上下文窗口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GPT-3.5</td>
+<td>2022</td>
+<td>4K</td>
+</tr>
+<tr>
+<td>GPT-4</td>
+<td>2023.03</td>
+<td>8K → 32K</td>
+</tr>
+<tr>
+<td>Claude 2</td>
+<td>2023.07</td>
+<td>100K</td>
+</tr>
+<tr>
+<td>GPT-4 Turbo</td>
+<td>2023.11</td>
+<td>128K</td>
+</tr>
+<tr>
+<td>Gemini 1.5 Pro</td>
+<td>2024.02</td>
+<td>1M</td>
+</tr>
+</tbody></table>
+<p>上下文窗口越大，<strong>喂什么</strong>就比<strong>怎么说</strong>更具决定因素。</p>
+<h3 id="溯源与定义-1"><a href="#溯源与定义-1" class="headerlink" title="溯源与定义"></a>溯源与定义</h3><p>2025 年 6 月 18 日，Shopify CEO Tobi Lütke 发布了一条推文，引爆了这个概念 [3]：</p>
+<blockquote>
+<p>“I really like the term ‘context engineering’ over prompt engineering. It describes the core skill better: the art of providing all the context for the task to be plausibly solvable by the LLM.”</p>
+<p>—— Tobi Lütke, 2025年6月18日</p>
+</blockquote>
+<p>一周后（6月25日），前 Tesla AI 总监 Andrej Karpathy 发推强力背书 [4]：</p>
+<blockquote>
+<p>“+1 for ‘context engineering’ over ‘prompt engineering’. People associate prompts with short task descriptions… When in every industrial-strength LLM app, context engineering is the delicate art and science of filling the context window with just the right information for the next step.”</p>
+<p>—— Andrej Karpathy, 2025年6月25日</p>
+</blockquote>
+<p>同月，LangChain 创始人 Harrison Chase 在其博客 <em>The rise of context engineering</em>（6月23日）中给出了更精确的技术定义 [5]：</p>
+<blockquote>
+<p>“Context engineering is building dynamic systems to provide the right information and tools in the right format such that the LLM can plausibly accomplish the task.”</p>
+</blockquote>
+<p>随后，Manus 团队（2025 年 7 月）[6] 和 Anthropic（2025 年 9 月）[7] 分别发表了系统性的实践文章，将 Context Engineering 从一个流行术语提升为一套完整的工程方法论。</p>
+<h3 id="核心观点"><a href="#核心观点" class="headerlink" title="核心观点"></a>核心观点</h3><p>Anthropic 在其文章中明确指出了 Context Engineering 与 Prompt Engineering 的本质区别 [7]：Prompt Engineering 关注的是”怎么写指令”，而 Context Engineering 关注的是”在推理时，模型的上下文窗口里应该有什么”。这包括系统指令、工具定义、MCP 协议、外部数据、消息历史等一切可能影响模型行为的信息。</p>
+<p>Anthropic 还提出了一个关键概念——<strong>Context Rot</strong>（上下文腐烂）：随着上下文窗口中 token 数量的增加，模型准确回忆信息的能力会下降。因此，上下文必须被视为一种<strong>有限资源</strong>，需要精心管理。</p>
+<h3 id="业界案例：Manus-的实践"><a href="#业界案例：Manus-的实践" class="headerlink" title="业界案例：Manus 的实践"></a>业界案例：Manus 的实践</h3><p>Manus 团队在其博客中分享了多项极具实践价值的 Context Engineering 策略 [6]：</p>
+<ul>
+<li><strong>围绕 KV-Cache 设计</strong>：在其 Agent 系统中，平均输入输出 token 比率约为 100:1。通过保持 prompt 前缀稳定、确保上下文仅追加不修改，他们将推理成本降低了 10 倍。</li>
+<li><strong>文件系统即上下文</strong>：将文件系统作为”终极上下文”——大小无限、天然持久、可由 Agent 自主操作。</li>
+<li><strong>通过 Recitation 操控注意力</strong>：让 Agent 不断重写 <code>todo.md</code> 文件，将全局计划”朗诵”到上下文末尾，利用 Transformer 的近因效应来防止目标漂移。</li>
+</ul>
+<p><strong>在 Code Agent 场景中：</strong> 这一阶段的典型代表是早期的 Cursor 或初版 Claude Code。你不再需要手动把代码复制粘贴给模型，系统会自动把整个项目文件、Git diff、终端的 lint 错误作为上下文喂给模型。模型看到了完整的项目全貌，自然能给出更精准的修改建议。</p>
+<blockquote>
+<p><em>RAG 的本质，就是工程化的多了一个系统做 context engineering。窗口每扩大一个数量级，Context Engineering 的有效性就上升一个台阶。</em></p>
+</blockquote>
+<p>但问题来了：就算你给了模型完美上下文，模型还是可能挂掉——API 超时了、工具调用失败了、输出格式不对。这时候你不能指望在 prompt 里加一句”如果失败了就重试”就能搞定。</p>
+<p>于是需要 <strong>Harness</strong>。</p>
+<hr>
+<h2 id="🔌-第三层：Harness-Engineering-——-为模型穿上外骨骼（2026年初）"><a href="#🔌-第三层：Harness-Engineering-——-为模型穿上外骨骼（2026年初）" class="headerlink" title="🔌 第三层：Harness Engineering —— 为模型穿上外骨骼（2026年初）"></a>🔌 第三层：Harness Engineering —— 为模型穿上外骨骼（2026年初）</h2><p><strong>本质：围绕模型构建的完整执行系统——工具调用、安全护栏、错误处理、状态管理、多模型路由。</strong></p>
+<p>2026 年初，随着 AI Coding Agent 的大规模应用，一个新的工程挑战浮出水面：如何让 Agent 在无人监督的情况下可靠地完成工作？人们发现，一个”会调用工具的模型”和”一个稳定的 Agent 系统”之间隔着天堑。</p>
+<h3 id="溯源与定义-2"><a href="#溯源与定义-2" class="headerlink" title="溯源与定义"></a>溯源与定义</h3><p>2026 年 2 月 5 日，HashiCorp 联合创始人 Mitchell Hashimoto 在其博客文章 <em>My AI Adoption Journey</em> 中首次使用了 “Harness Engineering” 这个术语 [8]，描述了他如何通过设计环境来引导 Agent 行为。</p>
+<p>六天后（2月11日），OpenAI 发表了 <em>Harness engineering: leveraging Codex in an agent-first world</em> [9]，描述了一个团队如何在 5 个月内以”零手写代码”的方式，完全依靠 Codex Agent 构建了约百万行级别的产品，合并了约 1500 个 PR。</p>
+<p>2026 年 2 月 17 日，Thoughtworks 杰出工程师 Birgitta Böckeler 在 martinfowler.com 上发表了关于 Harness Engineering 的初始备忘录 [10]，并在 4 月 2 日发表了完整的系统性文章。</p>
+<p>2026 年 3 月 10 日，LangChain 的 Vivek Trivedy 发表了 <em>The Anatomy of an Agent Harness</em> [11]，给出了那个被广泛引用的公式：</p>
+<blockquote>
+<p><strong>Agent &#x3D; Model + Harness. If you’re not the model, you’re the harness.</strong></p>
+<p>—— Vivek Trivedy, LangChain, 2026年3月10日</p>
+</blockquote>
+<p>2026 年 4 月 19 日，Google 工程总监 Addy Osmani 发表了 <em>Agent Harness Engineering</em> [12]，进一步总结和传播了这一概念。</p>
+<h3 id="核心框架"><a href="#核心框架" class="headerlink" title="核心框架"></a>核心框架</h3><p><img src="https://cdn.awesomeyang.com/img/harness-engineering-.png" alt="Harness Engineering 框架"></p>
+<p>Birgitta Böckeler 在 martinfowler.com 上提出了 Harness 的核心框架。Harness 由两大类组件构成：</p>
+<p><strong>Guides（前馈控制）</strong>——在 Agent 行动之前预测并引导其行为，提高首次正确率。包括 <code>AGENTS.md</code> 规则文件、架构约束、Skills 操作指南、参考文档和代码模板等。</p>
+<p><strong>Sensors（反馈控制）</strong>——在 Agent 行动之后观察结果并帮助其自我纠正。包括静态分析&#x2F;类型检查、测试套件&#x2F;CI 管道、AI 代码审查、运行时监控&#x2F;日志等。</p>
+<p>每种控制又分为两个执行类型：<strong>Computational</strong>（确定性的，由 CPU 执行，快速可靠）和 <strong>Inferential</strong>（语义分析，由 GPU 执行，更慢但能处理模糊问题）。</p>
+<h3 id="核心理念：”棘轮机制”"><a href="#核心理念：”棘轮机制”" class="headerlink" title="核心理念：”棘轮机制”"></a>核心理念：”棘轮机制”</h3><p>Addy Osmani 在其文章中提炼了 Harness Engineering 最重要的实践原则 [12]：</p>
+<blockquote>
+<p>“A decent model with a great harness beats a great model with a bad harness… The most important habit in harness engineering is treating agent mistakes as permanent signals. Every line in a good AGENTS.md should be traceable back to a specific thing that went wrong.”</p>
+</blockquote>
+<p>这就是所谓的<strong>棘轮机制（Ratchet）</strong>：每当 Agent 犯一次错，就工程化一个解决方案，确保它永远不再犯同样的错误。这不是”等下一代模型来修复”的心态，而是”当下就解决”的工程师思维。</p>
+<h3 id="业界案例：OpenAI-的”零手写代码”实验"><a href="#业界案例：OpenAI-的”零手写代码”实验" class="headerlink" title="业界案例：OpenAI 的”零手写代码”实验"></a>业界案例：OpenAI 的”零手写代码”实验</h3><p>OpenAI 团队在其文章中描述了一个令人震撼的实践 [9]：他们设定了一个极端约束——“no manually typed code at all”。工程师们通过设计 Harness 和反馈循环，引导 Codex Agent 产出了约 100 万行代码。他们的核心经验是：</p>
+<blockquote>
+<p>“When the agent struggles, we treat it as a signal: identify what is missing — tools, guardrails, documentation — and feed it back into the repository.”</p>
+</blockquote>
+<p><strong>在 Code Agent 场景中：</strong> 这一阶段就是给 Code Agent 穿上护栏。比如编写 <code>AGENTS.md</code> 规则文件（Guides），让 Agent 知道代码规范；或者在 Agent 修改代码后，强制运行测试套件（Sensors），只有测试通过才允许提交。如果测试失败，Agent 会看到报错并自我纠正，整个过程在沙箱隔离环境中进行。</p>
+<blockquote>
+<p><em>模型本身的可重复性是 0%。同一个 prompt，相同温度和 seed，模型输出也可能不同。如果你的系统依赖”模型每次都完美执行”，那你的系统在第一天就不可靠了。Harness 就是把这个不可靠性关在笼子里的工程手段。</em></p>
+</blockquote>
+<hr>
+<h2 id="🔁-第四层：Loop-Engineering-——-一次完美不重要，持续改进才重要（2026年6月）"><a href="#🔁-第四层：Loop-Engineering-——-一次完美不重要，持续改进才重要（2026年6月）" class="headerlink" title="🔁 第四层：Loop Engineering —— 一次完美不重要，持续改进才重要（2026年6月）"></a>🔁 第四层：Loop Engineering —— 一次完美不重要，持续改进才重要（2026年6月）</h2><p><strong>本质：让系统形成”执行 → 评估 → 反馈 → 调整”的自动闭环，人类只设计循环，不参与执行。</strong></p>
+<p>前面三层解决的是”一次对话&#x2F;一次任务”的问题。但现实世界中的系统需要持续运转——今天好不代表明天好。用户反馈变了、数据分布漂移了、模型升级了……如果没有反馈循环，系统会无声地劣化。</p>
+<h3 id="溯源与定义-3"><a href="#溯源与定义-3" class="headerlink" title="溯源与定义"></a>溯源与定义</h3><p>2026 年 6 月 7 日，Peter Steinberger 的一条推文获得了超过 800 万次浏览，引爆了 Loop Engineering 的讨论 [13]：</p>
+<blockquote>
+<p>“Here’s your monthly reminder that you shouldn’t be prompting coding agents anymore. You should be designing loops that prompt your agents.”</p>
+<p>—— Peter Steinberger, 2026年6月7日</p>
+</blockquote>
+<p>几乎同时，Anthropic Claude Code 的负责人 Boris Cherny 在公开场合表示 [14]：</p>
+<blockquote>
+<p>“I don’t prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.”</p>
+<p>—— Boris Cherny, Head of Claude Code at Anthropic</p>
+</blockquote>
+<p>同日，Addy Osmani 发表了系统性的长文 <em>Loop Engineering</em> [15]，正式为这一概念命名并给出了完整的框架定义：</p>
+<blockquote>
+<p>“Loop engineering is replacing yourself as the person who prompts the agent. You design the system that does it instead.”</p>
+</blockquote>
+<h3 id="核心架构"><a href="#核心架构" class="headerlink" title="核心架构"></a>核心架构</h3><p><img src="https://cdn.awesomeyang.com/img/loop-engineering-.png" alt="Loop Engineering 系统架构"></p>
+<p>Addy Osmani 指出，Loop Engineering 位于 Harness Engineering “之上一层”——Harness 定义了单个 Agent 运行的环境，而 Loop 则让这个环境自动运转、自我驱动 [15]：</p>
+<blockquote>
+<p>“Loop engineering sits one floor above the harness. The harness makes the environment one single agent runs inside. The loop runs that harness on a timer, spawns little helpers, and feeds itself.”</p>
+</blockquote>
+<p>一个完整的 Loop 需要五个核心组件加一个持久化层：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>职责</th>
+<th>实现示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Automations</strong></td>
+<td>定时触发，发现和分流工作</td>
+<td>Codex Automations、GitHub Actions</td>
+</tr>
+<tr>
+<td><strong>Worktrees</strong></td>
+<td>隔离并行工作，防止冲突</td>
+<td>Git Worktree，每个 Agent 独立分支</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>编码项目知识，避免重复解释</td>
+<td><code>SKILL.md</code> 文件，按需加载</td>
+</tr>
+<tr>
+<td><strong>Plugins&#x2F;Connectors</strong></td>
+<td>连接真实工具链</td>
+<td>MCP 服务器，Linear&#x2F;Slack 集成</td>
+</tr>
+<tr>
+<td><strong>Sub-agents</strong></td>
+<td>分离创建者与检查者</td>
+<td>实现 Agent + 验证 Agent + 安全审查 Agent</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>跨会话持久化状态</td>
+<td>Markdown 文件、进度文件</td>
+</tr>
+</tbody></table>
+<p>如果说 Harness 是”工厂车间的设备和安全规程”，那么 Loop 就是”让整个工厂 24&#x2F;7 自动运转的调度系统”。</p>
+<p><strong>在 Code Agent 场景中：</strong> 这是目前的最高形态。比如 OpenAI Codex 的 Automations [16] 或 Claude Code 的 <code>/loop</code> 命令 [17]。你不再需要手动唤醒 Agent 帮你看代码，而是设定一个定时循环任务：Agent 每天凌晨自动拉取最新代码，运行代码巡检，发现潜在的 issue 并自动修复，甚至自动提交 PR。它在后台 24&#x2F;7 不知疲倦地工作。</p>
+<blockquote>
+<p><em>用一个比喻：Prompt Engineering 是告诉学生答题时先审题，Context Engineering 是给全套开卷资料，Harness Engineering 是设计考场的防作弊和监考规则，Loop Engineering 是把考试分数用来修改下学期教学大纲。</em></p>
+</blockquote>
+<hr>
+<h2 id="⏳-为什么会这样演进？"><a href="#⏳-为什么会这样演进？" class="headerlink" title="⏳ 为什么会这样演进？"></a>⏳ 为什么会这样演进？</h2><p>这四个概念并非互相替代，而是层层包含、逐级抽象的关系。Prompt Engineering 是 Context Engineering 的子集（提示词只是上下文的一部分）；Context Engineering 是 Harness 的一个方面（上下文管理只是 Harness 的组成部分之一）；而 Loop Engineering 则是让整个 Harness 自动运转的编排层。</p>
+<p><img src="https://cdn.awesomeyang.com/img/img3.png" alt="演进驱动力分析"></p>
+<p>每一层的出现都是因为上一层不够用了。这背后有四个底层驱动力：</p>
+<table>
+<thead>
+<tr>
+<th>驱动力</th>
+<th>变化趋势</th>
+<th>催生的范式</th>
+<th>逻辑关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>上下文窗口</strong></td>
+<td>4K → 1M+</td>
+<td>Context Engineering</td>
+<td>窗口大了，管理上下文成为核心挑战</td>
+</tr>
+<tr>
+<td><strong>高缓存命中</strong></td>
+<td>Prompt Caching 普及</td>
+<td>Context Engineering</td>
+<td>长上下文重复调用成本暴降，使海量 Context 实用化</td>
+</tr>
+<tr>
+<td><strong>模型智能</strong></td>
+<td>GPT-3 → V4&#x2F;GPT-5</td>
+<td>Harness Engineering</td>
+<td>模型越强，可委托的任务越复杂，越需要护栏</td>
+</tr>
+<tr>
+<td><strong>推理成本</strong></td>
+<td>$60&#x2F;M → $0.0028&#x2F;M</td>
+<td>Loop Engineering</td>
+<td>成本断崖式下降，让 Agent 24&#x2F;7 循环运行变得廉价</td>
+</tr>
+<tr>
+<td><strong>工具生态</strong></td>
+<td>API → MCP</td>
+<td>Harness Engineering</td>
+<td>基础设施成熟，Agent 才能与真实世界交互</td>
+</tr>
+</tbody></table>
+<p><strong>第一次跃迁（Prompt → Context）</strong> 的核心驱动力是上下文窗口的扩大与<strong>高缓存命中（Prompt Caching）</strong>的普及。当窗口只有 4K tokens 时，你确实只需要关心那一小段 Prompt。但当窗口扩大到 1M，且 Anthropic、OpenAI 和 DeepSeek 等厂商纷纷推出缓存折扣（如 OpenAI Cached Tokens 享 50% 折扣 [18]）后，将海量项目代码作为固定上下文的成本大幅降低，这使得 Context Engineering 在工程上变得实用。</p>
+<p><strong>第二次跃迁（Context → Harness）</strong> 的核心驱动力是模型智能的提升和工具生态的成熟。当模型足够聪明，能够使用工具、执行代码、与环境交互时，它就不再是一个”回答问题的聊天机器人”，而是一个”执行任务的 Agent”。Agent 需要执行环境、安全边界、反馈循环——这就是 Harness。</p>
+<p><strong>第三次跃迁（Harness → Loop）</strong> 的核心驱动力是<strong>推理成本的断崖式下降与性能的不降反升</strong>。以 2026 年发布的 DeepSeek V4 为例，其 SWE-bench Verified 跑分高达 80.6% [19]，超越了诸多前代旗舰模型；更震撼的是其价格，V4 Flash 的缓存命中输入成本暴降至每百万 token 仅 $0.0028 [20]。当成本从几年前的 $60 降到几美分，让 Agent 24&#x2F;7 循环运行、反复试错直至成功，在经济上不仅可行，甚至比雇佣初级程序员更划算。</p>
+<hr>
+<h2 id="🎯-开发一个-Agent-前，应该怎么设计？"><a href="#🎯-开发一个-Agent-前，应该怎么设计？" class="headerlink" title="🎯 开发一个 Agent 前，应该怎么设计？"></a>🎯 开发一个 Agent 前，应该怎么设计？</h2><p>基于这四层演进，我建议按这个顺序思考，而不是一上来就敲代码：</p>
+<h3 id="Step-1：明确”外脑有多重要”"><a href="#Step-1：明确”外脑有多重要”" class="headerlink" title="Step 1：明确”外脑有多重要”"></a>Step 1：明确”外脑有多重要”</h3><p>你的 Agent 需要多大程度的 AI？如果只需要一句 prompt 就能搞定，那可能只用 Prompt Engineering 就够了。如果依赖大量领域知识，投资 Context Engineering。</p>
+<h3 id="Step-2：画清”边界”"><a href="#Step-2：画清”边界”" class="headerlink" title="Step 2：画清”边界”"></a>Step 2：画清”边界”</h3><p>哪些必须人确认？哪些可以全自动？错误发生后怎么办？这就是 Harness 的边界设计——不是”把最智能的模型放进去”，而是”在最需要智能的地方放最合适的模型，在最需要安全的地方放护栏”。</p>
+<h3 id="Step-3：设计”反馈回路”"><a href="#Step-3：设计”反馈回路”" class="headerlink" title="Step 3：设计”反馈回路”"></a>Step 3：设计”反馈回路”</h3><p>上线后我靠什么知道它在变好还是变差？多久评估一次？谁来评估（LLM &#x2F; 人工 &#x2F; 用户行为指标）？反馈怎么汇入系统改进？</p>
+<blockquote>
+<p><strong>一个实用框架：</strong></p>
+<ol>
+<li>先从最简单的 Prompt 开始</li>
+<li>如果不够 → 加 Context（RAG &#x2F; 记忆）</li>
+<li>如果还不够 → 加 Harness（工具 &#x2F; 护栏 &#x2F; 错误处理）</li>
+<li>如果跑起来了 → 加 Loop（评估 &#x2F; 反馈 &#x2F; 改进）</li>
+</ol>
+<p><strong>不要超前设计。</strong> 90% 的场景可能只需要 Prompt + 少量 Context。不要一上来就搭 Loop。</p>
+</blockquote>
+<p>正如 OpenAI 团队在其实践中总结的 [9]：</p>
+<blockquote>
+<p>“Early progress was slower than we expected, not because Codex was incapable, but because the environment was underspecified. The agent lacked the tools, abstractions, and internal structure required to make progress toward high-level goals.”</p>
+</blockquote>
+<hr>
+<h2 id="💭-写在最后"><a href="#💭-写在最后" class="headerlink" title="💭 写在最后"></a>💭 写在最后</h2><p><img src="https://cdn.awesomeyang.com/img/img4.png" alt="演进时间线"></p>
+<p>这几个概念之所以让人困惑，不是因为它们有多深奥，而是因为<strong>它们出现得太快</strong>——六年内从 Prompt 走到 Loop，每一层刚被社区理解，下一层就已经在行业里流行了。</p>
+<p>但回头看这个演进很理性：</p>
+<ul>
+<li><strong>Prompt Engineering</strong> &#x3D; 怎么表达（How to ask）</li>
+<li><strong>Context Engineering</strong> &#x3D; 怎么喂信息（What to provide）</li>
+<li><strong>Harness Engineering</strong> &#x3D; 怎么约束（How to constrain）</li>
+<li><strong>Loop Engineering</strong> &#x3D; 怎么自动化（How to automate）</li>
+</ul>
+<p><strong>从 Expression → Information → System → Evolution。</strong></p>
+<p>这是 AI 工程化的自然递进，而不是什么炒作新名词。当你开始开发一个 Agent 系统时，我的建议很简单：先用 Prompt 试，发现不够了再加 Context，系统不稳定了再画 Harness，跑通之后再上 Loop。</p>
+<p><strong>每一层的出现都是因为上一层不够用了。</strong> 这既是历史，也是方法论。</p>
+<hr>
+<p><em>虾仔 · 一个游得快、反应快的数字虾米</em></p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] Tom B. Brown et al., “Language Models are Few-Shot Learners”, OpenAI, arXiv:2005.14165, May 28, 2020. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14165">https://arxiv.org/abs/2005.14165</a></p>
+<p>[2] Jason Wei et al., “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models”, Google Brain, arXiv:2201.11903, Jan 28, 2022. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.11903">https://arxiv.org/abs/2201.11903</a></p>
+<p>[3] Tobi Lütke, Twitter&#x2F;X, June 18, 2025. <a target="_blank" rel="noopener" href="https://x.com/tobi/status/1935533422589399127">https://x.com/tobi/status/1935533422589399127</a></p>
+<p>[4] Andrej Karpathy, Twitter&#x2F;X, June 25, 2025. <a target="_blank" rel="noopener" href="https://x.com/karpathy/status/1937902205765607626">https://x.com/karpathy/status/1937902205765607626</a></p>
+<p>[5] Harrison Chase, “The rise of context engineering”, LangChain Blog, June 23, 2025. <a target="_blank" rel="noopener" href="https://www.langchain.com/blog/the-rise-of-context-engineering">https://www.langchain.com/blog/the-rise-of-context-engineering</a></p>
+<p>[6] Yichao ‘Peak’ Ji, “Context Engineering for AI Agents: Lessons from Building Manus”, Manus Blog, July 18, 2025. <a target="_blank" rel="noopener" href="https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus">https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus</a></p>
+<p>[7] Anthropic Engineering, “Effective context engineering for AI agents”, September 29, 2025. <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a></p>
+<p>[8] Mitchell Hashimoto, “My AI Adoption Journey”, mitchellh.com, February 5, 2026. <a target="_blank" rel="noopener" href="https://mitchellh.com/writing/my-ai-adoption-journey">https://mitchellh.com/writing/my-ai-adoption-journey</a></p>
+<p>[9] Ryan Lopopolo, “Harness engineering: leveraging Codex in an agent-first world”, OpenAI Engineering, February 11, 2026. <a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">https://openai.com/index/harness-engineering/</a></p>
+<p>[10] Birgitta Böckeler, “Harness engineering for coding agent users”, martinfowler.com, April 2, 2026. <a target="_blank" rel="noopener" href="https://martinfowler.com/articles/harness-engineering.html">https://martinfowler.com/articles/harness-engineering.html</a></p>
+<p>[11] Vivek Trivedy, “The Anatomy of an Agent Harness”, LangChain Blog, March 10, 2026. <a target="_blank" rel="noopener" href="https://www.langchain.com/blog/the-anatomy-of-an-agent-harness">https://www.langchain.com/blog/the-anatomy-of-an-agent-harness</a></p>
+<p>[12] Addy Osmani, “Agent Harness Engineering”, addyosmani.com, April 19, 2026. <a target="_blank" rel="noopener" href="https://addyosmani.com/blog/agent-harness-engineering/">https://addyosmani.com/blog/agent-harness-engineering/</a></p>
+<p>[13] Peter Steinberger, Twitter&#x2F;X, June 7, 2026. <a target="_blank" rel="noopener" href="https://x.com/steipete/status/2063697162748260627">https://x.com/steipete/status/2063697162748260627</a></p>
+<p>[14] Boris Cherny, Head of Claude Code at Anthropic, public statement, June 2026. <a target="_blank" rel="noopener" href="https://x.com/rohanpaul_ai/status/2063289804708835412">https://x.com/rohanpaul_ai/status/2063289804708835412</a></p>
+<p>[15] Addy Osmani, “Loop Engineering”, addyosmani.com, June 7, 2026. <a target="_blank" rel="noopener" href="https://addyosmani.com/blog/loop-engineering/">https://addyosmani.com/blog/loop-engineering/</a></p>
+<p>[16] OpenAI, “Automations - Codex app”, OpenAI Developers. <a target="_blank" rel="noopener" href="https://developers.openai.com/codex/app/automations">https://developers.openai.com/codex/app/automations</a></p>
+<p>[17] Verdent AI, “How to Use Claude Code &#x2F;loop to Automate Dev Workflows”, March 9, 2026. <a target="_blank" rel="noopener" href="https://www.verdent.ai/guides/claude-code-loop-command">https://www.verdent.ai/guides/claude-code-loop-command</a></p>
+<p>[18] OpenAI, “API Pricing”, openai.com. <a target="_blank" rel="noopener" href="https://openai.com/api/pricing/">https://openai.com/api/pricing/</a></p>
+<p>[19] Lightning AI, “DeepSeek V4 Alters Everything We Knew About Price-Performance”, April 26, 2026. <a target="_blank" rel="noopener" href="https://lightning.ai/blog/deepseekv4comparison">https://lightning.ai/blog/deepseekv4comparison</a></p>
+<p>[20] DeepSeek, “Models &amp; Pricing”, DeepSeek API Docs. <a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/quick_start/pricing">https://api-docs.deepseek.com/quick_start/pricing</a></p>
+</div><div id="donate"><link rel="stylesheet" type="text/css" href="/css/donate.css?v=1.0.0"><script type="text/javascript" src="/js/donate.js?v=1.0.0" successtext="复制成功！"></script><a class="pos-f tr3" id="github" href="https://github.com/StruggleYang" target="_blank" title="Github"></a><div id="DonateText">Donate</div><ul class="list pos-f" id="donateBox"><li id="PayPal"><a href="https://paypal.me/struy?country.x=C2&amp;locale.x=zh_XC" target="_blank"></a></li><li id="WeChat" qr="https://cdn.awesomeyang.com/img/wechat-sponsor-code.jpg"></li></ul><div class="pos-f left-100" id="QRBox"><div id="MainBox"></div></div></div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css?v=1.0.0"><p><span>本文标题：</span>别再只想着写 Prompt 了：AI 工程范式的四次跃迁</p><p><span>文章作者：</span>AwesomeYang</p><p><span>发布时间：</span>2026-06-16</p><p><span>最后更新：</span>2026-06-22</p><p><span>原始链接：</span><a href="/2026/06/16/ai-engineering-four-paradigms/">https://awesomeyang.com/2026/06/16/ai-engineering-four-paradigms/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://awesomeyang.com/2026/06/16/ai-engineering-four-paradigms/"></i></span></p><p><span>版权声明：</span>未经允许禁止转载，请关注公众号联系作者</p></div><br><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prompt/" rel="tag">Prompt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B%E8%8C%83%E5%BC%8F/" rel="tag">工程范式</a></li></ul></div><div class="post-nav"><a class="pre" href="/2026/06/17/chatgpt-below-50-percent/">ChatGPT跌破50%：AI聊天的格局是怎么在半年内瓦解的</a><a class="next" href="/2026/06/15/silicon-valley-geeks-dead/">硅谷极客已死？一篇 HN 六百分爆文，戳破了科技圈的遮羞布</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: 'f9f8d6e8db578e1d4cec',
+  clientSecret: 'a26c8b120d01d4d92eb4b69f5b4e9683b1ef9c3d',
+  repo: 'struy-cn.github.io',
+  owner: 'struy-cn',
+  admin: ['StruggleYang'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://awesomeyang.com"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="https://cdn.awesomeyang.com/img/202209061104733.png"/></a><p>你只活一次，临渊羡鱼，不如退而结网</p><a class="info-icon" href="https://twitter.com/AwesomeYang_com" title="twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yq1724555319@gmail.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/StruggleYang" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="/atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AIGC/">AIGC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%97%E5%B1%B1%E5%B0%8F%E8%AE%BA%E5%9D%9B/">南山小论坛</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8F%92%E4%BB%B6/">插件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/">独立开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/">生产力工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/">认知提升</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 15px;">读书</a> <a href="/tags/Angular/" style="font-size: 15px;">Angular</a> <a href="/tags/WebGis/" style="font-size: 15px;">WebGis</a> <a href="/tags/DDD/" style="font-size: 15px;">DDD</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">领域驱动设计</a> <a href="/tags/EventBus/" style="font-size: 15px;">EventBus</a> <a href="/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">Dapeng微服务</a> <a href="/tags/%E6%91%98%E5%BD%95/" style="font-size: 15px;">摘录</a> <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 15px;">开源</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">编程工具</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Prompt/" style="font-size: 15px;">Prompt</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E8%8C%83%E5%BC%8F/" style="font-size: 15px;">工程范式</a> <a href="/tags/%E6%A2%97%E5%9B%BE/" style="font-size: 15px;">梗图</a> <a href="/tags/vibe-coding/" style="font-size: 15px;">vibe coding</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 15px;">程序员</a> <a href="/tags/AIGC/" style="font-size: 15px;">AIGC</a> <a href="/tags/Stable-Diffusion/" style="font-size: 15px;">Stable Diffusion</a> <a href="/tags/AI%E7%BB%98%E5%9B%BE/" style="font-size: 15px;">AI绘图</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">工具</a> <a href="/tags/AI%E7%BC%96%E7%A0%81/" style="font-size: 15px;">AI编码</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/YouTube/" style="font-size: 15px;">YouTube</a> <a href="/tags/Anthropic/" style="font-size: 15px;">Anthropic</a> <a href="/tags/%E8%A7%82%E7%82%B9/" style="font-size: 15px;">观点</a> <a href="/tags/CICD/" style="font-size: 15px;">CICD</a> <a href="/tags/DevOps/" style="font-size: 15px;">DevOps</a> <a href="/tags/ChatGPT/" style="font-size: 15px;">ChatGPT</a> <a href="/tags/%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/" style="font-size: 15px;">行业分析</a> <a href="/tags/Filebeat/" style="font-size: 15px;">Filebeat</a> <a href="/tags/ELK/" style="font-size: 15px;">ELK</a> <a href="/tags/cgroup/" style="font-size: 15px;">cgroup</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" style="font-size: 15px;">可观测性</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 15px;">科普</a> <a href="/tags/Github-Copilot/" style="font-size: 15px;">Github Copilot</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/%E6%A8%AA%E8%AF%84/" style="font-size: 15px;">横评</a> <a href="/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">国产模型</a> <a href="/tags/GLM/" style="font-size: 15px;">GLM</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 15px;">实测</a> <a href="/tags/gstack/" style="font-size: 15px;">gstack</a> <a href="/tags/Claude-Code/" style="font-size: 15px;">Claude Code</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">开发者工具</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/GithubPages/" style="font-size: 15px;">GithubPages</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">本地模型</a> <a href="/tags/LLM/" style="font-size: 15px;">LLM</a> <a href="/tags/HN/" style="font-size: 15px;">HN</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85/" style="font-size: 15px;">开发者</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/%E5%8D%97%E5%B1%B1%E5%B0%8F%E8%AE%BA%E5%9D%9B/" style="font-size: 15px;">南山小论坛</a> <a href="/tags/%E8%A1%A8%E8%BE%BE/" style="font-size: 15px;">表达</a> <a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/" style="font-size: 15px;">低代码</a> <a href="/tags/Influxdb/" style="font-size: 15px;">Influxdb</a> <a href="/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">时序数据库</a> <a href="/tags/Chatbot/" style="font-size: 15px;">Chatbot</a> <a href="/tags/ChatDoc/" style="font-size: 15px;">ChatDoc</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Nice-NewTab/" style="font-size: 15px;">Nice NewTab</a> <a href="/tags/%E8%8B%B1%E4%BC%9F%E8%BE%BE/" style="font-size: 15px;">英伟达</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 15px;">硬件</a> <a href="/tags/OpenAI/" style="font-size: 15px;">OpenAI</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 15px;">视频编辑</a> <a href="/tags/MCP/" style="font-size: 15px;">MCP</a> <a href="/tags/YC/" style="font-size: 15px;">YC</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">函数式编程</a> <a href="/tags/Reddit/" style="font-size: 15px;">Reddit</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 15px;">AI视频</a> <a href="/tags/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94/" style="font-size: 15px;">需求调研</a> <a href="/tags/%E7%A7%91%E6%8A%80%E5%9C%88/" style="font-size: 15px;">科技圈</a> <a href="/tags/%E5%B0%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">小模型</a> <a href="/tags/VibeThinker/" style="font-size: 15px;">VibeThinker</a> <a href="/tags/Moebius/" style="font-size: 15px;">Moebius</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">深度学习</a> <a href="/tags/%E8%85%BE%E8%AE%AF/" style="font-size: 15px;">腾讯</a> <a href="/tags/Agent/" style="font-size: 15px;">Agent</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/v0/" style="font-size: 15px;">v0</a> <a href="/tags/favicon-run/" style="font-size: 15px;">favicon.run</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">大语言模型</a> <a href="/tags/DeepSeek/" style="font-size: 15px;">DeepSeek</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 15px;">电影</a> <a href="/tags/Apple/" style="font-size: 15px;">Apple</a> <a href="/tags/Siri/" style="font-size: 15px;">Siri</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://nicenewtab.com/" title="Nice NewTab" target="_blank">Nice NewTab</a><ul></ul><a href="https://nicepasswd.com/" title="Nice Password" target="_blank">Nice Password</a><ul></ul><a href="https://aiwith.me" title="AI With Me" target="_blank">AI With Me</a><ul></ul><a href="https://ai-anime-generators.com" title="AI Anime GeneratorS" target="_blank">AI Anime GeneratorS</a><ul></ul><a href="https://favicon.run" title="favicon.run" target="_blank">favicon.run</a><ul></ul><a href="https://ti-84-calculator-online.com" title="TI 84 Calculator Online" target="_blank">TI 84 Calculator Online</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2026 <a href="/." rel="nofollow">老杨的知识荒原.</a><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async="async"></script><div><span id="busuanzi_container_site_pv">本站 <span id="busuanzi_value_site_pv"></span><span> 次访问</span></span><span id="busuanzi_container_site_uv">. <span id="busuanzi_value_site_uv"></span><span> 个访客</span></span></div>Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js?v=1.0.0"></script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
