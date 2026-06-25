@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="最好的知识分享博客，分享AI 人工智能，编码、架构经验、效率工具、阅读感悟，刚刚更新"><meta name="keywords"><title>Qwen-AgentWorld：让 AI 自己模拟世界，自己在里面练 | 老杨的知识荒原</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script src="https://www.googletagmanager.com/gtag/js?id=G-7HLMFGQR9B" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7HLMFGQR9B');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + 'd2ed00d27f11374630ac0efc2332b027';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
+
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Qwen-AgentWorld：让 AI 自己模拟世界，自己在里面练</h1><a id="logo" href="/.">老杨的知识荒原</a><p class="description">公众号：AwesomeYang｜你只活一次，临渊羡鱼，不如退而结网</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tools/"><i class="fa fa-coffee"> 工具箱</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Qwen-AgentWorld：让 AI 自己模拟世界，自己在里面练</h1><div class="post-meta">2026-06-25<span> | </span><span class="category"><a href="/categories/AI/">AI</a></span><!-- 移动到footer.pug--><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%83%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">它在做什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E8%AE%AD%E7%BB%83%E7%9A%84%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">怎么训练的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%91%E5%88%86%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">跑分数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%8F%91%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">更有意思的两个发现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9A%E6%A8%A1%E6%8B%9F%E7%8E%AF%E5%A2%83%E8%AE%AD%E7%BB%83-%E7%9C%9F%E5%AE%9E%E7%8E%AF%E5%A2%83%E8%AE%AD%E7%BB%83"><span class="toc-number">4.1.</span> <span class="toc-text">发现一：模拟环境训练 &gt; 真实环境训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9A%E5%AD%A6%E9%A2%84%E6%B5%8B%E7%8E%AF%E5%A2%83-%E5%8F%98%E5%BC%BA"><span class="toc-number">4.2.</span> <span class="toc-text">发现二：学预测环境 &#x3D; 变强</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BE%E5%8C%BA%E5%8F%8D%E5%BA%94"><span class="toc-number">5.</span> <span class="toc-text">社区反应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%9C%8B%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">我的看法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E4%BF%A1%E6%81%AF"><span class="toc-number">7.</span> <span class="toc-text">开源信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">8.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="post-content"><p>6 月 24 日，阿里 Qwen 团队在 X 上发了一条推文，宣布了一个新东西：<strong>Qwen-AgentWorld</strong>。</p>
+<p>名字听起来像是又一个 Agent 框架，但看了论文之后发现，思路跟市面上所有 Agent 项目都不一样。</p>
+<h2 id="它在做什么？"><a href="#它在做什么？" class="headerlink" title="它在做什么？"></a>它在做什么？</h2><p>一句话：<strong>训练一个模型来模拟环境，而不是训练一个模型在环境里做事。</strong></p>
+<p>现有的 Agent 训练路径是：LLM → 接工具 → 在真实环境里跑 → RL 微调。瓶颈很明显——真实环境太慢、太贵、不可控。你要训一个会操作浏览器的 Agent，就得真的开浏览器、真的加载网页、真的等响应。</p>
+<p>Qwen-AgentWorld 反过来想：如果模型能<strong>预测</strong>「我做了 X 动作后，环境会返回什么」，那就不需要真的跑环境了。模型自己就是环境。</p>
+<p><img src="https://cdn.awesomeyang.com/img/qwenteaser.png" alt="Qwen-AgentWorld 架构概览"></p>
+<p>覆盖 7 个领域：MCP（工具调用）、Search（搜索）、Terminal（终端）、SWE（软件工程）、Android（安卓）、Web（浏览器）、OS（操作系统）。一个模型，七个环境。</p>
+<h2 id="怎么训练的？"><a href="#怎么训练的？" class="headerlink" title="怎么训练的？"></a>怎么训练的？</h2><p>论文标题是《Language World Models for General Agents》，三位一体的训练流程：</p>
+<p><strong>第一阶段 CPT（持续预训练）</strong>：用超过 1000 万条真实环境交互轨迹，让模型学会「状态转移」——给定当前状态和动作，环境会变成什么样。</p>
+<p><strong>第二阶段 SFT（监督微调）</strong>：激活模型的 next-state-prediction 推理能力，让它学会用长链式思考（long CoT）来模拟环境响应。</p>
+<p><strong>第三阶段 RL（强化学习）</strong>：用混合 rubric + rule 奖励来提升模拟的保真度。</p>
+<p>关键区别：环境建模不是事后的补丁，是从 CPT 阶段就开始的核心训练目标。论文里反复强调「native world model」这个词。</p>
+<h2 id="跑分数据"><a href="#跑分数据" class="headerlink" title="跑分数据"></a>跑分数据</h2><p><img src="https://cdn.awesomeyang.com/img/qwen_bench.png" alt="AgentWorldBench 跑分对比"></p>
+<p>Qwen 团队同时发布了 AgentWorldBench，一个专门评估语言世界模型的基准。数据来自 5 个前沿模型在 9 个 benchmark 上的真实交互轨迹，覆盖 7 个领域。</p>
+<p>关键数字：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>总分</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Qwen-AgentWorld-397B-A17B</strong></td>
+<td><strong>58.71</strong></td>
+</tr>
+<tr>
+<td>GPT-5.4</td>
+<td>58.25</td>
+</tr>
+<tr>
+<td>Claude Opus 4.8</td>
+<td>56.59</td>
+</tr>
+<tr>
+<td>Claude Opus 4.6</td>
+<td>57.80</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>54.57</td>
+</tr>
+<tr>
+<td>Qwen-AgentWorld-35B-A3B</td>
+<td>56.39</td>
+</tr>
+<tr>
+<td>Qwen3.5-35B-A3B（无 LWM 训练）</td>
+<td>47.73</td>
+</tr>
+</tbody></table>
+<p>397B 版本总分第一，超过了 GPT-5.4。更值得注意的是 35B-A3B 版本：只有 3B 活跃参数的 MoE，总分 56.39，跟 Claude Opus 4.8 差距不到 1 分。而同样架构但没有 LWM 训练的 Qwen3.5-35B-A3B 只有 47.73 分——世界模型训练带来了 <strong>+8.66 分</strong>的提升。</p>
+<h2 id="更有意思的两个发现"><a href="#更有意思的两个发现" class="headerlink" title="更有意思的两个发现"></a>更有意思的两个发现</h2><p>论文不只是「做了一个模型」，还探索了世界模型怎么帮助 Agent 训练：</p>
+<h3 id="发现一：模拟环境训练-真实环境训练"><a href="#发现一：模拟环境训练-真实环境训练" class="headerlink" title="发现一：模拟环境训练 &gt; 真实环境训练"></a>发现一：模拟环境训练 &gt; 真实环境训练</h3><p>用 Qwen-AgentWorld 做模拟环境来跑 Sim RL（模拟强化学习），效果超过了在真实环境里训练。</p>
+<table>
+<thead>
+<tr>
+<th>训练方式</th>
+<th>Claw-Eval</th>
+<th>QwenClawBench</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Qwen3.5-35B-A3B（基线）</td>
+<td>65.4</td>
+<td>47.9</td>
+</tr>
+<tr>
+<td>+ Sim RL（用 Qwen3.6-Plus 做环境）</td>
+<td>66.7</td>
+<td>47.8</td>
+</tr>
+<tr>
+<td>+ Sim RL（用 Qwen-AgentWorld-397B 做环境）</td>
+<td><strong>69.7</strong></td>
+<td><strong>55.0</strong></td>
+</tr>
+</tbody></table>
+<p>用世界模型做环境，比用真实环境多拿了 4.3 和 7.1 分。而且它还能做 zero-shot 泛化到从没见过的环境（比如 OpenClaw）。</p>
+<p>更进一步：模型支持<strong>可控模拟</strong>——你可以往环境里注入扰动、构造虚构世界，让 Agent 在更难的条件下训练。比如在搜索任务里，Agent 完全在虚构的世界里训练，迁移到真实搜索任务后依然有效，F1 提升了 16.29 分。</p>
+<h3 id="发现二：学预测环境-变强"><a href="#发现二：学预测环境-变强" class="headerlink" title="发现二：学预测环境 &#x3D; 变强"></a>发现二：学预测环境 &#x3D; 变强</h3><p>世界模型训练不只让模型会模拟环境，还能反过来提升 Agent 自身的能力。</p>
+<p>论文做了一个实验：先用单轮的、非 Agent 的轨迹做 LWM RL warm-up，然后再测多轮工具调用的 Agent 任务。结果：</p>
+<table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th>无 warm-up</th>
+<th>有 LWM warm-up</th>
+<th>提升</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Terminal-Bench 2.0</td>
+<td>33.25</td>
+<td>39.55</td>
+<td>+6.30</td>
+</tr>
+<tr>
+<td>SWE-Bench Verified</td>
+<td>64.47</td>
+<td>67.86</td>
+<td>+3.39</td>
+</tr>
+<tr>
+<td>SWE-Bench Pro</td>
+<td>42.18</td>
+<td>47.42</td>
+<td>+5.24</td>
+</tr>
+<tr>
+<td>WideSearch F1</td>
+<td>33.38</td>
+<td>46.17</td>
+<td>+12.79</td>
+</tr>
+<tr>
+<td>Claw-Eval</td>
+<td>53.60</td>
+<td>64.88</td>
+<td>+11.28</td>
+</tr>
+<tr>
+<td>BFCL v4</td>
+<td>62.29</td>
+<td>71.25</td>
+<td>+8.96</td>
+</tr>
+</tbody></table>
+<p>其中后三个是完全 out-of-domain 的任务。也就是说，「学会预测环境」这个能力本身，会迁移到 Agent 任务上，即使没有任何 Agent 专项训练。</p>
+<p><img src="https://cdn.awesomeyang.com/img/qwenoverview.png" alt="AgentWorldBench 构成"></p>
+<h2 id="社区反应"><a href="#社区反应" class="headerlink" title="社区反应"></a>社区反应</h2><p>这个工作在社区里引起了不小的讨论。</p>
+<p>HN 上有人注意到一个细节：训练数据不是合成的，而是真的部署了物理主机和虚拟机（Ubuntu、macOS）来采集交互轨迹。有人讨论这个东西能不能用来做 Agent 测试环境的低成本替代——「以后不用真的开 Docker 跑测试了？」</p>
+<p>Reddit r&#x2F;LocalLLaMA 上 194 个 upvote，讨论集中在 35B-A3B 这个小模型能不能本地跑起来做 Agent 测试沙箱。3B 活跃参数的 MoE，理论上一张 24GB 显卡就能推理。</p>
+<p>HuggingFace 上线一天，模型下载 223 次，收藏 143。</p>
+<h2 id="我的看法"><a href="#我的看法" class="headerlink" title="我的看法"></a>我的看法</h2><p>这个东西最大的价值不是跑分第一（虽然也很厉害），而是它验证了一个方向：<strong>Agent 训练可以从「依赖真实环境」转向「自给自足」</strong>。</p>
+<p>AlphaGo 通过自我博弈称霸围棋，是因为它不需要跟人类下棋来学习。Qwen-AgentWorld 试图做类似的事：Agent 不需要在真实环境里犯错来学习，它在自己模拟的世界里就能练出来。</p>
+<p>如果这个方向成立，Agent 训练的成本会大幅下降。你不需要 1000 台浏览器实例来跑 Web Agent RL，一个模型就够了。</p>
+<p>当然问题也存在：模拟器和真实环境之间一定有 gap。模型预测的环境响应跟真实的可能不一样，Agent 在模拟世界里学到的策略，迁移到现实可能有偏差。论文里提到了 zero-shot 泛化的能力，但实际效果还需要更多验证。</p>
+<p>不过作为第一步，这个工作足够有意思。</p>
+<h2 id="开源信息"><a href="#开源信息" class="headerlink" title="开源信息"></a>开源信息</h2><ul>
+<li>模型权重：Qwen-AgentWorld-35B-A3B（MoE，35B 总参数 &#x2F; 3B 活跃，256K 上下文）</li>
+<li>评测基准：AgentWorldBench（7 领域）</li>
+<li>支持 SGLang 和 vLLM 推理</li>
+<li>论文作者 30+ 人，第一作者 Yuxin Zuo，通讯作者包括 Ning Ding（清华大学）</li>
+</ul>
+<p>397B-A17B 版本没有开源权重，只有 35B-A3B 开源了。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><p>论文：Qwen-AgentWorld: Language World Models for General Agents<br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.24597">https://arxiv.org/abs/2606.24597</a></p>
+</li>
+<li><p>GitHub 仓库<br><a target="_blank" rel="noopener" href="https://github.com/QwenLM/Qwen-AgentWorld">https://github.com/QwenLM/Qwen-AgentWorld</a></p>
+</li>
+<li><p>HuggingFace 模型<br><a target="_blank" rel="noopener" href="https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B">https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B</a></p>
+</li>
+<li><p>HuggingFace 数据集（AgentWorldBench）<br><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/Qwen/AgentWorldBench">https://huggingface.co/datasets/Qwen/AgentWorldBench</a></p>
+</li>
+<li><p>Qwen 官方博客<br><a target="_blank" rel="noopener" href="https://qwen.ai/blog?id=qwen-agentworld">https://qwen.ai/blog?id=qwen-agentworld</a></p>
+</li>
+<li><p>X 推文原文<br><a target="_blank" rel="noopener" href="https://x.com/Alibaba_Qwen/status/2069720365442719867">https://x.com/Alibaba_Qwen/status/2069720365442719867</a></p>
+</li>
+<li><p>ModelScope<br><a target="_blank" rel="noopener" href="https://modelscope.cn/collections/Qwen/Qwen-AgentWorld">https://modelscope.cn/collections/Qwen/Qwen-AgentWorld</a></p>
+</li>
+</ol>
+</div><div id="donate"><link rel="stylesheet" type="text/css" href="/css/donate.css?v=1.0.0"><script type="text/javascript" src="/js/donate.js?v=1.0.0" successtext="复制成功！"></script><a class="pos-f tr3" id="github" href="https://github.com/StruggleYang" target="_blank" title="Github"></a><div id="DonateText">Donate</div><ul class="list pos-f" id="donateBox"><li id="PayPal"><a href="https://paypal.me/struy?country.x=C2&amp;locale.x=zh_XC" target="_blank"></a></li><li id="WeChat" qr="https://cdn.awesomeyang.com/img/wechat-sponsor-code.jpg"></li></ul><div class="pos-f left-100" id="QRBox"><div id="MainBox"></div></div></div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css?v=1.0.0"><p><span>本文标题：</span>Qwen-AgentWorld：让 AI 自己模拟世界，自己在里面练</p><p><span>文章作者：</span>AwesomeYang</p><p><span>发布时间：</span>2026-06-25</p><p><span>最后更新：</span>2026-06-25</p><p><span>原始链接：</span><a href="/2026/06/25/qwen-agentworld-language-world-model/">https://awesomeyang.com/2026/06/25/qwen-agentworld-language-world-model/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://awesomeyang.com/2026/06/25/qwen-agentworld-language-world-model/"></i></span></p><p><span>版权声明：</span>未经允许禁止转载，请关注公众号联系作者</p></div><br><div class="tags"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qwen/" rel="tag">Qwen</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/" rel="tag">世界模型</a></li></ul></div><div class="post-nav"><a class="next" href="/2026/06/25/balls-up-somebody-mashup/">最近被洗脑的视频：一个男人把 Gotye 唱进了我的脑子里</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: 'f9f8d6e8db578e1d4cec',
+  clientSecret: 'a26c8b120d01d4d92eb4b69f5b4e9683b1ef9c3d',
+  repo: 'struy-cn.github.io',
+  owner: 'struy-cn',
+  admin: ['StruggleYang'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://awesomeyang.com"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="https://cdn.awesomeyang.com/img/202209061104733.png"/></a><p>你只活一次，临渊羡鱼，不如退而结网</p><a class="info-icon" href="https://twitter.com/AwesomeYang_com" title="twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yq1724555319@gmail.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/StruggleYang" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="/atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AIGC/">AIGC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%97%E5%B1%B1%E5%B0%8F%E8%AE%BA%E5%9D%9B/">南山小论坛</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8F%92%E4%BB%B6/">插件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/">独立开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/">生产力工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/">认知提升</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 15px;">读书</a> <a href="/tags/DDD/" style="font-size: 15px;">DDD</a> <a href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 15px;">领域驱动设计</a> <a href="/tags/EventBus/" style="font-size: 15px;">EventBus</a> <a href="/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">Dapeng微服务</a> <a href="/tags/Angular/" style="font-size: 15px;">Angular</a> <a href="/tags/WebGis/" style="font-size: 15px;">WebGis</a> <a href="/tags/%E6%91%98%E5%BD%95/" style="font-size: 15px;">摘录</a> <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 15px;">开源</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">编程工具</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Prompt/" style="font-size: 15px;">Prompt</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E8%8C%83%E5%BC%8F/" style="font-size: 15px;">工程范式</a> <a href="/tags/%E6%A2%97%E5%9B%BE/" style="font-size: 15px;">梗图</a> <a href="/tags/vibe-coding/" style="font-size: 15px;">vibe coding</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 15px;">程序员</a> <a href="/tags/AIGC/" style="font-size: 15px;">AIGC</a> <a href="/tags/Stable-Diffusion/" style="font-size: 15px;">Stable Diffusion</a> <a href="/tags/AI%E7%BB%98%E5%9B%BE/" style="font-size: 15px;">AI绘图</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">工具</a> <a href="/tags/AI%E7%BC%96%E7%A0%81/" style="font-size: 15px;">AI编码</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/YouTube/" style="font-size: 15px;">YouTube</a> <a href="/tags/Anthropic/" style="font-size: 15px;">Anthropic</a> <a href="/tags/%E8%A7%82%E7%82%B9/" style="font-size: 15px;">观点</a> <a href="/tags/%E7%BE%8E%E5%89%A7/" style="font-size: 15px;">美剧</a> <a href="/tags/%E6%8A%96%E6%93%9E/" style="font-size: 15px;">抖擞</a> <a href="/tags/%E6%B4%97%E8%84%91/" style="font-size: 15px;">洗脑</a> <a href="/tags/CICD/" style="font-size: 15px;">CICD</a> <a href="/tags/DevOps/" style="font-size: 15px;">DevOps</a> <a href="/tags/ChatGPT/" style="font-size: 15px;">ChatGPT</a> <a href="/tags/%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/" style="font-size: 15px;">行业分析</a> <a href="/tags/%E6%A8%AA%E8%AF%84/" style="font-size: 15px;">横评</a> <a href="/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">国产模型</a> <a href="/tags/Filebeat/" style="font-size: 15px;">Filebeat</a> <a href="/tags/ELK/" style="font-size: 15px;">ELK</a> <a href="/tags/cgroup/" style="font-size: 15px;">cgroup</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" style="font-size: 15px;">可观测性</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 15px;">科普</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Github-Copilot/" style="font-size: 15px;">Github Copilot</a> <a href="/tags/GLM/" style="font-size: 15px;">GLM</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 15px;">实测</a> <a href="/tags/gstack/" style="font-size: 15px;">gstack</a> <a href="/tags/Claude-Code/" style="font-size: 15px;">Claude Code</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">开发者工具</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/GithubPages/" style="font-size: 15px;">GithubPages</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">本地模型</a> <a href="/tags/LLM/" style="font-size: 15px;">LLM</a> <a href="/tags/HN/" style="font-size: 15px;">HN</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85/" style="font-size: 15px;">开发者</a> <a href="/tags/%E5%8D%97%E5%B1%B1%E5%B0%8F%E8%AE%BA%E5%9D%9B/" style="font-size: 15px;">南山小论坛</a> <a href="/tags/%E8%A1%A8%E8%BE%BE/" style="font-size: 15px;">表达</a> <a href="/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/" style="font-size: 15px;">低代码</a> <a href="/tags/Influxdb/" style="font-size: 15px;">Influxdb</a> <a href="/tags/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">时序数据库</a> <a href="/tags/Chatbot/" style="font-size: 15px;">Chatbot</a> <a href="/tags/ChatDoc/" style="font-size: 15px;">ChatDoc</a> <a href="/tags/Nice-NewTab/" style="font-size: 15px;">Nice NewTab</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/%E8%8B%B1%E4%BC%9F%E8%BE%BE/" style="font-size: 15px;">英伟达</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 15px;">硬件</a> <a href="/tags/OpenAI/" style="font-size: 15px;">OpenAI</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 15px;">视频编辑</a> <a href="/tags/MCP/" style="font-size: 15px;">MCP</a> <a href="/tags/YC/" style="font-size: 15px;">YC</a> <a href="/tags/Qwen/" style="font-size: 15px;">Qwen</a> <a href="/tags/Agent/" style="font-size: 15px;">Agent</a> <a href="/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">世界模型</a> <a href="/tags/Reddit/" style="font-size: 15px;">Reddit</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 15px;">AI视频</a> <a href="/tags/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94/" style="font-size: 15px;">需求调研</a> <a href="/tags/SaaS/" style="font-size: 15px;">SaaS</a> <a href="/tags/%E8%8E%B7%E5%AE%A2/" style="font-size: 15px;">获客</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 15px;">独立开发</a> <a href="/tags/%E5%87%BA%E6%B5%B7/" style="font-size: 15px;">出海</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">函数式编程</a> <a href="/tags/%E7%A7%91%E6%8A%80%E5%9C%88/" style="font-size: 15px;">科技圈</a> <a href="/tags/%E5%B0%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">小模型</a> <a href="/tags/VibeThinker/" style="font-size: 15px;">VibeThinker</a> <a href="/tags/Moebius/" style="font-size: 15px;">Moebius</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">深度学习</a> <a href="/tags/%E8%85%BE%E8%AE%AF/" style="font-size: 15px;">腾讯</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/v0/" style="font-size: 15px;">v0</a> <a href="/tags/favicon-run/" style="font-size: 15px;">favicon.run</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/Vibe-Coding/" style="font-size: 15px;">Vibe Coding</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 15px;">电影</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">大语言模型</a> <a href="/tags/DeepSeek/" style="font-size: 15px;">DeepSeek</a> <a href="/tags/Apple/" style="font-size: 15px;">Apple</a> <a href="/tags/Siri/" style="font-size: 15px;">Siri</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://nicenewtab.com/" title="Nice NewTab" target="_blank">Nice NewTab</a><ul></ul><a href="https://nicepasswd.com/" title="Nice Password" target="_blank">Nice Password</a><ul></ul><a href="https://aiwith.me" title="AI With Me" target="_blank">AI With Me</a><ul></ul><a href="https://ai-anime-generators.com" title="AI Anime GeneratorS" target="_blank">AI Anime GeneratorS</a><ul></ul><a href="https://favicon.run" title="favicon.run" target="_blank">favicon.run</a><ul></ul><a href="https://ti-84-calculator-online.com" title="TI 84 Calculator Online" target="_blank">TI 84 Calculator Online</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2026 <a href="/." rel="nofollow">老杨的知识荒原.</a><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async="async"></script><div><span id="busuanzi_container_site_pv">本站 <span id="busuanzi_value_site_pv"></span><span> 次访问</span></span><span id="busuanzi_container_site_uv">. <span id="busuanzi_value_site_uv"></span><span> 个访客</span></span></div>Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/love.js?v=1.0.0"></script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
