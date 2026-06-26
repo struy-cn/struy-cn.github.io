@@ -6,7 +6,7 @@
   <link href="https://awesomeyang.com/atom.xml" rel="self"/>
   
   <link href="https://awesomeyang.com/"/>
-  <updated>2026-06-25T01:19:08.659Z</updated>
+  <updated>2026-06-26T01:19:46.442Z</updated>
   <id>https://awesomeyang.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Frontend Slides：一个不会写代码的人，造了一个 2.3 万星的 HTML 演示文稿技能</title>
+    <link href="https://awesomeyang.com/2026/06/26/frontend-slides-review/"/>
+    <id>https://awesomeyang.com/2026/06/26/frontend-slides-review/</id>
+    <published>2026-06-26T01:30:00.000Z</published>
+    <updated>2026-06-26T01:19:46.442Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>用 Coding Agent 做 PPT，能到什么程度？我替你们试了 3 种风格。</p></blockquote><p>上周在 GitHub Trending 上注意到一个名字频繁出现的作者——<strong>Zara Zhang（zarazhangrui）</strong>。点进去一看：不会写代码，哈佛 2017 届毕业，靠 Coding Agent 做了一大堆开源项目，最火的 <strong>frontend-slides 已经 2.3 万星</strong>。</p><p>这本身就值得写一篇文章。</p><h2 id="她是谁"><a href="#她是谁" class="headerlink" title="她是谁"></a>她是谁</h2><p>先说说 Zara Zhang 这个人，我觉得挺有意思。</p><p>她的 GitHub 主页自我介绍是：「I don’t have a traditional engineering background (still don’t know how to write a single line of code), but with the help of coding agents, I’ve been able to turn lots of my ideas into reality. For me, code is a medium of self-expression.」</p><p>翻译一下：<strong>不会写代码，但靠 AI 编程助手把想法变成现实。</strong></p><p>她做的东西：</p><table><thead><tr><th>项目</th><th>星数</th><th>做什么</th></tr></thead><tbody><tr><td>frontend-slides</td><td>22.9k ⭐</td><td>Coding Agent 制作 HTML 演示文稿</td></tr><tr><td>follow-builders</td><td>5.4k ⭐</td><td>AI 开发者信息聚合</td></tr><tr><td>codebase-to-course</td><td>5k ⭐</td><td>代码库转交互式 HTML 课程</td></tr><tr><td>beautiful-html-templates</td><td>3.2k ⭐</td><td>HTML 幻灯片模板库</td></tr><tr><td>tab-out</td><td>1.6k ⭐</td><td>浏览器标签页管理</td></tr></tbody></table><p>她还有 <a href="https://zarazhang.substack.com/">Substack 订阅号</a>（4000+ 订阅），定期写 AI 人文视角的内容，也做 <a href="https://www.youtube.com/@ZaraZhangg">YouTube 教程</a>。</p><p>一个不会写代码的人，做出了 2.3 万星的开源项目。这本身就是 Vibe Coding 时代最好的注脚。</p><h2 id="Frontend-Slides-是什么"><a href="#Frontend-Slides-是什么" class="headerlink" title="Frontend Slides 是什么"></a>Frontend Slides 是什么</h2><p>一句话：<strong>让 Coding Agent 帮你生成漂亮的 HTML 演示文稿。</strong></p><p>不是 Powerpoint 导出成图片那种——是真正的单文件 HTML 幻灯片，CSS 动画、字体排版、交互式导航，全在一页 HTML 里。</p><h3 id="核心设计理念"><a href="#核心设计理念" class="headerlink" title="核心设计理念"></a>核心设计理念</h3><ol><li><strong>零依赖</strong>：单个 HTML 文件，内嵌 CSS&#x2F;JS，没有 npm，没有构建工具</li><li><strong>Show, Don’t Tell</strong>：不问你「喜欢什么风格」，直接生成 3 个风格预览给你看</li><li><strong>反 AI 审美</strong>：不要紫色渐变 + 白色背景那种泛泛之作</li><li><strong>固定 16:9 舞台</strong>：1920×1080 设计画布，整体缩放适配所有屏幕</li></ol><h3 id="内置-12-套风格预设"><a href="#内置-12-套风格预设" class="headerlink" title="内置 12 套风格预设"></a>内置 12 套风格预设</h3><p>Dark 系：Bold Signal、Electric Studio、Creative Voltage、Dark Botanical</p><p>Light 系：Notebook Tabs、Pastel Geometry、Split Pastel</p><p>特殊风格：Vintage Editorial、Neon Cyber、Terminal Green、Swiss Modern、Paper &amp; Ink</p><p>外加 34 套 bold 模板（来自额外的 beautiful-html-templates 仓库）。</p><h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><p>为了做这个测评，我在本地环境跑了一轮：</p><table><thead><tr><th>项目</th><th>配置</th></tr></thead><tbody><tr><td>机型</td><td>Mac mini（Apple Silicon）</td></tr><tr><td>Agent 框架</td><td>OpenClaw</td></tr><tr><td>模型</td><td>智谱 GLM-5.2</td></tr><tr><td>技能来源</td><td>github.com&#x2F;zarazhangrui&#x2F;frontend-slides</td></tr><tr><td>技能路径</td><td>~&#x2F;.agents&#x2F;skills&#x2F;frontend-slides&#x2F;</td></tr></tbody></table><h3 id="测试流程"><a href="#测试流程" class="headerlink" title="测试流程"></a>测试流程</h3><ol><li>精读 SKILL.md 文档，理解设计理念和生成流程</li><li>选 3 个差异化的风格（暗色高冲击、文学质感、赛博未来）</li><li>每个风格生成一个 5 页演示文稿</li><li>使用 Puppeteer 截图记录</li><li>评估视觉、动画、可定制性和实用价值</li></ol><h2 id="实测：3-种风格、3-种感觉"><a href="#实测：3-种风格、3-种感觉" class="headerlink" title="实测：3 种风格、3 种感觉"></a>实测：3 种风格、3 种感觉</h2><h3 id="风格-1：Bold-Signal（暗色高冲击）"><a href="#风格-1：Bold-Signal（暗色高冲击）" class="headerlink" title="风格 1：Bold Signal（暗色高冲击）"></a>风格 1：Bold Signal（暗色高冲击）</h3><p>主题：AI 编程工具 2026 上半年趋势观察</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026/demo1-slide1.png"></p><p>这个风格的视觉语言：深色渐变背景 + 橙色高亮卡片 + 超大章节数字。Archivo Black 做标题字，Space Grotesk 做正文字。</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026/demo1-slide2.png"></p><p>每页的内容卡片颜色鲜明，导航面包屑在右上角，数字标号在左上角，布局干净。适合 Keynote &#x2F; 路演讲座那种「每页一个核心观点」的场景。</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026/demo1-slide3.png"></p><p>数据页用网格布局展示三个关键数字，字号得体，阅读舒适。动画是渐入 + 上移的经典 reveal 效果。</p><p><strong>适合场景</strong>：产品发布会、技术分享、路演 Pitch。</p><h3 id="风格-2：Paper-Ink（文学质感）"><a href="#风格-2：Paper-Ink（文学质感）" class="headerlink" title="风格 2：Paper &amp; Ink（文学质感）"></a>风格 2：Paper &amp; Ink（文学质感）</h3><p>主题：为什么写作是 AI 时代最重要的技能</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026/demo2-slide1.png"></p><p>这个风格完全不一样——奶油色纸张质感背景，Cormorant Garamond 衬线字体，拉引号装饰。整体感觉像一本书的扉页。</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026/demo2-slide3.png"></p><p>内容页面用了首字下沉（drop cap）的排版技巧，段落间距均匀，文字有呼吸感。跟 Bold Signal 那种「说重点」的感觉不同，Paper &amp; Ink 让你想坐下来慢慢读。</p><p><strong>适合场景</strong>：读书分享、思想性内容、个人博客配套演示。</p><h3 id="风格-3：Neon-Cyber（赛博朋克）"><a href="#风格-3：Neon-Cyber（赛博朋克）" class="headerlink" title="风格 3：Neon Cyber（赛博朋克）"></a>风格 3：Neon Cyber（赛博朋克）</h3><p>主题：The Future of AI Agents</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026/demo3-slide1.png"></p><p>这个最有视觉冲击力——深黑底色 + 青蓝色霓虹发光 + 扫描线特效 + 故障文字效果。Orbitron 大字 + JetBrains Mono 等宽代码字，赛博味拉满。</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026/demo3-slide4.png"></p><p>内容页的霓虹发光边框和网格背景，配合缓慢的呼吸动画，科技感十足。每个例子前面还有一个霓虹小标签（Code &#x2F; Think &#x2F; Act），视觉层级清晰。</p><p><strong>适合场景</strong>：科技主题演讲、黑客松展示、AI&#x2F;Web3 路演。</p><h2 id="真正厉害的地方"><a href="#真正厉害的地方" class="headerlink" title="真正厉害的地方"></a>真正厉害的地方</h2><p>试完三个风格，我觉得最让我惊喜的不是视觉本身，而是：</p><h3 id="1-风格差异度做得很好"><a href="#1-风格差异度做得很好" class="headerlink" title="1. 风格差异度做得很好"></a>1. 风格差异度做得很好</h3><p>三套完全不同的视觉语言，不是「换个颜色」的区别。说明风格预设体系的边界定义得清楚，每种风格有自己的排版系统、配色哲学和装饰语言。</p><h3 id="2-对-Coding-Agent-友好"><a href="#2-对-Coding-Agent-友好" class="headerlink" title="2. 对 Coding Agent 友好"></a>2. 对 Coding Agent 友好</h3><p>整个技能文档写了一千多行，但它的设计逻辑是<strong>不让 Agent 自由发挥，而是给 Agent 一套规则</strong>。从「Read this file for base CSS」「Read this for animations」「Only load design.md when user picks」——每一步都被拆成确定性操作，Agent 犯错空间小了很多。</p><p>这是很多 AI 工具类项目没做好的一点：<strong>不是 Agent 不够聪明，是你的指令不够结构化。</strong></p><h3 id="3-生成的-HTML-质量扎实"><a href="#3-生成的-HTML-质量扎实" class="headerlink" title="3. 生成的 HTML 质量扎实"></a>3. 生成的 HTML 质量扎实</h3><p>每个 Demo 都是 30-40KB 的单文件，包含完整的 viewport 缩放到适配、键盘导航、触屏支持、打印样式、prefers-reduced-motion 无障碍支持。拿到就能用，不是玩具。</p><h2 id="当然也有不足"><a href="#当然也有不足" class="headerlink" title="当然也有不足"></a>当然也有不足</h2><ul><li><strong>内容生成依赖模型能力</strong>：GLM-5.2 生成的 English 文案有轻微语法问题，用 Claude 或 GPT 应该更好</li><li><strong>不是所见即所得</strong>：你必须通过 Agent 来调整，不能拖拽修图</li><li><strong>文字排版偶尔溢出</strong>：第一版 Bold Signal 的字体大小偏大，需要在 prompt 里明确指定内容密度（speaker-led vs reading-first）</li></ul><p>不过这些都不是技能本身的问题——跟传统 PPT 工具比，它的优势不在精调，在<strong>速度</strong>：从给主题到拿到演示文稿，5 分钟。</p><h2 id="顺便说说-Zara-Zhang"><a href="#顺便说说-Zara-Zhang" class="headerlink" title="顺便说说 Zara Zhang"></a>顺便说说 Zara Zhang</h2><p>我觉得她是一个值得关注的 AI 博主。</p><p>理由一：<strong>她证明了不会写代码也能做像样的开源项目。</strong> 这不是鸡汤——你去看她的代码库，结构清晰、注释完善。Coding Agent 帮她跨越了技术门槛，但产品感和设计感是她自己的。</p><p>理由二：<strong>她做的东西都是「教 AI 做创意工作」这个方向。</strong> 从 slides 到 course 到 podcasts，她在探索用 Agent 产出创意内容这件事。</p><p>理由三：<strong>理念对味。</strong> 她在 Substack 上写的 newsletter 叫「Humanistic perspectives on AI」，主张 AI 工具应该帮助人表达，而不是替代人表达。</p><h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><p>如果你也用 Coding Agent（Claude Code &#x2F; OpenClaw &#x2F; Kimi Code &#x2F; Codex CLI），直接把仓库链接给它：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/zarazhangrui/frontend-slides</span><br></pre></td></tr></table></figure><p>说一句「用 Frontend Slides 技能帮我做一个演示文稿」，它就会按流程走：问用途 → 生成 3 个风格预览 → 让你选 → 生成完整 HTML。</p><p>或者如果你用 Claude Code，可以直接装插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/plugin marketplace add https://github.com/zarazhangrui/frontend-slides</span><br><span class="line">/plugin install frontend-slides@frontend-slides</span><br></pre></td></tr></table></figure><hr><p><strong>总结：</strong> Frontend Slides 不是 PPT 的替代品，但它是一个很好的「快速出稿工具」。当你需要快速生成一个好看的演示文稿，又不想花半小时调字体对齐，让 Agent 5 分钟搞定，然后你只需要改改内容——这种工作流是真的香。</p><p>Zara Zhang 这个人也值得 follow。一个不会写代码但做了 2.3 万星项目的人，她的下一步会做什么，挺让人好奇的。</p><hr><p><em>文章首发于 awesomeyang.com，发文后将同步到微信公众号和 aiwith.me</em></p><p><em>参考链接：</em></p><ol><li>Frontend Slides: <a href="https://github.com/zarazhangrui/frontend-slides">https://github.com/zarazhangrui/frontend-slides</a></li><li>Zara Zhang GitHub: <a href="https://github.com/zarazhangrui">https://github.com/zarazhangrui</a></li><li>Zara Zhang X: <a href="https://x.com/zarazhangrui">https://x.com/zarazhangrui</a></li><li>Zara Substack: <a href="https://zarazhang.substack.com/">https://zarazhang.substack.com/</a></li><li>beautiful-html-templates: <a href="https://github.com/zarazhangrui/beautiful-html-templates">https://github.com/zarazhangrui/beautiful-html-templates</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;用 Coding Agent 做 PPT，能到什么程度？我替你们试了 3 种风格。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上周在 GitHub Trending 上注意到一个名字频繁出现的作者——&lt;strong&gt;Zara Zhang（zaraz</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
+    
+    <category term="工具评测" scheme="https://awesomeyang.com/categories/AI/%E5%B7%A5%E5%85%B7%E8%AF%84%E6%B5%8B/"/>
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
+    
+    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
+    
+    <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
+    
+    <category term="Frontend Slides" scheme="https://awesomeyang.com/tags/Frontend-Slides/"/>
+    
+    <category term="演示文稿" scheme="https://awesomeyang.com/tags/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>Qwen-AgentWorld：让 AI 自己模拟世界，自己在里面练</title>
@@ -102,11 +139,11 @@
     
     <category term="Reddit" scheme="https://awesomeyang.com/tags/Reddit/"/>
     
+    <category term="独立开发" scheme="https://awesomeyang.com/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/"/>
+    
     <category term="SaaS" scheme="https://awesomeyang.com/tags/SaaS/"/>
     
     <category term="获客" scheme="https://awesomeyang.com/tags/%E8%8E%B7%E5%AE%A2/"/>
-    
-    <category term="独立开发" scheme="https://awesomeyang.com/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/"/>
     
     <category term="出海" scheme="https://awesomeyang.com/tags/%E5%87%BA%E6%B5%B7/"/>
     
@@ -167,9 +204,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="独立开发" scheme="https://awesomeyang.com/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/"/>
-    
     <category term="Vibe Coding" scheme="https://awesomeyang.com/tags/Vibe-Coding/"/>
+    
+    <category term="独立开发" scheme="https://awesomeyang.com/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -319,11 +356,11 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="本地模型" scheme="https://awesomeyang.com/tags/%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B/"/>
-    
     <category term="LLM" scheme="https://awesomeyang.com/tags/LLM/"/>
     
     <category term="HN" scheme="https://awesomeyang.com/tags/HN/"/>
+    
+    <category term="本地模型" scheme="https://awesomeyang.com/tags/%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B/"/>
     
     <category term="开发者" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85/"/>
     
@@ -502,9 +539,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="国产模型" scheme="https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/"/>
-    
     <category term="GLM" scheme="https://awesomeyang.com/tags/GLM/"/>
+    
+    <category term="国产模型" scheme="https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
@@ -624,9 +661,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="横评" scheme="https://awesomeyang.com/tags/%E6%A8%AA%E8%AF%84/"/>
-    
     <category term="国产模型" scheme="https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="横评" scheme="https://awesomeyang.com/tags/%E6%A8%AA%E8%AF%84/"/>
     
   </entry>
   
@@ -937,7 +974,7 @@
     <published>2024-05-25T01:20:10.000Z</published>
     <updated>2026-01-31T14:19:43.677Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#x69;&#64;&#x61;&#105;&#x77;&#105;&#x74;&#104;&#x2e;&#109;&#101;">&#x68;&#x69;&#64;&#x61;&#105;&#x77;&#105;&#x74;&#104;&#x2e;&#109;&#101;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#104;&#105;&#x40;&#x61;&#x69;&#x77;&#105;&#x74;&#x68;&#46;&#x6d;&#101;">&#104;&#105;&#x40;&#x61;&#x69;&#x77;&#105;&#x74;&#x68;&#46;&#x6d;&#101;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
     
     
       
@@ -1350,38 +1387,15 @@
     <category term="性能优化" scheme="https://awesomeyang.com/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
     
-    <category term="Linux" scheme="https://awesomeyang.com/tags/Linux/"/>
-    
     <category term="Filebeat" scheme="https://awesomeyang.com/tags/Filebeat/"/>
     
     <category term="ELK" scheme="https://awesomeyang.com/tags/ELK/"/>
     
     <category term="cgroup" scheme="https://awesomeyang.com/tags/cgroup/"/>
     
+    <category term="Linux" scheme="https://awesomeyang.com/tags/Linux/"/>
+    
     <category term="可观测性" scheme="https://awesomeyang.com/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>构建与部署中心使用流程</title>
-    <link href="https://awesomeyang.com/2019/01/03/build-deploy-server-use2/"/>
-    <id>https://awesomeyang.com/2019/01/03/build-deploy-server-use2/</id>
-    <published>2019-01-03T12:09:36.000Z</published>
-    <updated>2026-01-31T14:19:43.678Z</updated>
-    
-    <content type="html"><![CDATA[<p>配置部署中心，包含三大模块：<br>1.配置管理：管理线上服务的参数配置(如：超时，路由，限流，负载均衡，以及服务白名单的管理)<br>2.持续集成：完成服务代码打包，服务镜像的构建过程<br>3.发布部署：完成线上服务的环境变量变更，服务挂载文件内容变更，线上服务的发布更新&#x2F;启动停止，更有发布记录以供查询。</p><span id="more"></span><p>此篇文档着重说明其中第三个模块发布部署的大体流程：<br>使用菜单：</p><p><img src="https://cdn.awesomeyang.com/img/75541017.jpg"></p><p>发布部署包含六个子菜单，每个菜单的功能如下：<br>文件管理：管理所有服务容器的配置文件，如:服务网关需要挂载于宿主机的服务白名单文件，可以通过此功能进行配置文件内容，关联某台机器的服务容器进行挂载。<br>服务管理：管理服务基础信息<br>环境管理：管理环境集信息，以及环境集下某个服务的环境变量信息<br>节点管理：管理节点信息（一个节点总是从属于某一个环境集）<br>部署单元：管理部署的服务信息，确定服务最终部署的节点和使用的镜像版本(简而言之就是具体到某个服务容器)<br>上线部署：上线部署数据来自于部署单元进行筛选展示，执行具体的上线升级，重启，停止操作，可以预览服务运行状态和运行的基本信息(如：当前运行的镜像tag号，服务的最后更新时间，是否需要更新等信息)<br>部署记录：记录每一次部署升级操作(包括重启和停止)，可预览本次升级的yml配置文件并做出有效diff对比</p><h2 id="一次完整的上线操作："><a href="#一次完整的上线操作：" class="headerlink" title="一次完整的上线操作："></a>一次完整的上线操作：</h2><p><strong>上线场景</strong>：上线一个新服务至生产某节点，完成发布，验证存在发布记录。<br>已知服务基础信息：存在数据库连接，存在生产环境必须的环境变量配置，存在文件需要挂载至宿主机，需要将服务端口映射至宿主机</p><h3 id="添加新服务："><a href="#添加新服务：" class="headerlink" title="添加新服务："></a>添加新服务：</h3><p>服务管理&#x3D;&gt;新增（可根据现有服务进行复制）<br><img src="https://cdn.awesomeyang.com/img/91339380.jpg"><br>以上添加了一个基础服务，配置了服务信息，服务镜像字段不需要填写tag号，只需填写基础镜像即可。</p><blockquote><p>服务中添加环境变量(ENV)的原则是：服务中不易变动的环境变量</p></blockquote><h3 id="为需要发布的新服务的环境添加公共环境变量配置："><a href="#为需要发布的新服务的环境添加公共环境变量配置：" class="headerlink" title="为需要发布的新服务的环境添加公共环境变量配置："></a>为需要发布的新服务的环境添加公共环境变量配置：</h3><p><img src="https://cdn.awesomeyang.com/img/32632852.jpg"></p><blockquote><p>环境集中添加环境变量(ENV)原则为：公共的环境变量，数据库资源配置信息</p></blockquote><p>如果新服务有额外的环境变量需要添加，且环境变量只用于新加服务，对于其他服务完全不会需要这些环境变量，则需要添加SetSubEnv，如下：</p><p><img src="https://cdn.awesomeyang.com/img/76343258.jpg"></p><h3 id="添加一个新节点用于部署新服务："><a href="#添加一个新节点用于部署新服务：" class="headerlink" title="添加一个新节点用于部署新服务："></a>添加一个新节点用于部署新服务：</h3><p>节点管理&#x3D;&gt;新增<br><img src="https://cdn.awesomeyang.com/img/83933177.jpg"><br>节点从属某个环境集，所以在添加节点时需要选定所属环境集：<br>是否是外部机器用于区分是否需要部署服务，一般为否<br>节点上的环境变量(ENV)添加原则为：尽量不添加，如果添加，必将与节点关联密切，或因节点而异的环境变量。</p><h3 id="添加一个部署单元："><a href="#添加一个部署单元：" class="headerlink" title="添加一个部署单元："></a>添加一个部署单元：</h3><p>部署单元&#x3D;&gt;新增<br><img src="https://cdn.awesomeyang.com/img/1357418.jpg"><br>一个部署单元确认了一个节点上的一个服务容器。<br>部署单元环境变量添加原则：只要没有特殊情况不需要添加，一旦添加，只会在当前部署单元所在节点生效。</p><h3 id="添加服务外部文件挂载："><a href="#添加服务外部文件挂载：" class="headerlink" title="添加服务外部文件挂载："></a>添加服务外部文件挂载：</h3><p>文件描述了一个或多个容器的VOLUMES信息,当添加一个文件后，都需要与指定的部署单元(容器)进行关联,关联的文件或文件夹最终将作为容器的VOLUMES,点击关联部署单元按钮查看或关联&#x2F;取消关联部署单元。<br><img src="https://cdn.awesomeyang.com/img/39969678.jpg"></p><h3 id="上线升级："><a href="#上线升级：" class="headerlink" title="上线升级："></a>上线升级：</h3><p>至此，所有新加的服务配置都已经完成，以上配置在升级时最终都会综合为一份配置文件进行下发如下：<br><img src="https://cdn.awesomeyang.com/img/56454488.jpg"></p><h3 id="差异对比"><a href="#差异对比" class="headerlink" title="差异对比"></a>差异对比</h3><p><img src="https://cdn.awesomeyang.com/img/21817040.jpg"><br>从上面操作可以看到，之前添加的环境变量，文件，都生效于配置文件，确认无误后升级即可启动对应节点上的服务。</p><h3 id="部署记录-回滚"><a href="#部署记录-回滚" class="headerlink" title="部署记录&#x2F;回滚"></a>部署记录&#x2F;回滚</h3><p><img src="https://cdn.awesomeyang.com/img/35837507.jpg"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;配置部署中心，包含三大模块：&lt;br&gt;1.配置管理：管理线上服务的参数配置(如：超时，路由，限流，负载均衡，以及服务白名单的管理)&lt;br&gt;2.持续集成：完成服务代码打包，服务镜像的构建过程&lt;br&gt;3.发布部署：完成线上服务的环境变量变更，服务挂载文件内容变更，线上服务的发布更新&amp;#x2F;启动停止，更有发布记录以供查询。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Dapeng微服务" scheme="https://awesomeyang.com/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
-    <category term="CICD" scheme="https://awesomeyang.com/tags/CICD/"/>
-    
-    <category term="DevOps" scheme="https://awesomeyang.com/tags/DevOps/"/>
     
   </entry>
   
@@ -1396,6 +1410,29 @@
     
     
     <summary type="html">&lt;p&gt;构建与部署，是日常开发过程中很频繁也很关键的步骤，本文将介绍dapeng部署构建中心两大模块的核心概念和操作流程。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Dapeng微服务" scheme="https://awesomeyang.com/tags/Dapeng%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    <category term="CICD" scheme="https://awesomeyang.com/tags/CICD/"/>
+    
+    <category term="DevOps" scheme="https://awesomeyang.com/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>构建与部署中心使用流程</title>
+    <link href="https://awesomeyang.com/2019/01/03/build-deploy-server-use2/"/>
+    <id>https://awesomeyang.com/2019/01/03/build-deploy-server-use2/</id>
+    <published>2019-01-03T12:09:36.000Z</published>
+    <updated>2026-01-31T14:19:43.678Z</updated>
+    
+    <content type="html"><![CDATA[<p>配置部署中心，包含三大模块：<br>1.配置管理：管理线上服务的参数配置(如：超时，路由，限流，负载均衡，以及服务白名单的管理)<br>2.持续集成：完成服务代码打包，服务镜像的构建过程<br>3.发布部署：完成线上服务的环境变量变更，服务挂载文件内容变更，线上服务的发布更新&#x2F;启动停止，更有发布记录以供查询。</p><span id="more"></span><p>此篇文档着重说明其中第三个模块发布部署的大体流程：<br>使用菜单：</p><p><img src="https://cdn.awesomeyang.com/img/75541017.jpg"></p><p>发布部署包含六个子菜单，每个菜单的功能如下：<br>文件管理：管理所有服务容器的配置文件，如:服务网关需要挂载于宿主机的服务白名单文件，可以通过此功能进行配置文件内容，关联某台机器的服务容器进行挂载。<br>服务管理：管理服务基础信息<br>环境管理：管理环境集信息，以及环境集下某个服务的环境变量信息<br>节点管理：管理节点信息（一个节点总是从属于某一个环境集）<br>部署单元：管理部署的服务信息，确定服务最终部署的节点和使用的镜像版本(简而言之就是具体到某个服务容器)<br>上线部署：上线部署数据来自于部署单元进行筛选展示，执行具体的上线升级，重启，停止操作，可以预览服务运行状态和运行的基本信息(如：当前运行的镜像tag号，服务的最后更新时间，是否需要更新等信息)<br>部署记录：记录每一次部署升级操作(包括重启和停止)，可预览本次升级的yml配置文件并做出有效diff对比</p><h2 id="一次完整的上线操作："><a href="#一次完整的上线操作：" class="headerlink" title="一次完整的上线操作："></a>一次完整的上线操作：</h2><p><strong>上线场景</strong>：上线一个新服务至生产某节点，完成发布，验证存在发布记录。<br>已知服务基础信息：存在数据库连接，存在生产环境必须的环境变量配置，存在文件需要挂载至宿主机，需要将服务端口映射至宿主机</p><h3 id="添加新服务："><a href="#添加新服务：" class="headerlink" title="添加新服务："></a>添加新服务：</h3><p>服务管理&#x3D;&gt;新增（可根据现有服务进行复制）<br><img src="https://cdn.awesomeyang.com/img/91339380.jpg"><br>以上添加了一个基础服务，配置了服务信息，服务镜像字段不需要填写tag号，只需填写基础镜像即可。</p><blockquote><p>服务中添加环境变量(ENV)的原则是：服务中不易变动的环境变量</p></blockquote><h3 id="为需要发布的新服务的环境添加公共环境变量配置："><a href="#为需要发布的新服务的环境添加公共环境变量配置：" class="headerlink" title="为需要发布的新服务的环境添加公共环境变量配置："></a>为需要发布的新服务的环境添加公共环境变量配置：</h3><p><img src="https://cdn.awesomeyang.com/img/32632852.jpg"></p><blockquote><p>环境集中添加环境变量(ENV)原则为：公共的环境变量，数据库资源配置信息</p></blockquote><p>如果新服务有额外的环境变量需要添加，且环境变量只用于新加服务，对于其他服务完全不会需要这些环境变量，则需要添加SetSubEnv，如下：</p><p><img src="https://cdn.awesomeyang.com/img/76343258.jpg"></p><h3 id="添加一个新节点用于部署新服务："><a href="#添加一个新节点用于部署新服务：" class="headerlink" title="添加一个新节点用于部署新服务："></a>添加一个新节点用于部署新服务：</h3><p>节点管理&#x3D;&gt;新增<br><img src="https://cdn.awesomeyang.com/img/83933177.jpg"><br>节点从属某个环境集，所以在添加节点时需要选定所属环境集：<br>是否是外部机器用于区分是否需要部署服务，一般为否<br>节点上的环境变量(ENV)添加原则为：尽量不添加，如果添加，必将与节点关联密切，或因节点而异的环境变量。</p><h3 id="添加一个部署单元："><a href="#添加一个部署单元：" class="headerlink" title="添加一个部署单元："></a>添加一个部署单元：</h3><p>部署单元&#x3D;&gt;新增<br><img src="https://cdn.awesomeyang.com/img/1357418.jpg"><br>一个部署单元确认了一个节点上的一个服务容器。<br>部署单元环境变量添加原则：只要没有特殊情况不需要添加，一旦添加，只会在当前部署单元所在节点生效。</p><h3 id="添加服务外部文件挂载："><a href="#添加服务外部文件挂载：" class="headerlink" title="添加服务外部文件挂载："></a>添加服务外部文件挂载：</h3><p>文件描述了一个或多个容器的VOLUMES信息,当添加一个文件后，都需要与指定的部署单元(容器)进行关联,关联的文件或文件夹最终将作为容器的VOLUMES,点击关联部署单元按钮查看或关联&#x2F;取消关联部署单元。<br><img src="https://cdn.awesomeyang.com/img/39969678.jpg"></p><h3 id="上线升级："><a href="#上线升级：" class="headerlink" title="上线升级："></a>上线升级：</h3><p>至此，所有新加的服务配置都已经完成，以上配置在升级时最终都会综合为一份配置文件进行下发如下：<br><img src="https://cdn.awesomeyang.com/img/56454488.jpg"></p><h3 id="差异对比"><a href="#差异对比" class="headerlink" title="差异对比"></a>差异对比</h3><p><img src="https://cdn.awesomeyang.com/img/21817040.jpg"><br>从上面操作可以看到，之前添加的环境变量，文件，都生效于配置文件，确认无误后升级即可启动对应节点上的服务。</p><h3 id="部署记录-回滚"><a href="#部署记录-回滚" class="headerlink" title="部署记录&#x2F;回滚"></a>部署记录&#x2F;回滚</h3><p><img src="https://cdn.awesomeyang.com/img/35837507.jpg"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;配置部署中心，包含三大模块：&lt;br&gt;1.配置管理：管理线上服务的参数配置(如：超时，路由，限流，负载均衡，以及服务白名单的管理)&lt;br&gt;2.持续集成：完成服务代码打包，服务镜像的构建过程&lt;br&gt;3.发布部署：完成线上服务的环境变量变更，服务挂载文件内容变更，线上服务的发布更新&amp;#x2F;启动停止，更有发布记录以供查询。&lt;/p&gt;</summary>
     
     
     
