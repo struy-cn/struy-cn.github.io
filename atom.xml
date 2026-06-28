@@ -6,7 +6,7 @@
   <link href="https://awesomeyang.com/atom.xml" rel="self"/>
   
   <link href="https://awesomeyang.com/"/>
-  <updated>2026-06-28T07:14:48.392Z</updated>
+  <updated>2026-06-28T07:20:21.733Z</updated>
   <id>https://awesomeyang.com/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个人+Claude Code=投研团队：AI Berkshire为什么火了</title>
+    <link href="https://awesomeyang.com/2026/06/28/ai-berkshire-claude-code-investment/"/>
+    <id>https://awesomeyang.com/2026/06/28/ai-berkshire-claude-code-investment/</id>
+    <published>2026-06-28T07:20:00.000Z</published>
+    <updated>2026-06-28T07:20:21.733Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你想买一只股票，打开 ChatGPT 问”帮我分析一下拼多多值不值得买”，你会得到一篇标准的”一方面…另一方面…”式分析。最后大概率以”投资有风险，请自行判断”收尾。</p><p>看起来什么都说了，但什么决策也做不了。</p><p>GitHub 上一个叫 ai-berkshire 的项目这周火了（+1270 星），它做的事情就是解决这个问题：<strong>让 AI 给出真正能用来做决策的投资研究</strong>，而不是两面讨好的废话。</p><p>核心卖点很直接——一个人 + Claude Code &#x3D; 一个投研团队。</p><h2 id="不是纸上谈兵"><a href="#不是纸上谈兵" class="headerlink" title="不是纸上谈兵"></a>不是纸上谈兵</h2><p>作者声称这套框架已经实盘验证了两年：</p><table><thead><tr><th>指标</th><th>2024 全年</th><th>2025 至今</th></tr></thead><tbody><tr><td>本框架实盘</td><td>+69.29%</td><td>+66.38%</td></tr><tr><td>标普500</td><td>+23.31%</td><td>+16.39%</td></tr></tbody></table><p><img src="https://cdn.awesomeyang.com/img/berkshirereturns2024.jpg" alt="2024 年实盘收益"></p><p>2024 年超额收益：跑赢标普 46 个百分点。2025 年至今跑赢标普 50 个百分点。</p><p>当然，历史收益不代表未来表现。但这个数据确实让人想看看它到底是怎么做的。</p><h2 id="四大师方法论-多-Agent-对抗"><a href="#四大师方法论-多-Agent-对抗" class="headerlink" title="四大师方法论 + 多 Agent 对抗"></a>四大师方法论 + 多 Agent 对抗</h2><p>AI Berkshire 的核心设计是把巴菲特、芒格、段永平、李录四位价值投资大师的方法论分别变成独立的 AI Agent。</p><p>以分析拼多多为例，四个视角会给出完全不同的判断：</p><ul><li><strong>段永平视角（商业模式）</strong>：C2M 模式难以复制 → 评分 3.7&#x2F;5</li><li><strong>巴菲特视角（财务估值）</strong>：扣现金 PE 仅 6.3x → 评分 4.4&#x2F;5</li><li><strong>芒格视角（逆向思考）</strong>：护城河比想象中浅 → 评分 3.5&#x2F;5</li><li><strong>李录视角（长期确定性）</strong>：管理层文化有隐患 → 评分 2.0&#x2F;5</li></ul><p>巴菲特说”真便宜”，李录说”不确定就不买”——这种冲突才是投资决策的真实状态。单一 prompt 无法制造这种多视角对抗。</p><p>最终输出不是”一方面…另一方面…”，而是强制给出明确的买卖建议和价格区间。</p><h2 id="多-Agent-架构"><a href="#多-Agent-架构" class="headerlink" title="多 Agent 架构"></a>多 Agent 架构</h2><p><img src="https://cdn.awesomeyang.com/img/berkshirearchitecture.png" alt="AI Berkshire 架构图"></p><p>四个 Agent 各自独立：</p><ul><li>Agent 1：商业模式（段永平视角）</li><li>Agent 2：财务估值（巴菲特视角）</li><li>Agent 3：行业竞争（芒格视角）</li><li>Agent 4：风险与管理层（李录视角）</li></ul><p>每个 Agent 独立搜索网络、交叉验证数据、独立给出结论，最后由 Team Lead 综合。</p><h2 id="和直接问-AI-有什么不同？"><a href="#和直接问-AI-有什么不同？" class="headerlink" title="和直接问 AI 有什么不同？"></a>和直接问 AI 有什么不同？</h2><p><strong>强制决策纪律</strong>。镜子测试——5 句话说不完整 &#x3D; 不买，没有例外。</p><p><strong>防”看起来很对”机制</strong>。内置多层验证：信息丰富度评级（A&#x2F;B&#x2F;C）、芒格式逆向检验、快速否决清单（8 条红线一票否决）、反共识检查。</p><p><strong>精确计算</strong>。所有财务计算用 Python decimal.Decimal，不用 float。关键数据至少 2 个独立来源交叉验证。</p><h2 id="16-个-Skill"><a href="#16-个-Skill" class="headerlink" title="16 个 Skill"></a>16 个 Skill</h2><p>整个框架包含 16 个 Skill，覆盖深度研究、财报分析、行业筛选、持仓管理四大类。</p><p>这种”把专家方法论编码成 AI 可执行的技能”的思路，不只适用于投资——任何需要专业判断的领域都能套用。</p><h2 id="怎么用？"><a href="#怎么用？" class="headerlink" title="怎么用？"></a>怎么用？</h2><p>支持 Claude Code 和 Codex 两个平台：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/xbtlin/ai-berkshire.git</span><br><span class="line"><span class="built_in">cd</span> ai-berkshire</span><br><span class="line">./scripts/install-claude-commands.sh</span><br></pre></td></tr></table></figure><p>装完后在 Claude Code 里直接调：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/investment-research 腾讯</span><br><span class="line">/investment-checklist 茅台, 英伟达, 苹果</span><br><span class="line">/industry-funnel AI算力</span><br></pre></td></tr></table></figure><hr><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol><li><p>AI Berkshire 项目主页<br><a href="https://github.com/xbtlin/ai-berkshire">https://github.com/xbtlin/ai-berkshire</a></p></li><li><p>InvestSkill（类似项目）<br><a href="https://github.com/yennanliu/InvestSkill">https://github.com/yennanliu/InvestSkill</a></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;如果你想买一只股票，打开 ChatGPT 问”帮我分析一下拼多多值不值得买”，你会得到一篇标准的”一方面…另一方面…”式分析。最后大概率以”投资有风险，请自行判断”收尾。&lt;/p&gt;
+&lt;p&gt;看起来什么都说了，但什么决策也做不了。&lt;/p&gt;
+&lt;p&gt;GitHub 上一个叫 ai-be</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
+    
+    <category term="Claude Code" scheme="https://awesomeyang.com/tags/Claude-Code/"/>
+    
+    <category term="投资" scheme="https://awesomeyang.com/tags/%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="价值投资" scheme="https://awesomeyang.com/tags/%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="AI Agent" scheme="https://awesomeyang.com/tags/AI-Agent/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给AI一份设计说明书：DESIGN.md怎么让Agent画出你要的界面</title>
+    <link href="https://awesomeyang.com/2026/06/28/ai-design-md-to-coders/"/>
+    <id>https://awesomeyang.com/2026/06/28/ai-design-md-to-coders/</id>
+    <published>2026-06-28T07:15:00.000Z</published>
+    <updated>2026-06-28T07:20:12.774Z</updated>
+    
+    <content type="html"><![CDATA[<p>你有没有经历过这种时刻：让 AI 帮你写个页面，第一次出来还行，第二次完全变样，第三次又换了个配色。每次生成都像开盲盒。</p><p>根本原因不是 AI 能力不够，而是它不知道你的设计标准是什么。</p><p><img src="https://cdn.awesomeyang.com/img/designmdcomparison.png" alt="没有 DESIGN.md 时，AI 每次生成的界面都不一样"></p><p>上周 Google Stitch 团队提出了一个新概念：<strong>DESIGN.md</strong> —— 一个纯文本文件，专门写给 AI 编程代理看，告诉它”这个项目应该长什么样”。</p><p>GitHub 上几天就涌入了几千颗星，VoltAgent 做的 awesome-design-md 仓库收集了 73 个知名产品的 DESIGN.md 文件，从 Linear 到 Stripe，从 Notion 到 Vercel，每个都是拆解过的设计系统。</p><hr><h2 id="DESIGN-md-到底是什么？"><a href="#DESIGN-md-到底是什么？" class="headerlink" title="DESIGN.md 到底是什么？"></a>DESIGN.md 到底是什么？</h2><p>打个比方：</p><table><thead><tr><th>文件</th><th>谁读它</th><th>定义什么</th></tr></thead><tbody><tr><td>README.md</td><td>人类开发者</td><td>项目是干什么的</td></tr><tr><td>AGENTS.md</td><td>编程代理</td><td>项目怎么构建</td></tr><tr><td>DESIGN.md</td><td>设计代理</td><td>项目应该长什么样</td></tr></tbody></table><p>它的核心思路特别简洁——<strong>Markdown 是 LLM 最擅长阅读的格式</strong>。不需要 Figma 导出，不需要 JSON schema，不需要任何特殊工具链。把 DESIGN.md 扔到项目根目录，任何 AI 编程代理（Claude Code、Cursor、Copilot）都能直接读懂并执行。</p><h2 id="DESIGN-md-里有什么？"><a href="#DESIGN-md-里有什么？" class="headerlink" title="DESIGN.md 里有什么？"></a>DESIGN.md 里有什么？</h2><p>一个标准的 DESIGN.md 包含两大块：</p><p><strong>YAML 设计 Token</strong>：机器可读的结构化数据，包括调色板、字体、间距系统、动效参数。</p><p><strong>Markdown 设计理念</strong>：人类可读的文字描述，解释为什么这样设计、什么该做什么不该做。</p><p>以 VoltAgent 仓库里 Claude 的 DESIGN.md 为例：温暖的红陶色调（#cc785c）、干净的编辑式布局、克制的留白。你在 Claude Code 里跑一个前端任务，它会自动读取这个文件，生成符合这套美学的界面。</p><p><img src="https://cdn.awesomeyang.com/img/designmdexample.png" alt="Claude 的 DESIGN.md 文件示例"></p><p>这种”机器可读 + 人类可读”的组合，让 AI 既能精确执行（用 token 保证数值准确），又能理解设计意图（通过文字描述理解上下文）。</p><h2 id="生态比我想象的成熟"><a href="#生态比我想象的成熟" class="headerlink" title="生态比我想象的成熟"></a>生态比我想象的成熟</h2><p>围绕 DESIGN.md 已经长出了一套三层生态：</p><p><img src="https://cdn.awesomeyang.com/img/designmdecosystem.png" alt="DESIGN.md 生态：Google Stitch + awesome-design-md + open-design"></p><p><strong>Google Stitch</strong> —— DESIGN.md 概念的提出者，提供官方规范和配套的 lint&#x2F;diff 验证工具，能检查 AI 生成的 UI 是否符合规范。</p><p><strong>awesome-design-md</strong>（VoltAgent）—— 73 个品牌的 DESIGN.md 模板库。想抄 Linear 的风格？想模仿 Stripe 的设计？直接复制对应文件就行。</p><p><strong>open-design</strong>（nexu-io）—— 更激进，直接做了个桌面应用。内置 259+ 技能、142+ 设计系统，支持 Claude Code、Codex、Cursor 等 17+ CLI 工具。</p><h2 id="实际怎么用？"><a href="#实际怎么用？" class="headerlink" title="实际怎么用？"></a>实际怎么用？</h2><p>最简单的用法：</p><ol><li>去 awesome-design-md 找一个喜欢的品牌风格</li><li>复制它的 DESIGN.md 到项目根目录</li><li>在 Claude Code 里跑前端任务，AI 自动遵循设计规范</li></ol><p>进阶玩法是写自己的 DESIGN.md。YAML 部分定义色值、字号、间距，Markdown 部分写清楚设计哲学和禁忌。</p><h2 id="为什么这件事重要？"><a href="#为什么这件事重要？" class="headerlink" title="为什么这件事重要？"></a>为什么这件事重要？</h2><p>以前 AI 生成的 UI 之所以”不够好”，不是因为模型不够聪明，而是因为<strong>设计意图的传递有损耗</strong>。你用自然语言描述”我想要一个简洁优雅的界面”，AI 脑中的”简洁优雅”和你的可能差了十万八千里。</p><p>DESIGN.md 把模糊的审美偏好变成了可执行的技术规范。AI 不需要理解什么是”优雅”，它只需要知道：主色 #cc785c，圆角 8px，字体 Copernicus 64px，间距用 4 的倍数。</p><hr><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol><li><p>Google Stitch DESIGN.md 官方文档<br><a href="https://stitch.withgoogle.com/docs/design-md/overview/">https://stitch.withgoogle.com/docs/design-md/overview/</a></p></li><li><p>awesome-design-md（73 个品牌 DESIGN.md 模板）<br><a href="https://github.com/VoltAgent/awesome-design-md">https://github.com/VoltAgent/awesome-design-md</a></p></li><li><p>open-design（桌面应用）<br><a href="https://github.com/nexu-io/open-design">https://github.com/nexu-io/open-design</a></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;你有没有经历过这种时刻：让 AI 帮你写个页面，第一次出来还行，第二次完全变样，第三次又换了个配色。每次生成都像开盲盒。&lt;/p&gt;
+&lt;p&gt;根本原因不是 AI 能力不够，而是它不知道你的设计标准是什么。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.awesomey</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
+    
+    <category term="DESIGN.md" scheme="https://awesomeyang.com/tags/DESIGN-md/"/>
+    
+    <category term="Google Stitch" scheme="https://awesomeyang.com/tags/Google-Stitch/"/>
+    
+    <category term="设计系统" scheme="https://awesomeyang.com/tags/%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>favicon.run 六月大更新：从图标抓取工具到 Favicon 全家桶</title>
@@ -72,9 +138,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
-    
     <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
+    
+    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
     
     <category term="Frontend Slides" scheme="https://awesomeyang.com/tags/Frontend-Slides/"/>
     
@@ -263,11 +329,11 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
+    <category term="Claude Code" scheme="https://awesomeyang.com/tags/Claude-Code/"/>
+    
     <category term="AI编码" scheme="https://awesomeyang.com/tags/AI%E7%BC%96%E7%A0%81/"/>
     
     <category term="gstack" scheme="https://awesomeyang.com/tags/gstack/"/>
-    
-    <category term="Claude Code" scheme="https://awesomeyang.com/tags/Claude-Code/"/>
     
     <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
     
@@ -983,7 +1049,7 @@
     <published>2024-05-25T01:20:10.000Z</published>
     <updated>2026-01-31T14:19:43.677Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#105;&#64;&#97;&#105;&#x77;&#105;&#x74;&#104;&#46;&#x6d;&#x65;">&#x68;&#105;&#64;&#97;&#105;&#x77;&#105;&#x74;&#104;&#46;&#x6d;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#x69;&#x40;&#97;&#105;&#119;&#105;&#x74;&#104;&#x2e;&#x6d;&#x65;">&#x68;&#x69;&#x40;&#97;&#105;&#119;&#105;&#x74;&#104;&#x2e;&#x6d;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
     
     
       
@@ -1172,9 +1238,9 @@
     <category term="AIGC" scheme="https://awesomeyang.com/categories/AIGC/"/>
     
     
-    <category term="AIGC" scheme="https://awesomeyang.com/tags/AIGC/"/>
-    
     <category term="工具" scheme="https://awesomeyang.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="AIGC" scheme="https://awesomeyang.com/tags/AIGC/"/>
     
     <category term="AI编码" scheme="https://awesomeyang.com/tags/AI%E7%BC%96%E7%A0%81/"/>
     
