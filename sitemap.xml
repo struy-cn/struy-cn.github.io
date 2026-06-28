@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2025/02/25/what-is-llm-and-deepseek/</loc>
+    <loc>https://awesomeyang.com/2018/05/28/wu-wen-xi-dong/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2018/05/28/wu-wen-xi-dong/</loc>
+    <loc>https://awesomeyang.com/2025/02/25/what-is-llm-and-deepseek/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2018/06/26/maven-plugins-use/</loc>
+    <loc>https://awesomeyang.com/2024/04/13/nicenewtab-com/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2024/04/13/nicenewtab-com/</loc>
+    <loc>https://awesomeyang.com/2018/06/26/maven-plugins-use/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -389,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2024/05/25/local-large-models-for-data-classification/</loc>
+    <loc>https://awesomeyang.com/2024/01/06/llm-chatgpt-use-case-analyze/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -398,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2024/01/06/llm-chatgpt-use-case-analyze/</loc>
+    <loc>https://awesomeyang.com/2024/05/25/local-large-models-for-data-classification/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -425,6 +425,15 @@
   </url>
   
   <url>
+    <loc>https://awesomeyang.com/2023/05/15/how-find-your-forte/</loc>
+    
+    <lastmod>2026-01-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://awesomeyang.com/2023/11/29/how-see-NSF/</loc>
     
     <lastmod>2026-01-31</lastmod>
@@ -435,15 +444,6 @@
   
   <url>
     <loc>https://awesomeyang.com/2023/06/03/illa-cloud-good/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/2023/05/15/how-find-your-forte/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -506,7 +506,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2023/08/12/diff-images/</loc>
+    <loc>https://awesomeyang.com/2023/05/27/dream-to-student-days/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -515,7 +515,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2023/05/27/dream-to-student-days/</loc>
+    <loc>https://awesomeyang.com/2023/08/12/diff-images/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -542,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2018/03/10/DDD-event-bus/</loc>
+    <loc>https://awesomeyang.com/2023/05/05/about-effective-learning/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -551,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/2023/05/05/about-effective-learning/</loc>
+    <loc>https://awesomeyang.com/2018/03/10/DDD-event-bus/</loc>
     
     <lastmod>2026-01-31</lastmod>
     
@@ -635,6 +635,13 @@
   </url>
   
   <url>
+    <loc>https://awesomeyang.com/tags/%E6%91%98%E5%BD%95/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://awesomeyang.com/tags/DDD/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -663,28 +670,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/%E6%91%98%E5%BD%95/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://awesomeyang.com/tags/AI/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -705,49 +691,14 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/Prompt/</loc>
+    <loc>https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/%E5%B7%A5%E7%A8%8B%E8%8C%83%E5%BC%8F/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/AIGC/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/Stable-Diffusion/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/AI%E7%BB%98%E5%9B%BE/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/AI%E7%BC%96%E7%A0%81/</loc>
+    <loc>https://awesomeyang.com/tags/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -775,6 +726,55 @@
   </url>
   
   <url>
+    <loc>https://awesomeyang.com/tags/AIGC/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/Stable-Diffusion/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/AI%E7%BB%98%E5%9B%BE/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/Prompt/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/%E5%B7%A5%E7%A8%8B%E8%8C%83%E5%BC%8F/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/AI%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://awesomeyang.com/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -783,6 +783,20 @@
   
   <url>
     <loc>https://awesomeyang.com/tags/YouTube/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/Anthropic/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/%E8%A7%82%E7%82%B9/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -832,20 +846,6 @@
   
   <url>
     <loc>https://awesomeyang.com/tags/%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/Anthropic/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/%E8%A7%82%E7%82%B9/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -915,6 +915,20 @@
   </url>
   
   <url>
+    <loc>https://awesomeyang.com/tags/%E6%A8%AA%E8%AF%84/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://awesomeyang.com/tags/Frontend-Slides/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -944,20 +958,6 @@
   
   <url>
     <loc>https://awesomeyang.com/tags/Github-Copilot/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/%E6%A8%AA%E8%AF%84/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1083,6 +1083,27 @@
   </url>
   
   <url>
+    <loc>https://awesomeyang.com/tags/Chatbot/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/ChatDoc/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/Nice-NewTab/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://awesomeyang.com/tags/Maven/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1104,28 +1125,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/Chatbot/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/ChatDoc/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://awesomeyang.com/tags/OpenAI/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/Nice-NewTab/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1153,27 +1153,6 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/Reddit/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/AI%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://awesomeyang.com/tags/Qwen/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1195,14 +1174,21 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/Scala/</loc>
+    <loc>https://awesomeyang.com/tags/Reddit/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://awesomeyang.com/tags/AI%E8%A7%86%E9%A2%91/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1230,14 +1216,14 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/%E7%A7%91%E6%8A%80%E5%9C%88/</loc>
+    <loc>https://awesomeyang.com/tags/Scala/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/%E8%85%BE%E8%AE%AF/</loc>
+    <loc>https://awesomeyang.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1272,6 +1258,20 @@
   </url>
   
   <url>
+    <loc>https://awesomeyang.com/tags/%E7%A7%91%E6%8A%80%E5%9C%88/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/%E8%85%BE%E8%AE%AF/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://awesomeyang.com/tags/Docker/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1293,14 +1293,7 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://awesomeyang.com/tags/DeepSeek/</loc>
+    <loc>https://awesomeyang.com/tags/%E7%94%B5%E5%BD%B1/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1314,7 +1307,14 @@
   </url>
   
   <url>
-    <loc>https://awesomeyang.com/tags/%E7%94%B5%E5%BD%B1/</loc>
+    <loc>https://awesomeyang.com/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://awesomeyang.com/tags/DeepSeek/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
