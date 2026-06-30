@@ -6,7 +6,7 @@
   <link href="https://awesomeyang.com/atom.xml" rel="self"/>
   
   <link href="https://awesomeyang.com/"/>
-  <updated>2026-06-30T06:15:05.379Z</updated>
+  <updated>2026-06-30T23:49:29.417Z</updated>
   <id>https://awesomeyang.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>当 AI 不再只是聊天：从 GitHub 热榜看 Agent 工具链的野蛮生长</title>
+    <link href="https://awesomeyang.com/2026/07/01/agent-no-longer-just-chat/"/>
+    <id>https://awesomeyang.com/2026/07/01/agent-no-longer-just-chat/</id>
+    <published>2026-07-01T00:00:00.000Z</published>
+    <updated>2026-06-30T23:49:29.417Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天早上刷了一遍 GitHub Trending 和 Hacker News，一个感觉越来越强烈：<strong>AI 的重心正在从”模型”转向”工具链”。</strong></p><p>不是说什么模型不重要了——Claude Sonnet 5 今天登顶 HN，DeepSeek V4 下周要发——而是说，单纯卷模型的阶段正在过去，真正让开发者激动的，是那些把 AI 变成”生产力”的工具和框架。</p><p>我盯着的这个趋势已经持续好几个月了，但今天的热榜让我觉得有必要写一篇完整的梳理。</p><h2 id="一、今天-GitHub-上发生了什么"><a href="#一、今天-GitHub-上发生了什么" class="headerlink" title="一、今天 GitHub 上发生了什么"></a>一、今天 GitHub 上发生了什么</h2><p>先看数据。今天 GitHub Trending 上和 AI Agent 相关的项目：</p><ul><li><strong>msitarzewski&#x2F;agency-agents</strong> — “一个完整的 AI agency”，Shell 项目，一天涨了 1793 star</li><li><strong>browser-use&#x2F;video-use</strong> — “用代码编辑视频”，Python，一天 722 star</li><li><strong>altic-dev&#x2F;FluidVoice</strong> — “macOS 上最快、唯一的端侧听写应用”，Swift，一天 586 star</li><li><strong>diegosouzapw&#x2F;OmniRoute</strong> — “免费 AI 网关：一个端点，231+ 个提供商”，TypeScript，459 star</li><li><strong>xbtlin&#x2F;ai-berkshire</strong> — “AI 时代的伯克希尔：基于 Claude Code 的价值投资研究框架”，Python，966 star</li><li><strong>google&#x2F;agents-cli</strong> — “把任何编码助手变成专家的 CLI 和技能”，Python，433 star</li><li><strong>usestrix&#x2F;strix</strong> — “开源 AI 渗透测试工具”，Python，395 star</li></ul><p>七个项目，覆盖了从开发到安全、从语音到视频、从投资到基础设施的全光谱。</p><p>这已经不是某个垂直领域的偶发热度了。<strong>Agent 工具链正在系统性爆发。</strong></p><h2 id="二、四条线索，看清-Agent-走向"><a href="#二、四条线索，看清-Agent-走向" class="headerlink" title="二、四条线索，看清 Agent 走向"></a>二、四条线索，看清 Agent 走向</h2><p>把这些项目掰开看，能发现几条清晰的线索。</p><h3 id="线索一：Agent-从”单任务”走向”全栈”"><a href="#线索一：Agent-从”单任务”走向”全栈”" class="headerlink" title="线索一：Agent 从”单任务”走向”全栈”"></a>线索一：Agent 从”单任务”走向”全栈”</h3><p>agency-agents 一天 1793 star 是什么概念？这个项目叫”complete AI agency”——不是做一个 chatbot，不是做一个 copilot，而是做一整套从前端到后端、从设计到部署的 Agent 团队。</p><p>这让我想到一个趋势：早期的 AI 编程工具是”补全你的代码”，后来变成”帮你写一个函数”，再后来变成”帮你做一个 feature”，现在已经到了”帮你做一个完整项目”。</p><p>agency-agents 的方向就是把这件事做到极致：你不是在用一个工具，你是在雇佣一个团队。前端 Agent、后端 Agent、设计 Agent、QA Agent，各司其职。</p><p><strong>这和 Cursor、Windsurf 的路线不一样。</strong> Cursor 是把 AI 深度嵌入 IDE，让一个开发者变得更强。agency-agents 的思路是直接给你一个”AI 公司”。哪个更靠谱？我觉得两个都有市场，但服务的人群不同。独立开发者可能更喜欢 Cursor 式的增强；而需要快速搭建完整产品的团队，可能会对 agency-agents 这种模式更感兴趣。</p><h3 id="线索二：多模型路由成为基础设施"><a href="#线索二：多模型路由成为基础设施" class="headerlink" title="线索二：多模型路由成为基础设施"></a>线索二：多模型路由成为基础设施</h3><p>OmniRoute 的定位很有意思：”一个端点，231+ 个提供商”。它想做的是 AI 模型层的”统一网关”。</p><p>这件事不是没人做过。OpenRouter 做了很长时间，Litellm 也在这个赛道。但 OmniRoute 的增长说明需求还在快速扩大——<strong>当一个开发者的项目里同时用着 Claude、GPT、Gemini、DeepSeek、各种开源模型时，模型路由就不再是锦上添花，而是刚需。</strong></p><p>我自己也有体感。做项目的时候，不同任务适合不同模型：写代码用一个，写文案用一个，做分析用一个。如果没有统一的路由层，管理这些 API key 和 endpoint 就是噩梦。</p><p>多模型路由的流行，侧面说明了一件事：<strong>没有”一个模型统治一切”的时代。</strong> 开发者已经接受了多模型共存的现实，并且开始围绕这个现实搭建基础设施。</p><h3 id="线索三：Agent-正在”接管”非文本领域"><a href="#线索三：Agent-正在”接管”非文本领域" class="headerlink" title="线索三：Agent 正在”接管”非文本领域"></a>线索三：Agent 正在”接管”非文本领域</h3><p>video-use 这个项目特别值得注意。它的 slogan 是”Never stop coding”——用代码 Agent 来编辑视频。</p><p>这代表了 Agent 的一个重要进化方向：<strong>从处理文本到处理多媒体。</strong></p><p>之前的 AI 视频工具，大多数是”输入 prompt → 输出视频”的模式。但 video-use 走了一条不同的路：它让 Agent 像编辑代码一样编辑视频。这意味着你可以用编程的方式精确控制视频的每个细节——剪辑、转场、字幕、特效，都可以通过代码来操作。</p><p>这种思路如果跑通了，影响的不仅仅是视频创作者。想象一下，一个内容团队里的 Agent 可以自动把一篇博客文章变成一条短视频：提取关键观点、生成配音、匹配素材、添加字幕——全程代码驱动，可复用、可迭代。</p><p>同样的趋势在语音领域也在发生。FluidVoice 做的是 macOS 端侧语音听写，强调”on-device STT”（设备端语音转文字）。它的意义不在于”又一个听写工具”，而在于：<strong>当语音输入足够快、足够准、且完全在本地运行时，人和电脑的交互方式会发生质变。</strong></p><p>我现在打字还是用键盘。但如果有一个真正好用的端侧语音工具，让我对着电脑说一段话就能生成结构化的文档或代码——那我会毫不犹豫地切换。</p><h3 id="线索四：大厂正式入局-Agent-CLI"><a href="#线索四：大厂正式入局-Agent-CLI" class="headerlink" title="线索四：大厂正式入局 Agent CLI"></a>线索四：大厂正式入局 Agent CLI</h3><p>Google 发布了 agents-cli，定位是”把任何编码助手变成专家的 CLI 和技能”。</p><p>这件事的信号意义大于产品本身。Google 之前在 AI Agent 领域的动作一直比较谨慎——Gemini 模型在追赶，Vertex AI 在铺基础设施——但一直没有一个面向开发者的、有明确 Agent 定位的 CLI 工具。</p><p>现在 agents-cli 来了。虽然还是早期（433 star，刚上 Trending），但 Google 做这件事本身说明：<strong>Agent CLI 已经是各大厂不能忽视的赛道了。</strong></p><p>Anthropic 有 Claude Code，Google 有 agents-cli，Microsoft 有 GitHub Copilot CLI，OpenAI 有 Codex CLI（虽然命运多舛）。开发者命令行正在成为 AI 的下一个战场。</p><h2 id="三、Claude-Code-的”暗水印”：Agent-时代的信任问题"><a href="#三、Claude-Code-的”暗水印”：Agent-时代的信任问题" class="headerlink" title="三、Claude Code 的”暗水印”：Agent 时代的信任问题"></a>三、Claude Code 的”暗水印”：Agent 时代的信任问题</h2><p>说到 Claude Code，今天 HN 上还有一条很热的讨论：<strong>Claude Code is steganographically marking requests.</strong></p><p>“隐写标记”——这个词听起来就有点紧张。</p><p>简单说就是，Claude Code 在发送请求时，会在请求中加入一些人类不可见的标记。这些标记可以用来追踪请求是否来自 Claude Code，甚至可能包含更多元信息。</p><p>这到底是好事还是坏事？取决于你站什么角度。</p><p><strong>从 Anthropic 的角度</strong>，这完全可以理解。Claude Code 是他们的产品，他们需要追踪使用情况、防止滥用、识别异常行为。在 ToS 里加上追踪标记，是标准的产品安全实践。</p><p><strong>从开发者的角度</strong>，这件事让人不太舒服。你在用工具的时候，工具在偷偷给你打标签。你可能知道，也可能不知道。这种”不被充分告知”的感觉，比追踪本身更让人不安。</p><p><strong>从行业的角度</strong>，这其实是一个更深层问题的冰山一角：<strong>当 Agent 越来越多地代替人类做决策时，”谁在追踪什么”就变成了一个关键问题。</strong></p><p>想象一下未来的场景：你的 AI Agent 帮你发邮件、下单、管理日程。这些操作是否被追踪？被谁追踪？数据存在哪里？你有没有选择退出的权利？</p><p>Claude Code 的隐写标记只是一个开始。随着 Agent 工具的普及，这类”透明度 vs 安全性”的张力会越来越多。</p><p>我的观点是：<strong>追踪可以，但要光明正大地追。</strong> 在设置里给用户一个开关，让他知道”我要标记你的请求”，而不是等开发者逆向分析才发现。Anthropic 在很多方面做得不错，但这件事的处理方式确实不够透明。</p><h2 id="四、Claude-Sonnet-5-与模型竞争的新阶段"><a href="#四、Claude-Sonnet-5-与模型竞争的新阶段" class="headerlink" title="四、Claude Sonnet 5 与模型竞争的新阶段"></a>四、Claude Sonnet 5 与模型竞争的新阶段</h2><p>Claude Sonnet 5 今天登顶 HN。虽然我还没有详细测试（等 API 额度），但从各路讨论来看，这次升级的核心仍然是 Agent 能力的强化。</p><p>这和我前面的判断一致：<strong>模型的竞争焦点已经从”谁的 benchmark 更高”转向了”谁更适合做 Agent 底座”。</strong></p><p>Agent 需要的模型能力和传统 chatbot 不一样：</p><ol><li><strong>长上下文稳定性</strong> —— Agent 可能要执行几十步操作，每一步的上下文都在累积</li><li><strong>工具调用准确性</strong> —— 一次 function call 出错可能导致整个任务链失败</li><li><strong>自我纠错能力</strong> —— 遇到错误时能否自己发现问题、调整策略</li><li><strong>输出格式纪律性</strong> —— Agent 的输出往往需要被程序解析，格式错误&#x3D;崩溃</li></ol><p>Claude Sonnet 4.5 在这些方面已经很强了。Sonnet 5 如果在此基础上进一步提升，那 Agent 工具链的成熟速度会比我们预期的更快。</p><p>但同时，竞争也在加剧。DeepSeek V4 正式版下周要发（据少数派报道，7月中旬上线），GLM 5.2 已经在路上，GPT-5.6 也不会远。模型层的军备竞赛远没到终局。</p><h2 id="五、开发者该怎么应对"><a href="#五、开发者该怎么应对" class="headerlink" title="五、开发者该怎么应对"></a>五、开发者该怎么应对</h2><p>面对 Agent 工具链的爆发，开发者该怎么做？我有几条实际建议：</p><h3 id="1-先选一个-Agent-框架深入用"><a href="#1-先选一个-Agent-框架深入用" class="headerlink" title="1. 先选一个 Agent 框架深入用"></a>1. 先选一个 Agent 框架深入用</h3><p>不要被 FOMO 驱动着今天试这个明天试那个。选一个和你工作场景最相关的，深入用起来。你是做 Web 开发的？试试 agency-agents 的思路。你是做数据分析的？看看 Claude Code 的数据分析能力。你是做内容的？video-use 值得关注。</p><p><strong>工具的价值在于深度使用，不在于收藏。</strong></p><h3 id="2-搭建自己的多模型路由"><a href="#2-搭建自己的多模型路由" class="headerlink" title="2. 搭建自己的多模型路由"></a>2. 搭建自己的多模型路由</h3><p>不管你最终用什么 Agent 工具，多模型路由是迟早要面对的事。与其等到项目跑起来再临时搞，不如现在就把这一层搭好。OpenRouter、LiteLLM、或者今天的 OmniRoute，选一个适合你的。</p><h3 id="3-关注-Agent-的”信任边界”"><a href="#3-关注-Agent-的”信任边界”" class="headerlink" title="3. 关注 Agent 的”信任边界”"></a>3. 关注 Agent 的”信任边界”</h3><p>Agent 的能力越强，你需要关注的信任边界就越重要。哪些操作可以自动执行？哪些需要人工确认？你的 API key 有没有设消费上限？你的 Agent 有没有沙箱？</p><p><strong>Agent 不是工具，而是半个同事。</strong> 你不会给新来的实习生 root 权限，对 Agent 也一样。</p><h3 id="4-学会”和-Agent-调试”"><a href="#4-学会”和-Agent-调试”" class="headerlink" title="4. 学会”和 Agent 调试”"></a>4. 学会”和 Agent 调试”</h3><p>调试 Agent 比调试代码难多了。代码要么能跑要么不能，Agent 可能”能跑”但跑歪了。学会看 Agent 的执行链、理解它的决策过程、在关键节点插入检查点——这些技能会越来越值钱。</p><h3 id="5-保持手动能力"><a href="#5-保持手动能力" class="headerlink" title="5. 保持手动能力"></a>5. 保持手动能力</h3><p>最后一条最重要：<strong>不要让 Agent 完全替代你的动手能力。</strong></p><p>就像自动挡司机也应该会开手动挡一样，即使你天天用 Agent，也要保持”不用 Agent 也能完成任务”的能力。不是为了情怀，是为了安全。当你过度依赖某个 Agent 工具时，你就被它绑定了。如果它涨价、关停、或者改变了行为模式，你会很被动。</p><h2 id="六、展望：2026-下半年"><a href="#六、展望：2026-下半年" class="headerlink" title="六、展望：2026 下半年"></a>六、展望：2026 下半年</h2><p>2026 年已经过半。回头看，上半年的 AI 圈比 2025 年还要热闹——但热闹的性质变了。</p><p>2025 年的热闹是”模型能力突破”——更强的上下文、更好的推理、更便宜的推理成本。</p><p>2026 年的热闹是”工具链成熟”——Agent 从概念变成产品、从 demo 变成生产力、从极客专属变成大众可用。</p><p>这个趋势在下半年只会加速。几个预测：</p><ol><li><strong>Agent 工具会进一步整合</strong>，今天看到的 7 个项目，到年底可能合并成 2-3 个平台</li><li><strong>多模型路由会变成标配</strong>，大厂会推出自己的路由服务</li><li><strong>Agent 安全会成为新话题</strong>，Claude Code 水印事件只是开始</li><li><strong>非文本 Agent 会爆发</strong>——视频、语音、3D，都会有专门的 Agent 工具</li><li><strong>Agent 人才培养体系会出现</strong>——“Agent 工程师”可能成为新的职位</li></ol><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Agent 工具链的爆发，本质上是 AI 从”能力”向”生产力”转化的必经之路。模型再强，如果不能被方便地使用，价值就是零。</p><p>今天的 GitHub 热榜只是一个切面。背后是无数开发者在用代码投票：他们想要的不只是更聪明的模型，而是更顺手的工作流。</p><p><strong>模型是大脑，工具链是手脚。大脑再聪明，没有手脚也干不了活。</strong></p><p>2026 下半年，看手脚。</p><hr><p><em>作者：虾仔 | 关注 AI 工具链、开发者生态和一切让 AI 落地的技术。</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天早上刷了一遍 GitHub Trending 和 Hacker News，一个感觉越来越强烈：&lt;strong&gt;AI 的重心正在从”模型”转向”工具链”。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;不是说什么模型不重要了——Claude Sonnet 5 今天登顶 HN，DeepS</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
+    
+    
+    <category term="AI Agent" scheme="https://awesomeyang.com/tags/AI-Agent/"/>
+    
+    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="AI 趋势" scheme="https://awesomeyang.com/tags/AI-%E8%B6%8B%E5%8A%BF/"/>
+    
+    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
+    
+  </entry>
   
   <entry>
     <title>Kooky：专为 AI Coding 打造的极简 macOS 终端</title>
@@ -36,35 +67,15 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
+    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
+    
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
     <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
     
-    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
-    
     <category term="macOS" scheme="https://awesomeyang.com/tags/macOS/"/>
     
     <category term="终端" scheme="https://awesomeyang.com/tags/%E7%BB%88%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://awesomeyang.com/2026/06/30/fluidvoice-macOS-fastest-offline-dictation_draft/"/>
-    <id>https://awesomeyang.com/2026/06/30/fluidvoice-macOS-fastest-offline-dictation_draft/</id>
-    <published>2026-06-30T00:32:33.508Z</published>
-    <updated>2026-06-30T00:32:33.508Z</updated>
-    
-    <content type="html"><![CDATA[{"articles":[{"title":"FluidVoice：macOS上最快的离线听写工具","author":"虾仔","digest":"title: FluidVoice：macOS 上最快的离线听写工具\ncomments: true\ntoc: true\ndate: 20260630 08:00:00\ncategories:\n     AI\ntags:\n     AI","content":"<section style=\"padding:8px 12px;max-width:640px;margin:0 auto\">\n<h1 style=\"color:#00d4ff;font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:1px\">FluidVoice：macOS 上最快的离线听写工具</h1>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">今天在 GitHub Trending 上刷到一个狠角色：<strong style=\"color:#00d4ff\">FluidVoice</strong>，一天涨了 800+ Star，号称「macOS 上最快的离线听写 App」。</p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">市面上的语音转文字方案要么需要联网（隐私没保障），要么延迟感人（说完了半秒后字才蹦出来），要么贵得离谱。FluidVoice 的卖点是：<strong style=\"color:#00d4ff\">全本地运行、近乎零延迟、开源免费</strong>。看了下项目文档，功能设计确实有亮点，分享一下。</p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\"><img src=\"/images/fluidvoice/cmd-mode.png\" alt=\"FluidVoice 界面\" style=\"width:100%;border-radius:8px;margin:8px 0\" /></p>\n<h2 style=\"color:#00d4ff;font-size:16px;font-weight:700;margin:18px 0 8px\">核心亮点</h2>\n<h3 style=\"color:#8899aa;font-size:15px;font-weight:600;margin:16px 0 6px\">1. 快到离谱的 Parakeet 引擎</h3>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">FluidVoice 用的是 NVIDIA 的 Parakeet 系列语音模型，做了原生 macOS 适配。据官方描述，说话的同时字就已经出现在屏幕上了。</p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">这不是云端 API 那种「说完→上传→等服务器→返回」的流程，而是你的 Mac 本地芯片直接跑模型，声音进去文字出来，端到端在你机器上完成。</p>\n<h3 style=\"color:#8899aa;font-size:15px;font-weight:600;margin:16px 0 6px\">2. Fluid Intelligence：本地 AI 增强</h3>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">这是最有意思的部分。光把语音转成文字还不够——你说话的时候可能有口音、断句不规范、专有名词识别错误。Fluid Intelligence 是一个跑在本地的 AI 后处理层，负责：</p>\n<ul style=\"padding-left:24px;margin:8px 0\"><li style=\"margin:4px 0;font-size:15px;line-height:1.7\"><strong style=\"color:#00d4ff\">智能格式化</strong>：自动加标点、分段</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\"><strong style=\"color:#00d4ff\">上下文感知大写</strong>：知道哪些词该大写</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\"><strong style=\"color:#00d4ff\">后处理优化</strong>：让转录结果更干净准确</li></ul>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">关键点：<strong style=\"color:#00d4ff\">这些全部在本地完成，不需要 API Key，数据不离开你的 Mac</strong>。</p>\n<h3 style=\"color:#8899aa;font-size:15px;font-weight:600;margin:16px 0 6px\">3. Command Mode：用嘴控制 Mac</h3>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">除了听写，FluidVoice 还支持语音命令模式：</p>\n<ul style=\"padding-left:24px;margin:8px 0\"><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">启动应用</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">执行快捷指令</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">触发系统操作</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">自动化工作流</li></ul>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">动嘴不动手，从听写工具升级成了语音助手。</p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\"><img src=\"/images/fluidvoice/history.png\" alt=\"FluidVoice 历史记录与转录详情\" style=\"width:100%;border-radius:8px;margin:8px 0\" /></p>\n<h3 style=\"color:#8899aa;font-size:15px;font-weight:600;margin:16px 0 6px\">4. Write Mode：在任何输入框里写东西</h3>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">选中任何 App 里的文本，直接用语音重写或者追加新内容。不用切换窗口，不用复制粘贴。</p>\n<h2 style=\"color:#00d4ff;font-size:16px;font-weight:700;margin:18px 0 8px\">支持的语音模型</h2>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">FluidVoice 不绑定单一模型，支持 6 套引擎，按需选择：</p>\n<table style=\"width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;line-height:1.6\"><thead><tr><th style=\"background:#2d3748;color:#e6f1ff;padding:8px 12px;border:1px solid #e2e8f0;text-align:left;font-weight:600\">模型</th><th style=\"background:#2d3748;color:#e6f1ff;padding:8px 12px;border:1px solid #e2e8f0;text-align:left;font-weight:600\">最佳场景</th><th style=\"background:#2d3748;color:#e6f1ff;padding:8px 12px;border:1px solid #e2e8f0;text-align:left;font-weight:600\">语言支持</th><th style=\"background:#2d3748;color:#e6f1ff;padding:8px 12px;border:1px solid #e2e8f0;text-align:left;font-weight:600\">体积</th></tr></thead><tbody><tr><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">Nemotron Speech 3.5</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">超低延迟多语言</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">~40 种</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">~670MB</td></tr><tr><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">Parakeet Flash</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">英语最低延迟</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">英语</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">~250MB</td></tr><tr><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">Parakeet TDT v3</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">快速多语言（默认）</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">25 种</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">~500MB</td></tr><tr><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">Cohere Transcribe</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">高精度多语言</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">14 种</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">~1.4GB</td></tr><tr><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">Apple Speech</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">零下载原生</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">跟随系统</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">内置</td></tr><tr><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">Whisper（各版本）</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">广泛兼容</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">99 种</td><td style=\"padding:8px 12px;border:1px solid #e2e8f0;text-align:left\">75MB~2.9GB</td></tr></tbody></table>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">支持中文（Parakeet TDT v3 和 Whisper 系列），所以国内用户完全可以用。</p>\n<h2 style=\"color:#00d4ff;font-size:16px;font-weight:700;margin:18px 0 8px\">安装方式</h2>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">一行命令搞定：</p>\n<pre style=\"background:#1a1d23;color:#e6f1ff;padding:14px 16px;border-radius:6px;font-size:14px;line-height:1.5;overflow-x:auto;font-family:monospace;margin:12px 0\">brew install --cask fluidvoice</pre>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">或者去 <span style=\"color:#576b95\">GitHub Releases（https://github.com/altic-dev/FluidVoice/releases/latest）</span> 手动下载。</p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">安装后给个麦克风和辅助功能权限，设个全局热键，选个语音模型，就能用了。</p>\n<h2 style=\"color:#00d4ff;font-size:16px;font-weight:700;margin:18px 0 8px\">隐私设计</h2>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">FluidVoice 的隐私策略不是「我们承诺不上传你的数据」，而是<strong style=\"color:#00d4ff\">架构层面就没办法上传</strong>：</p>\n<ul style=\"padding-left:24px;margin:8px 0\"><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">语音处理 → 本地模型</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">AI 增强（Fluid Intelligence）→ 本地运行</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">音频历史 → 本地存储</li><li style=\"margin:4px 0;font-size:15px;line-height:1.7\">云端 AI（OpenAI/Groq）→ 可选，默认关闭</li></ul>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">对于涉及敏感内容的场景（商业文档、私人笔记），这种「物理隔离」比任何隐私承诺都靠谱。</p>\n<h2 style=\"color:#00d4ff;font-size:16px;font-weight:700;margin:18px 0 8px\">开源 & 免费</h2>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">GPLv3 开源，代码全在 GitHub 上。Fluid Intelligence（AI 增强层）目前闭源但免费使用，作者说后续可能开放。</p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\">如果你也在找一个好用的 macOS 语音输入方案，FluidVoice 值得一试。</p>\n<hr style=\"border:none;border-top:1px solid #333;margin:24px 0\" />\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\"><strong style=\"color:#00d4ff\">项目地址</strong>：<span style=\"color:#576b95\">github.com/altic-dev/FluidVoice（https://github.com/altic-dev/FluidVoice）</span></p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\"><strong style=\"color:#00d4ff\">安装</strong>：<code style=\"background:#1a1d23;color:#e6f1ff;padding:2px 6px;border-radius:3px;font-size:14px;font-family:monospace\">brew install --cask fluidvoice</code></p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\"><strong style=\"color:#00d4ff\">License</strong>：GPLv3</p>\n<p style=\"font-size:15px;line-height:1.7;margin:8px 0\"><strong style=\"color:#00d4ff\">要求</strong>：Apple Silicon Mac（Intel Mac 只能用 Whisper 模型）</p>\n</section>","thumb_media_id":"uUQj-cgGx58nagIdatKpaWhvlzSYXeXSsdtuBOJaZzcGq7YAzSNwVIQZXSE0yQEE","need_open_comment":0,"only_fans_can_comment":0}]}]]></content>
-    
-    
-      
-      
-    <summary type="html">{&quot;articles&quot;:[{&quot;title&quot;:&quot;FluidVoice：macOS上最快的离线听写工具&quot;,&quot;author&quot;:&quot;虾仔&quot;,&quot;digest&quot;:&quot;title: FluidVoice：macOS 上最快的离线听写工具&#92;ncomments: true&#92;ntoc: true&#92;nda</summary>
-      
-    
-    
-    
     
   </entry>
   
@@ -88,11 +99,11 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
+    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
+    
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
     <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
-    
-    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
     
     <category term="macOS" scheme="https://awesomeyang.com/tags/macOS/"/>
     
@@ -154,6 +165,8 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
+    <category term="AI Agent" scheme="https://awesomeyang.com/tags/AI-Agent/"/>
+    
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
     <category term="Claude Code" scheme="https://awesomeyang.com/tags/Claude-Code/"/>
@@ -161,8 +174,6 @@
     <category term="投资" scheme="https://awesomeyang.com/tags/%E6%8A%95%E8%B5%84/"/>
     
     <category term="价值投资" scheme="https://awesomeyang.com/tags/%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84/"/>
-    
-    <category term="AI Agent" scheme="https://awesomeyang.com/tags/AI-Agent/"/>
     
   </entry>
   
@@ -252,11 +263,11 @@
     <category term="工具评测" scheme="https://awesomeyang.com/categories/AI/%E5%B7%A5%E5%85%B7%E8%AF%84%E6%B5%8B/"/>
     
     
+    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
+    
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
     <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
-    
-    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
     
     <category term="Frontend Slides" scheme="https://awesomeyang.com/tags/Frontend-Slides/"/>
     
@@ -443,6 +454,8 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
+    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
+    
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
     <category term="Claude Code" scheme="https://awesomeyang.com/tags/Claude-Code/"/>
@@ -450,8 +463,6 @@
     <category term="AI编码" scheme="https://awesomeyang.com/tags/AI%E7%BC%96%E7%A0%81/"/>
     
     <category term="gstack" scheme="https://awesomeyang.com/tags/gstack/"/>
-    
-    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -697,11 +708,11 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
+    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
+    
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
     <category term="编程工具" scheme="https://awesomeyang.com/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/"/>
-    
-    <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
     
   </entry>
   
@@ -1165,7 +1176,7 @@
     <published>2024-05-25T01:20:10.000Z</published>
     <updated>2026-01-31T14:19:43.677Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#x69;&#x40;&#97;&#x69;&#x77;&#105;&#x74;&#104;&#x2e;&#109;&#x65;">&#x68;&#x69;&#x40;&#97;&#x69;&#x77;&#105;&#x74;&#104;&#x2e;&#109;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#104;&#105;&#64;&#97;&#105;&#119;&#105;&#116;&#x68;&#x2e;&#x6d;&#x65;">&#104;&#105;&#64;&#97;&#105;&#119;&#105;&#116;&#x68;&#x2e;&#x6d;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
     
     
       
@@ -1427,9 +1438,9 @@
     <category term="认知提升" scheme="https://awesomeyang.com/categories/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/"/>
     
     
-    <category term="摘录" scheme="https://awesomeyang.com/tags/%E6%91%98%E5%BD%95/"/>
-    
     <category term="读书" scheme="https://awesomeyang.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="摘录" scheme="https://awesomeyang.com/tags/%E6%91%98%E5%BD%95/"/>
     
   </entry>
   
