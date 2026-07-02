@@ -6,7 +6,7 @@
   <link href="https://awesomeyang.com/atom.xml" rel="self"/>
   
   <link href="https://awesomeyang.com/"/>
-  <updated>2026-07-01T04:03:47.014Z</updated>
+  <updated>2026-07-02T01:45:10.495Z</updated>
   <id>https://awesomeyang.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你的AI写代码很快，但可能三个循环只跑了一个</title>
+    <link href="https://awesomeyang.com/2026/07/02/loop-engineering-three-cycles/"/>
+    <id>https://awesomeyang.com/2026/07/02/loop-engineering-three-cycles/</id>
+    <published>2026-07-02T01:30:00.000Z</published>
+    <updated>2026-07-02T01:45:10.495Z</updated>
+    
+    <content type="html"><![CDATA[<p>“Loop Engineering”（循环工程）这个词最近在硅谷开发者圈子里火了。起因是 Claude Code 的创始人 Boris Cherny 和 OpenClaw 的创始人 Peter Steinberger 都在社交媒体上提到了这个概念，认为”循环”是让 AI agent 能持续迭代、构建软件的核心方法。</p><p>随后，吴恩达（Andrew Ng）在自己的 newsletter The Batch 中写了一篇长文，分享了他用 AI 构建产品时总结的<strong>3 个关键循环</strong>。</p><p>这篇内容值得拆解，因为它回答了一个很实际的问题：<strong>为什么同样在用 AI 写代码，有人做出了上线的产品，有人还在反复改 bug？</strong></p><p><img src="https://cdn.awesomeyang.com/img/andrewngloops.jpg" alt="吴恩达原文配图：三个循环"></p><span id="more"></span><h2 id="三个循环，三种节奏"><a href="#三个循环，三种节奏" class="headerlink" title="三个循环，三种节奏"></a>三个循环，三种节奏</h2><p>吴恩达把 AI 时代的软件开发拆成三个嵌套的循环，每个循环的节奏不同，承担的任务也不同。</p><p><img src="https://cdn.awesomeyang.com/img/loopengineeringdiagram.png" alt="Loop Engineering 三循环详解"></p><h3 id="Loop-1：Agentic-Coding-Loop-—-代理编码循环"><a href="#Loop-1：Agentic-Coding-Loop-—-代理编码循环" class="headerlink" title="Loop 1：Agentic Coding Loop — 代理编码循环"></a>Loop 1：Agentic Coding Loop — 代理编码循环</h3><p><strong>频率：每几分钟一轮</strong></p><p>这是最内层的循环。你给 AI agent 一个产品规格（specification），可选附带一组测试数据（evals），然后让 agent 写代码、运行测试、发现问题、修复代码，如此反复，直到代码满足规格。</p><p>吴恩达举了个自己的例子：周末他给女儿做了一个打字练习 app，coding agent 可以自主运行大约一个小时——自己写代码、用浏览器检查效果、发现问题再修复，完全不需要他介入。</p><p>这个循环在去年底开始爆发。关键突破不是 AI 更聪明了，而是**”闭环”这个思路被广泛接受**——让 agent 自己跑测试、自己判断对错，而不是写完一段就停下来等人审。</p><h3 id="Loop-2：Developer-Feedback-Loop-—-开发者反馈循环"><a href="#Loop-2：Developer-Feedback-Loop-—-开发者反馈循环" class="headerlink" title="Loop 2：Developer Feedback Loop — 开发者反馈循环"></a>Loop 2：Developer Feedback Loop — 开发者反馈循环</h3><p><strong>频率：几十分钟到几小时一轮</strong></p><p>这个循环里，人审视 agent 产出的东西，做更高层的决策。</p><p>去年，很多开发者的角色是”AI 的 QA”——手动找 bug，然后让 agent 修。但随着 agent 自测能力增强，人可以从 QA 中解放出来，专注于更重要的问题：功能优先级、UI 方向、用户体验。</p><p>吴恩达在这里提出了一个很有意思的观点。很多人把人在这环节的贡献叫”taste”（品味），但他更愿意叫它**”context advantage”（上下文优势）**。</p><blockquote><p>“对于几乎所有我参与的产品，人类比 AI 系统拥有更多的上下文——我们更了解用户，更了解产品运行的环境。”</p></blockquote><p>为什么这个说法更好？因为”品味”听起来像玄学，”上下文优势”则指明了提升方向：<strong>帮 AI 补上下文</strong>。写更清晰的 spec、提供更好的 evals、给更具体的用户画像，本质上都是在把你脑子里的上下文传递给 AI。</p><p>这也解释了为什么这个循环不能完全自动化：<strong>只要人类还知道一些 AI 不知道的东西，人就需要在场。</strong></p><h3 id="Loop-3：External-Feedback-Loop-—-外部反馈循环"><a href="#Loop-3：External-Feedback-Loop-—-外部反馈循环" class="headerlink" title="Loop 3：External Feedback Loop — 外部反馈循环"></a>Loop 3：External Feedback Loop — 外部反馈循环</h3><p><strong>频率：几小时到几周</strong></p><p>最外层的循环，也是最慢的。找几个朋友试用、推给 alpha 测试者、上线做 A&#x2F;B 测试。外部世界的数据回来后，更新你对产品的愿景，愿景驱动规格，规格再驱动 coding agent。</p><p>吴恩达特别强调：<strong>最难的不是写代码，而是在”构建”和”获取用户反馈”之间找到平衡。</strong></p><p>很多工程师出身的创业者会陷入一个陷阱：不停打磨产品，但迟迟不拿给用户看。反过来也有人只顾收集反馈，产品一直没进展。两者都得做。</p><h2 id="为什么大部分人卡在-Loop-1？"><a href="#为什么大部分人卡在-Loop-1？" class="headerlink" title="为什么大部分人卡在 Loop 1？"></a>为什么大部分人卡在 Loop 1？</h2><p>看完三个循环，你可能已经发现问题了。</p><p>大部分人在用 AI 写代码时，只关了 Loop 1，Loop 2 和 Loop 3 几乎是空的。</p><p><strong>Loop 1 的陷阱：</strong> Agent 能快速产出代码，给人一种”我在高效开发”的错觉。但如果规格本身是错的，agent 跑得越快，你离好产品越远。</p><p><strong>Loop 2 的缺失：</strong> 很多人不知道怎么把脑子里的”上下文”翻译成 agent 能理解的指令。结果是反复修改 prompt，但每次都没说到点子上。</p><p><strong>Loop 3 的恐惧：</strong> 把半成品拿给别人看是反人性的。但 Andrew Ng 说得很清楚——外部反馈的延迟越长，你在错误方向上浪费的计算和精力就越多。</p><h2 id="一个更深的洞察：知道什么时候停"><a href="#一个更深的洞察：知道什么时候停" class="headerlink" title="一个更深的洞察：知道什么时候停"></a>一个更深的洞察：知道什么时候停</h2><p>巧合的是，今天 arXiv 有一篇论文也在讨论类似的问题——只不过讨论的是 AI 模型本身。</p><p>斯坦福和缅因大学的研究者发表了 LearnStop（arXiv:2606.30852），研究推理模型”什么时候该停止思考”。他们发现，在开放性数学题上，学习型的停止规则能显著提升效率；但在选择题和极难题上，简单的置信度阈值就够了。</p><p>这和 Loop Engineering 是一个镜像问题：</p><ul><li><strong>AI 模型</strong>需要知道什么时候停止推理——过早停会出错，过晚停会浪费算力。</li><li><strong>AI Agent</strong> 需要知道什么时候停止编码——过早停会交付半成品，过晚停会陷入过度工程。</li><li><strong>开发者</strong>需要知道什么时候停止构建——过早拿出去会丢脸，过晚拿出去会脱离市场。</li></ul><p>三类”停止”问题的共同点：<strong>没有万能规则，只有对当前情境的判断。</strong></p><p><img src="https://cdn.awesomeyang.com/img/andrewngtweetcard.png" alt="吴恩达推文"></p><h2 id="工程师正在变成产品经理"><a href="#工程师正在变成产品经理" class="headerlink" title="工程师正在变成产品经理"></a>工程师正在变成产品经理</h2><p>吴恩达在文章最后说了一段话，我觉得是全文最重要的：</p><blockquote><p>“随着 coding agent 加速软件开发，越来越多的工程师开始扮演部分产品经理的角色。”</p></blockquote><p>这不只是趋势预测，而是正在发生的事实。</p><p>以前，工程师的核心竞争力是”写出能跑的代码”。现在 AI 能写代码了，工程师的核心竞争力变成了”知道该写什么代码”——这恰恰是产品经理的核心能力。</p><p>好消息是，你不需要重新读一个 MBA。三个循环已经给出了路径：</p><ol><li><strong>把 Loop 1 跑通</strong>——学会写 spec、建 evals、让 agent 自主迭代</li><li><strong>在 Loop 2 里做决策</strong>——用你的”上下文优势”判断方向，而不是当 QA</li><li><strong>尽快启动 Loop 3</strong>——把东西拿给真实用户，哪怕只有 3 个人</li></ol><p>三个循环，缺一不可。大部分人的瓶颈不在写代码，而在循环 2 和 3。</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol><li><a href="https://www.deeplearning.ai/the-batch/">Andrew Ng, The Batch - Loop Engineering</a></li><li><a href="https://x.com/AndrewYNg/status/2071988145667928442">Andrew Ng 推文原文</a></li><li><a href="https://arxiv.org/abs/2606.30852">LearnStop 论文: When Does Learning to Stop Help?</a></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;“Loop Engineering”（循环工程）这个词最近在硅谷开发者圈子里火了。起因是 Claude Code 的创始人 Boris Cherny 和 OpenClaw 的创始人 Peter Steinberger 都在社交媒体上提到了这个概念，认为”循环”是让 AI agent 能持续迭代、构建软件的核心方法。&lt;/p&gt;
+&lt;p&gt;随后，吴恩达（Andrew Ng）在自己的 newsletter The Batch 中写了一篇长文，分享了他用 AI 构建产品时总结的&lt;strong&gt;3 个关键循环&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这篇内容值得拆解，因为它回答了一个很实际的问题：&lt;strong&gt;为什么同样在用 AI 写代码，有人做出了上线的产品，有人还在反复改 bug？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.awesomeyang.com/img/andrewngloops.jpg&quot; alt=&quot;吴恩达原文配图：三个循环&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
+    
+    <category term="AI Agent" scheme="https://awesomeyang.com/tags/AI-Agent/"/>
+    
+    <category term="Loop Engineering" scheme="https://awesomeyang.com/tags/Loop-Engineering/"/>
+    
+    <category term="Andrew Ng" scheme="https://awesomeyang.com/tags/Andrew-Ng/"/>
+    
+  </entry>
   
   <entry>
     <title>用一句话生成一部电影：OpenMontage 把 AI 编码助手变成了视频工作室</title>
@@ -38,9 +68,9 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
-    <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
-    
     <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
+    
+    <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
     
     <category term="OpenMontage" scheme="https://awesomeyang.com/tags/OpenMontage/"/>
     
@@ -136,9 +166,9 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
-    <category term="AI周报" scheme="https://awesomeyang.com/tags/AI%E5%91%A8%E6%8A%A5/"/>
-    
     <category term="GLM" scheme="https://awesomeyang.com/tags/GLM/"/>
+    
+    <category term="AI周报" scheme="https://awesomeyang.com/tags/AI%E5%91%A8%E6%8A%A5/"/>
     
     <category term="OpenAI" scheme="https://awesomeyang.com/tags/OpenAI/"/>
     
@@ -268,9 +298,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
-    
     <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
+    
+    <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
     
     <category term="Frontend Slides" scheme="https://awesomeyang.com/tags/Frontend-Slides/"/>
     
@@ -744,9 +774,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="国产模型" scheme="https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/"/>
-    
     <category term="GLM" scheme="https://awesomeyang.com/tags/GLM/"/>
+    
+    <category term="国产模型" scheme="https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
@@ -866,9 +896,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="横评" scheme="https://awesomeyang.com/tags/%E6%A8%AA%E8%AF%84/"/>
-    
     <category term="国产模型" scheme="https://awesomeyang.com/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="横评" scheme="https://awesomeyang.com/tags/%E6%A8%AA%E8%AF%84/"/>
     
   </entry>
   
@@ -1091,9 +1121,9 @@
     <category term="独立开发" scheme="https://awesomeyang.com/categories/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="vibe coding" scheme="https://awesomeyang.com/tags/vibe-coding/"/>
-    
     <category term="favicon.run" scheme="https://awesomeyang.com/tags/favicon-run/"/>
+    
+    <category term="vibe coding" scheme="https://awesomeyang.com/tags/vibe-coding/"/>
     
     <category term="v0" scheme="https://awesomeyang.com/tags/v0/"/>
     
@@ -1179,7 +1209,7 @@
     <published>2024-05-25T01:20:10.000Z</published>
     <updated>2026-01-31T14:19:43.677Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#104;&#x69;&#x40;&#x61;&#105;&#x77;&#x69;&#x74;&#104;&#46;&#x6d;&#x65;">&#104;&#x69;&#x40;&#x61;&#105;&#x77;&#x69;&#x74;&#104;&#46;&#x6d;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#105;&#x40;&#97;&#x69;&#x77;&#x69;&#x74;&#x68;&#46;&#x6d;&#x65;">&#x68;&#105;&#x40;&#97;&#x69;&#x77;&#x69;&#x74;&#x68;&#46;&#x6d;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
     
     
       
