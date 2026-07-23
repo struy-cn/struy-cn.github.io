@@ -6,7 +6,7 @@
   <link href="https://awesomeyang.com/atom.xml" rel="self"/>
   
   <link href="https://awesomeyang.com/"/>
-  <updated>2026-07-19T04:21:53.236Z</updated>
+  <updated>2026-07-23T14:07:14.018Z</updated>
   <id>https://awesomeyang.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>梁文锋3小时44分钟投资人会议全文：DeepSeek到底在想什么</title>
+    <link href="https://awesomeyang.com/2026/07/23/2026-07-23-liang-wenfeng-deepseek-investor-meeting/"/>
+    <id>https://awesomeyang.com/2026/07/23/2026-07-23-liang-wenfeng-deepseek-investor-meeting/</id>
+    <published>2026-07-23T14:10:00.000Z</published>
+    <updated>2026-07-23T14:07:14.018Z</updated>
+    
+    <content type="html"><![CDATA[<p>2026年5月20日，梁文锋召开了一场面向投资人的内部交流会，全程约3小时44分钟。这份录音文字稿最近在网上流出，42页，信息量极大。</p><p>我通读了一遍，可以说这是目前为止了解 DeepSeek 战略思考最一手、最坦诚的材料。没有 PR 话术，没有打太极，梁文锋把 DeepSeek 的愿景、技术路线、开源逻辑、竞争态势、组织方式、商业化态度——全讲了。</p><p>下面是我整理的核心内容。</p><span id="more"></span><h2 id="一、”克制”是-DeepSeek-的核心战略"><a href="#一、”克制”是-DeepSeek-的核心战略" class="headerlink" title="一、”克制”是 DeepSeek 的核心战略"></a>一、”克制”是 DeepSeek 的核心战略</h2><p>整场交流会，梁文锋反复提到一个词：<strong>克制</strong>。</p><p>DeepSeek 的 API 定价逻辑很简单：<strong>10个月收回设备成本</strong>，对应大约6倍利润。这远低于行业水平。梁文锋说得很直白：</p><blockquote><p>这个价格区间，用户的需求是没有弹性的。我价格再翻一倍，token 的消耗量区别不大。如果再贵一倍，总收入接近翻一倍。</p></blockquote><p>但他选择不涨价。理由不是”薄利多销”这种商业策略，而是一个更底层的判断：</p><blockquote><p>AI 这个事情太大了，利益太大了。你越克制，可能就越容易做成。你越想多拿份额，越做不成。</p></blockquote><p>他把”克制”上升到战略高度——甚至认为这是 DeepSeek 能做成 AGI 的前提条件。降价的时候，公司群里的人”欢呼”，他觉得这才是公司的凝聚力所在。</p><p>这种思路跟绝大多数 AI 公司截然不同。别人想的是怎么把 ARR 做高、怎么把利润做大，DeepSeek 想的是怎么把利润控制在”合理”范围。</p><h2 id="二、为什么坚持开源"><a href="#二、为什么坚持开源" class="headerlink" title="二、为什么坚持开源"></a>二、为什么坚持开源</h2><p>DeepSeek 的开源不是为了”获得社区好感”，而是愿景的一部分。</p><p>梁文锋把 AI 和传统软件做了区分：传统软件市场可能就几十亿美金，开源了就没有了。但 AI 不一样——</p><blockquote><p>AI 这个事情足够大，最终它可能得占掉人类社会 GDP 的百分之十。一个人独占这个事情，你不可能独占这个事情。</p></blockquote><p>他的判断是：<strong>想独占利益的人，一定会被历史抛弃</strong>。而主动克制、开源、让利的人，反而更有可能做成。</p><p>具体到商业层面，他算了一笔账：</p><ul><li>DeepSeek 的 API 定价基于”10个月回本”</li><li>第三方想自己部署 DeepSeek 的开源模型，成本比直接用 API 还高</li><li>所以开源根本不会影响收入</li></ul><blockquote><p>我按十个月回本这个，就能够让独立部署的第三方无利可图。</p></blockquote><p>一句话：开源是克制的一部分，克制是战略，战略的终点是 AGI。</p><h2 id="三、AGI-路线图：清晰的阶梯"><a href="#三、AGI-路线图：清晰的阶梯" class="headerlink" title="三、AGI 路线图：清晰的阶梯"></a>三、AGI 路线图：清晰的阶梯</h2><p>梁文锋给出了一个罕见的、清晰的 AGI 技术路线图：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语言模型 → CoT（思维链）→ Agent → 持续学习 → 自我迭代奇点 → 具身智能</span><br></pre></td></tr></table></figure><p>每一步的定位：</p><table><thead><tr><th>阶段</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>语言模型</td><td>✅ 已完成</td><td>基础能力</td></tr><tr><td>CoT 思维链</td><td>✅ 去年跨越</td><td>让模型”思考”，解锁数学&#x2F;编程能力</td></tr><tr><td>Agent</td><td>🔄 今年正在走</td><td>扩大能力范围，能执行任务</td></tr><tr><td>持续学习</td><td>⏳ 下一个瓶颈</td><td>当前最关键的研究问题</td></tr><tr><td>自我迭代</td><td>🔮 未来</td><td>AI 加速 AI 研究，渐进式非线性</td></tr><tr><td>具身智能</td><td>🔮 终点</td><td>走进物理世界</td></tr></tbody></table><p>最关键的判断：<strong>持续学习是当前的瓶颈</strong>。</p><p>梁文锋解释得很清楚——现在的 AI 已经很强了，给它完整的上下文和指令，它超过人类。但它不能像你的员工一样，来公司两个月就熟悉环境。它没有持续学习的能力。</p><blockquote><p>如果 AI 具有持续学习的能力，它跟你的员工一样，到公司学习两个月，那就可以替代天下的人了。</p></blockquote><p>解决了持续学习，AI 就能自我迭代——用 AI 加速 AI 研究，进入非线性的加速阶段。之后才是具身智能。</p><p>他特别强调了一点：**这个路线图是”最轻松的路线”**。先解决持续学习和自我迭代，后面的事情 AI 自己就能做了。反过来如果先做具身智能，那就是苦力活。</p><h2 id="四、中美差距：算力是唯一瓶颈"><a href="#四、中美差距：算力是唯一瓶颈" class="headerlink" title="四、中美差距：算力是唯一瓶颈"></a>四、中美差距：算力是唯一瓶颈</h2><p>梁文锋的回答非常诚实：</p><blockquote><p>我们跟美国的差距主要在资源上面，人上面差距不是很大的。</p></blockquote><p>具体数字：</p><ul><li>DeepSeek 当前约 <strong>2万张 H 等效算力</strong></li><li>训练 800B 激活模型需要 <strong>20万张 GB300 或华为 950</strong></li><li>中国最大模型激活参数约几十 B，美国已达 800B，差一个数量级</li><li>中国落后美国约 <strong>1-2 年</strong>，但只用 <strong>1&#x2F;20 的算力</strong></li></ul><p>人才差距本质上也是算力差距——算力少，实验机会少，人才培养就慢。</p><p>但他对追上算力差距并不悲观。融资的主要用途就是买卡：</p><blockquote><p>如果说半年之内就把钱花完，那太幸福了。</p></blockquote><h2 id="五、国产芯片：历史性机遇"><a href="#五、国产芯片：历史性机遇" class="headerlink" title="五、国产芯片：历史性机遇"></a>五、国产芯片：历史性机遇</h2><p>这是整场交流会里最”出圈”的部分。</p><p>梁文锋认为英伟达 CUDA 的护城河正在快速瓦解，原因有三：</p><ol><li><strong>AI 可以写代码</strong>：用 AI 构建生态，比以前容易太多了</li><li><strong>新技术出现</strong>：DeepSeek 自研了 TileLang 高级编译器，可以快速重建整套生态</li><li><strong>专用芯片趋势</strong>：计算卡市场已超过游戏卡，不再需要兼容 CUDA</li></ol><p>关于华为：</p><ul><li>华为 950 超节点可平替英伟达 GB300</li><li>代价：4张华为卡 &#x3D; 1张英伟达卡，落后约2年</li><li>华为给 DeepSeek 约 1.6万张卡，互联网大厂能拿到十几万张</li><li><strong>预测：1年内国产芯片生态问题会被验证解决</strong></li></ul><blockquote><p>国产 AI 芯片的硬件和生态都没有问题，唯一有问题的是产能不够。</p></blockquote><h2 id="六、组织方式：没有组织，愿景驱动"><a href="#六、组织方式：没有组织，愿景驱动" class="headerlink" title="六、组织方式：没有组织，愿景驱动"></a>六、组织方式：没有组织，愿景驱动</h2><p>DeepSeek 的管理方式可能是最”反常识”的：</p><ul><li><strong>没有 KPI</strong></li><li><strong>没有考核</strong></li><li><strong>愿景驱动</strong>——但愿景甚至没有成文</li><li>两条线：自上而下（正式项目，不超过一半时间）+ 自下而上（自由探索）</li><li><strong>不加班</strong>——做研究需要松弛环境</li></ul><p>梁文锋说得很实在：</p><blockquote><p>我们根本没有组织，就是愿景驱动的，靠一个愿景来组织。</p></blockquote><p>他认为这种模式的凝聚力反而比商业激励更强。因为人才不是全奔着钱来的，大家奔的是”在一个能做成 AGI 的环境里做这个事情”。</p><p>唯一的最大风险 &#x3D; <strong>团队稳定性</strong>。</p><blockquote><p>只要我能够保持团队的稳定性，我一定能做成 AGI，就这么简单。</p></blockquote><h2 id="七、商业化：是副产品，不是目标"><a href="#七、商业化：是副产品，不是目标" class="headerlink" title="七、商业化：是副产品，不是目标"></a>七、商业化：是副产品，不是目标</h2><p>DeepSeek 的商业化态度可以用一句话概括：<strong>顺便做</strong>。</p><ul><li>C 端用户：”赶都赶不走”，但 DeepSeek 没有去抢流量</li><li>B 端 API 收入增长乐观，ARR 有望做到几亿美金</li><li>但这些都不是目标，而是做 AGI 路上的”副产物”</li></ul><blockquote><p>我站在一个技术的高位上来做相对低一级别的技术，是有降维打击的。</p></blockquote><p>梁文锋的判断是：现在花时间做商业化路径和产品线，是浪费时间。因为 AI 变化太快，你半年前规划的商业化路径，半年后可能就完全不对了。</p><p>终局竞争差距只有三点：</p><ol><li><strong>成本</strong>（最重要）</li><li><strong>时间</strong>（先做出来 vs 后做出来）</li><li><strong>用户体验</strong></li></ol><p>国内最终会收敛到 3-4 家大模型公司。</p><h2 id="八、几个有意思的观点"><a href="#八、几个有意思的观点" class="headerlink" title="八、几个有意思的观点"></a>八、几个有意思的观点</h2><p><strong>关于视频生成和世界模型：</strong></p><blockquote><p>视频生成跟智能的上限没有关系……它跟智能的路线图没有什么关系。</p></blockquote><p>梁文锋认为这些是”好生意”但不在智能主线上。DeepSeek 不做。</p><p><strong>关于数据标注：</strong></p><blockquote><p>我们公司有一半的核心研究员在标数据。</p></blockquote><p>中国做高端数据标注没有成本优势，只能两条腿走路。</p><p><strong>关于 Scaling Law：</strong></p><blockquote><p>我们没有触摸到这个上限在哪里……硅谷在说 Scaling 到头的时候，那是对硅谷来说；对中国人来讲，我们离那个还很远。</p></blockquote><p><strong>关于 AI 加速 AI：</strong></p><blockquote><p>AI 现在不缺品位和直觉，它缺的是持续学习的能力。</p></blockquote><p><strong>关于 OpenAI vs Anthropic：</strong></p><p>梁文锋认为 Anthropic 的领先是暂时性的，OpenAI、Google、Anthropic 三家会交替上升。</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这场交流会最打动我的不是某个具体的技术判断，而是梁文锋思考问题的方式。</p><p>他用一套完整的逻辑把 DeepSeek 的所有决策串了起来——为什么开源、为什么便宜、为什么不做 C 端超级 App、为什么没有 KPI——全指向同一个终极目标：<strong>用最高的效率抵达 AGI</strong>。</p><p>“你越想多拿，越容易输”——这句话放在今天所有 AI 公司身上都成立。</p><p>DeepSeek 的思路本质上是：<strong>在一个赢者通吃的赛道里，主动选择不吃独食的人，反而最可能走到终点。</strong></p><p>这个逻辑是否成立，还需要时间验证。但至少到目前为止，DeepSeek 的每一步都印证了这套逻辑。</p><hr><p><em>本文基于 DeepSeek 投资者交流会录音文字稿整理，原始录音约3小时44分钟。</em></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;2026年5月20日，梁文锋召开了一场面向投资人的内部交流会，全程约3小时44分钟。这份录音文字稿最近在网上流出，42页，信息量极大。&lt;/p&gt;
+&lt;p&gt;我通读了一遍，可以说这是目前为止了解 DeepSeek 战略思考最一手、最坦诚的材料。没有 PR 话术，没有打太极，梁文锋把 DeepSeek 的愿景、技术路线、开源逻辑、竞争态势、组织方式、商业化态度——全讲了。&lt;/p&gt;
+&lt;p&gt;下面是我整理的核心内容。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
+    
+    <category term="DeepSeek" scheme="https://awesomeyang.com/tags/DeepSeek/"/>
+    
+    <category term="梁文锋" scheme="https://awesomeyang.com/tags/%E6%A2%81%E6%96%87%E9%94%8B/"/>
+    
+    <category term="AGI" scheme="https://awesomeyang.com/tags/AGI/"/>
+    
+  </entry>
   
   <entry>
     <title>用一天时间重启你的人生：Dan Koe 的深度改变指南</title>
@@ -172,11 +201,11 @@
     
     <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
     
-    <category term="OpenMontage" scheme="https://awesomeyang.com/tags/OpenMontage/"/>
+    <category term="Agent" scheme="https://awesomeyang.com/tags/Agent/"/>
     
     <category term="AI视频" scheme="https://awesomeyang.com/tags/AI%E8%A7%86%E9%A2%91/"/>
     
-    <category term="Agent" scheme="https://awesomeyang.com/tags/Agent/"/>
+    <category term="OpenMontage" scheme="https://awesomeyang.com/tags/OpenMontage/"/>
     
   </entry>
   
@@ -202,9 +231,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
-    
     <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
+    
+    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
     
     <category term="macOS" scheme="https://awesomeyang.com/tags/macOS/"/>
     
@@ -234,9 +263,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
-    
     <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
+    
+    <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
     
     <category term="macOS" scheme="https://awesomeyang.com/tags/macOS/"/>
     
@@ -266,9 +295,9 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
-    <category term="AI周报" scheme="https://awesomeyang.com/tags/AI%E5%91%A8%E6%8A%A5/"/>
-    
     <category term="GLM" scheme="https://awesomeyang.com/tags/GLM/"/>
+    
+    <category term="AI周报" scheme="https://awesomeyang.com/tags/AI%E5%91%A8%E6%8A%A5/"/>
     
     <category term="OpenAI" scheme="https://awesomeyang.com/tags/OpenAI/"/>
     
@@ -431,9 +460,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="Agent" scheme="https://awesomeyang.com/tags/Agent/"/>
-    
     <category term="Qwen" scheme="https://awesomeyang.com/tags/Qwen/"/>
+    
+    <category term="Agent" scheme="https://awesomeyang.com/tags/Agent/"/>
     
     <category term="世界模型" scheme="https://awesomeyang.com/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/"/>
     
@@ -527,9 +556,9 @@
     
     <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
     
-    <category term="AI视频" scheme="https://awesomeyang.com/tags/AI%E8%A7%86%E9%A2%91/"/>
-    
     <category term="Reddit" scheme="https://awesomeyang.com/tags/Reddit/"/>
+    
+    <category term="AI视频" scheme="https://awesomeyang.com/tags/AI%E8%A7%86%E9%A2%91/"/>
     
     <category term="需求调研" scheme="https://awesomeyang.com/tags/%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94/"/>
     
@@ -591,9 +620,9 @@
     
     <category term="开发者工具" scheme="https://awesomeyang.com/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="Claude Code" scheme="https://awesomeyang.com/tags/Claude-Code/"/>
-    
     <category term="AI编码" scheme="https://awesomeyang.com/tags/AI%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="Claude Code" scheme="https://awesomeyang.com/tags/Claude-Code/"/>
     
     <category term="gstack" scheme="https://awesomeyang.com/tags/gstack/"/>
     
@@ -1252,9 +1281,9 @@
     <category term="人工智能" scheme="https://awesomeyang.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     
-    <category term="大语言模型" scheme="https://awesomeyang.com/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
-    
     <category term="DeepSeek" scheme="https://awesomeyang.com/tags/DeepSeek/"/>
+    
+    <category term="大语言模型" scheme="https://awesomeyang.com/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
@@ -1309,7 +1338,7 @@
     <published>2024-05-25T01:20:10.000Z</published>
     <updated>2026-01-31T14:19:43.677Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#104;&#x69;&#x40;&#x61;&#105;&#x77;&#x69;&#x74;&#x68;&#x2e;&#x6d;&#101;">&#104;&#x69;&#x40;&#x61;&#105;&#x77;&#x69;&#x74;&#x68;&#x2e;&#x6d;&#101;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#105;&#x40;&#97;&#x69;&#x77;&#x69;&#x74;&#104;&#46;&#x6d;&#x65;">&#x68;&#105;&#x40;&#97;&#x69;&#x77;&#x69;&#x74;&#104;&#46;&#x6d;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
     
     
       
