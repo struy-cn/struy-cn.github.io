@@ -6,7 +6,7 @@
   <link href="https://awesomeyang.com/atom.xml" rel="self"/>
   
   <link href="https://awesomeyang.com/"/>
-  <updated>2026-08-11T14:09:24.595Z</updated>
+  <updated>2026-08-16T13:33:19.087Z</updated>
   <id>https://awesomeyang.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我把项目看板装进了 AI 对话里</title>
+    <link href="https://awesomeyang.com/2026/08/16/2026-08-16-dsh-project-kanban/"/>
+    <id>https://awesomeyang.com/2026/08/16/2026-08-16-dsh-project-kanban/</id>
+    <published>2026-08-16T13:30:00.000Z</published>
+    <updated>2026-08-16T13:33:19.087Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：对话即规划，规划即看板。一个从聊天里长出来的 DeepSeek Harness 插件，现在开源了。</p></blockquote><p>最近我在用 DeepSeek Harness 和 AI 一起做项目，遇到一个挺典型的问题：<strong>方案聊得头头是道，任务拆得清清楚楚，可转头就散在聊天记录里</strong>。想复盘一下进度，得往回翻几十条消息。</p><p>于是我想：能不能让 AI 在规划的时候，直接把任务写进一块看板里？</p><p>说干就干。我让 AI 帮我写了一个插件——<strong>dsh-project-kanban</strong>，一个住在 DeepSeek Harness 里的项目看板。从有这个想法到现在开源，整个插件几乎都是我和 AI 对话”聊”出来的。</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026-08/kanban-full.png" alt="dsh-project-kanban 看板界面"></p><h2 id="它解决的是什么问题"><a href="#它解决的是什么问题" class="headerlink" title="它解决的是什么问题"></a>它解决的是什么问题</h2><p>以前的工作流是：<strong>人聊 → AI 答 → 人自己整理</strong>。<br>现在变成了：<strong>人聊 → AI 拆解 → 任务自动进看板</strong>。</p><p>我跟 AI 说”把 X 项目的功能拆解一下”，它做完拆解后，会调用 <code>kanban_add_card</code>，一张一张把任务写进看板。规划完，计划已经躺在板上了，还能顺手打上标签、标好优先级。</p><p>AI 创建的每张卡片都会记录来源会话，点一下就能跳回当时那段对话——计划是哪次聊天里定的，有据可查：</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026-08/kanban-cards.png" alt="卡片记录来源会话，可点击跳回对话"></p><h2 id="它现在能做什么"><a href="#它现在能做什么" class="headerlink" title="它现在能做什么"></a>它现在能做什么</h2><p>这块看板被我和 AI 一路迭代，现在功能相当能打了：</p><ul><li><strong>按项目隔离</strong>：每个工作区（项目）一块独立看板，互不串扰</li><li><strong>卡片武装到牙齿</strong>：标题、备注、标签（功能&#x2F;缺陷&#x2F;文档&#x2F;优化）、优先级（高&#x2F;中&#x2F;低）、自定义颜色、截止日期（逾期自动标红）</li><li><strong>拖拽 + 排序</strong>：跨列拖、列内拖到具体位置，还有 ↑↓ 按钮兜底</li><li><strong>回收站</strong>：删除是软删除，手滑了能恢复，想清再彻底删</li><li><strong>批量操作</strong>：勾选多张卡，批量移动、改标签、进回收站</li><li><strong>撤销</strong>：所有写操作都能撤销，再也不怕误点</li><li><strong>模板</strong>：默认 &#x2F; 开发 &#x2F; 内容三套预设列，一键应用</li><li><strong>跨项目搬卡</strong>：卡片能直接移到另一个项目的看板</li><li><strong>会话溯源</strong>：AI 创建的卡片会记录来源会话，点一下跳回当时的对话</li></ul><p><img src="https://cdn.awesomeyang.com/img/blog/2026-08/kanban-done-col.png" alt="逾期自动标红、标签与优先级色条"></p><h2 id="14-个工具，让-AI-自己管看板"><a href="#14-个工具，让-AI-自己管看板" class="headerlink" title="14 个工具，让 AI 自己管看板"></a>14 个工具，让 AI 自己管看板</h2><p>插件给 AI 注册了 14 个工具：建卡、改卡、移卡、复制、归档、恢复、彻底删除、批量清理、跨区移动、撤销、管列表……<strong>我在对话里说需求，AI 自己操作看板</strong>，全程不用切窗口。</p><p>看板顶部的统计条会实时显示：总共多少张、每个标签几张、高优先级几张、有没有逾期——一眼看清项目状态。配合关键词 &#x2F; 标签 &#x2F; 优先级筛选，几百张卡也能快速定位：</p><p><img src="https://cdn.awesomeyang.com/img/blog/2026-08/kanban-stats.png" alt="统计条与筛选栏"></p><h2 id="三步安装"><a href="#三步安装" class="headerlink" title="三步安装"></a>三步安装</h2><p>如果你也在用 DeepSeek Harness，装它只要三步：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 安装（npm 或 GitHub）</span></span><br><span class="line">dsh plugin --profile web add dsh-project-kanban</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 验证组合</span></span><br><span class="line">dsh --profile web --dump-config   <span class="comment"># 看到 &quot;# == dsh-project-kanban&quot; 即成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 重启 dsh web</span></span><br></pre></td></tr></table></figure><blockquote><p>pnpm ≥ 10 的用户第一次从 GitHub 安装会提示拒绝执行 git 依赖的 <code>prepare</code> 脚本，按提示把 <code>dsh-project-kanban: true</code> 写进 profile 的 <code>pnpm-workspace.yaml</code> 的 <code>allowBuilds</code>，重新 add 即可。也可以直接走 tarball &#x2F; npm 方式，无需任何构建许可。</p></blockquote><p>重启后，会话头部就会多出一个「看板」标签页，AI 的工具集里也多了一组 <code>kanban_*</code> 工具。</p><h2 id="一些工程上的小骄傲"><a href="#一些工程上的小骄傲" class="headerlink" title="一些工程上的小骄傲"></a>一些工程上的小骄傲</h2><p>写这个插件的过程中，我和 AI 一起踩了不少坑，也认真做了工程：</p><ul><li>按官方 bundle 格式打包，走标准 <code>dsh plugin</code> 安装流程</li><li>浏览器端是手写的官方 client-modules bundle，不依赖任何动态加载的临时机制</li><li>数据按工作区落盘，刷新、重启都不丢</li><li>建了一套无密钥的自动化验证：安装、挂载、14 个工具、全功能 HTTP 流程、浏览器端渲染冒烟，一条命令跑完</li><li>迭代过程中还揪出并修复了两个会导致看板空白的渲染 bug，并补上了回归测试</li></ul><h2 id="开源地址"><a href="#开源地址" class="headerlink" title="开源地址"></a>开源地址</h2><p>代码完全开源，MIT 协议：</p><p><strong><a href="https://github.com/StruggleYang/dsh-project-kanban">https://github.com/StruggleYang/dsh-project-kanban</a></strong></p><p><img src="https://cdn.awesomeyang.com/img/blog/2026-08/github-repo.png" alt="GitHub 仓库"></p><p>如果这个想法对你有用，欢迎去 star、提 issue，或者把它装进你自己的 DeepSeek Harness 里试试。也欢迎来聊聊：<strong>你在用 AI 干活时，最希望它帮你管什么？</strong></p><blockquote><p>本文由我和 AI 协作完成：想法是我的，代码是我们一起写的。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;摘要：对话即规划，规划即看板。一个从聊天里长出来的 DeepSeek Harness 插件，现在开源了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最近我在用 DeepSeek Harness 和 AI 一起做项目，遇到一个挺典型的问题：&lt;stro</summary>
+      
+    
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
+    
+    
+    <category term="AI" scheme="https://awesomeyang.com/tags/AI/"/>
+    
+    <category term="DeepSeek" scheme="https://awesomeyang.com/tags/DeepSeek/"/>
+    
+    <category term="Agent" scheme="https://awesomeyang.com/tags/Agent/"/>
+    
+    <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
+    
+    <category term="效率" scheme="https://awesomeyang.com/tags/%E6%95%88%E7%8E%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac mini 一天到底用多少电？做了个菜单栏小工具来测</title>
@@ -259,6 +294,8 @@
     <category term="AI" scheme="https://awesomeyang.com/categories/AI/"/>
     
     
+    <category term="Agent" scheme="https://awesomeyang.com/tags/Agent/"/>
+    
     <category term="开源" scheme="https://awesomeyang.com/tags/%E5%BC%80%E6%BA%90/"/>
     
     <category term="GitHub" scheme="https://awesomeyang.com/tags/GitHub/"/>
@@ -266,8 +303,6 @@
     <category term="OpenMontage" scheme="https://awesomeyang.com/tags/OpenMontage/"/>
     
     <category term="AI视频" scheme="https://awesomeyang.com/tags/AI%E8%A7%86%E9%A2%91/"/>
-    
-    <category term="Agent" scheme="https://awesomeyang.com/tags/Agent/"/>
     
   </entry>
   
@@ -1400,7 +1435,7 @@
     <published>2024-05-25T01:20:10.000Z</published>
     <updated>2026-01-31T14:19:43.677Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#x68;&#x69;&#x40;&#x61;&#x69;&#x77;&#105;&#x74;&#104;&#46;&#x6d;&#101;">&#x68;&#x69;&#x40;&#x61;&#x69;&#x77;&#105;&#x74;&#104;&#46;&#x6d;&#101;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="000-AI-With-Me"><a href="#000-AI-With-Me" class="headerlink" title="000&#x2F;AI With Me"></a>000&#x2F;AI With Me</h2><p>访问：<a href="https://aiwith.me/">AI With Me | Discover thousands of AI Tools</a><br>AI 与我，将持久共存，我把我的 AI 书签做成了导航站。</p><p>在 @哥飞 和哥飞社群大家伙激励下上的第一个导航站叫做<a href="https://aiwith.me/">《AI With Me》</a><br>这是一个几乎全由 AI 生成和总结内容的站点。只需要一个网址，其他都交给 AI。（目前还是半自动化）</p><p>2024 年挖的第二个坑，通过它可以找到全球适合自己的AI 工具，发现最新的 AI 工具，推广自己的 AI 产品。（进度 30%）<br><img src="https://cdn.awesomeyang.com/img/202405250939136.png" alt="AI With Me官网预览"></p><h2 id="001-为什么做？"><a href="#001-为什么做？" class="headerlink" title="001&#x2F;为什么做？"></a>001&#x2F;为什么做？</h2><p>1、学习 NextJS，在事上练（服务端渲染和 SEO 友好是它的优点）<br>2、发布作品，获得关注<br>3、AI 实践和优秀产品发现🧪<br>3、打通小产品全流程，形成大致的工作流<br>5、将各个场景的 AI 产品归集一处，让用户和自己找到合适的 AI 产品<br>6、采集和参考其他 AI 产品</p><h2 id="002-技术栈和架构"><a href="#002-技术栈和架构" class="headerlink" title="002&#x2F;技术栈和架构"></a>002&#x2F;技术栈和架构</h2><p>0、访问域名：AIwith.me 通过 Godday 购买<br>1、从 0 学习 NextJS 构建（以前只会 Vue）<br>2、站点托管在 Vercel + Cloudflare<br>3、内页详情由 JinaReader + AI （GPT、Kimi…）汇总生成（Dify 编排AI 工作流）<br>4、通过 Python + Selenium 截取网站截图<br>5、目前图片托管到 Cloudflare R2<br>6、Google OneTap 一键登录<br>7、一些实验：本地 llama3 - 8b 做数据分类<br>8、站点数据写的数组（正在准备迁移到数据库）<br>9、提交&#x2F;用户数据暂时存在 VercelPG 里，准备迁移至 turso （正在调研）</p><p>除了域名，几乎都是免费的托管资源。一个月左右，学习摸索，问询才勉强能用😂</p><p><img src="https://cdn.awesomeyang.com/img/202405250940406.png" alt="AI With Me Dify工作流"></p><p><img src="https://cdn.awesomeyang.com/img/202405250941151.png" alt="AI With Me Dify工作流日志"></p><h2 id="003-目前功能"><a href="#003-目前功能" class="headerlink" title="003&#x2F;目前功能"></a>003&#x2F;目前功能</h2><p>1、首页工具链接+图片，如果有人要爬我，请轻一点爬，不要恶意攻击。<br>2、工具内页+工具简要介绍信息，由 AI 自动汇总编写<br>3、国际化：30%，仅菜单和部分页面国际化，主要以英文为主<br>4、Google 账号登录认证，暂时没有其他方式（需要魔法）<br>5、AI 工具提交（需要登录）<br>6、AI 工具手工审核收录</p><h2 id="004-提交和收录"><a href="#004-提交和收录" class="headerlink" title="004&#x2F; 提交和收录"></a>004&#x2F; 提交和收录</h2><p><img src="https://cdn.awesomeyang.com/img/202405250942589.png" alt="AI With Me 提交成功界面"><br>1、现在你可以在此文留言你的 AI 产品链接或者工具的链接，暂时我会免费收录 AI 工具。<br>2、通过提交页面提交 AI 产品，请戳此链接：👉<a href="https://aiwith.me/submit">Submit AI Tools To AI With Me</a><br>3、另外一种方式是通过邮箱：<a href="mailto:&#104;&#105;&#64;&#x61;&#x69;&#119;&#x69;&#116;&#104;&#x2e;&#x6d;&#x65;">&#104;&#105;&#64;&#x61;&#x69;&#119;&#x69;&#116;&#104;&#x2e;&#x6d;&#x65;</a> 将你的产品链接发给我。<br>4、将 AI With Me 加入到友情链接，可在生效后自动收录，添加如下代码:<br><code>&lt;a href=&quot;https://aiwith.me&quot; title=&quot;AI With Me | Discover thousands of AI Tools&quot;&gt;AI With Me&lt;/a&gt;</code></p><h2 id="005-赞助和打赏"><a href="#005-赞助和打赏" class="headerlink" title="005&#x2F;赞助和打赏"></a>005&#x2F;赞助和打赏</h2><p>1、如果你只是想打赏我，直接底部按钮去请我喝杯咖啡。万分感谢<br>2、如果你有产品收录，想要更多曝光，一次性打赏超过 10 美元💵（等价 RMB 也可）则可以作为赞助商获得 30 天的首页置顶🔝。<br>—-此规则在下次修改前有效，以后可能会修改</p><h2 id="006-站点效果和数据"><a href="#006-站点效果和数据" class="headerlink" title="006&#x2F;站点效果和数据"></a>006&#x2F;站点效果和数据</h2><p><img src="https://cdn.awesomeyang.com/img/202405250943050.png" alt="AI With Me站点收录情况截图"></p><p>1、截止 2024年5月18日收录 800+ AI 产品<br>2、目前收到 20 美元赞助，赞助商为前排绿色站点<br>3、Google 收录&amp;曝光数据如下<br><img src="https://cdn.awesomeyang.com/img/202405250945193.png" alt="AI With Me Google 收录"></p><p><img src="https://cdn.awesomeyang.com/img/202405250946811.png" alt="AI With Me 搜索曝光"></p><h2 id="007-鸣谢"><a href="#007-鸣谢" class="headerlink" title="007&#x2F;鸣谢"></a>007&#x2F;鸣谢</h2><p>期间哥飞和哥飞社群的朋友帮助了不少，每天都有各种优质资源被我收藏，感觉又可以做一个导航站了😂</p><p>另外这个站点已经获得了社群里的大佬 2 人累计 20 美元的赞助，虽然不多，但这对我来说精神激励绝对大于这 20 美元😂。</p><p>管他呢，做起来再说，继续更新，继续上站。</p><p>另外就是，代码洁癖很可怕，早点戒掉，别提早优化😂。</p><p>end.</p><ul><li><a href="https://web.okjike.com/originalPost/664f488f44e298e87e9972e3">本文同时发布在即刻🔗</a></li><li><a href="https://note.mowen.cn/note/detail?noteUuid=UaDDhWEEPtxdeYdmqczA5">本文同时发布在墨问🔗</a></li></ul>]]></content>
     
     
       
